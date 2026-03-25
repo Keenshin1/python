@@ -1,0 +1,2289 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aula de Python</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/pyodide/v0.26.2/full/pyodide.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0f1117;
+    --bg2: #181c27;
+    --bg3: #1e2235;
+    --surface: #252a3a;
+    --surface2: #2d3348;
+    --border: #353d57;
+    --border2: #4a5478;
+    --text: #e8ecf4;
+    --text2: #9aa3bf;
+    --text3: #636e8c;
+    --accent: #7c6af5;
+    --accent2: #9b8fff;
+    --green: #3ecf82;
+    --green2: #2fa868;
+    --yellow: #f5c842;
+    --red: #f56060;
+    --blue: #4a9eff;
+    --orange: #ff8c42;
+    --mono: 'JetBrains Mono', monospace;
+    --sans: 'Sora', sans-serif;
+  }
+
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+  }
+
+  .sidebar {
+    width: 280px;
+    min-height: 100vh;
+    background: var(--bg2);
+    border-right: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar-header {
+    padding: 24px 20px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 4px;
+  }
+
+  .logo-icon {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, var(--accent), #a855f7);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--mono);
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+  }
+
+  .logo-text { font-size: 15px; font-weight: 700; color: var(--text); }
+  .logo-sub { font-size: 11px; color: var(--text3); margin-top: 2px; }
+
+  .progress-bar-wrap {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--text3);
+    margin-bottom: 6px;
+  }
+
+  .progress-track {
+    height: 4px;
+    background: var(--surface);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--green));
+    border-radius: 2px;
+    transition: width 0.4s ease;
+  }
+
+  .nav-section { padding: 8px 12px 4px; }
+  .nav-label { font-size: 10px; font-weight: 600; color: var(--text3); text-transform: uppercase; letter-spacing: 1px; padding: 0 8px; margin-bottom: 2px; }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    color: var(--text2);
+    transition: all 0.15s;
+    margin-bottom: 1px;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+  }
+
+  .nav-item:hover { background: var(--surface); color: var(--text); }
+  .nav-item.active { background: var(--surface2); color: var(--accent2); }
+  .nav-item.completed { color: var(--green); }
+  .nav-item.completed .nav-dot { background: var(--green); }
+
+  .nav-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--border2);
+    flex-shrink: 0;
+    transition: background 0.2s;
+  }
+
+  .nav-item.active .nav-dot { background: var(--accent); }
+
+  .nav-num {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text3);
+    min-width: 28px;
+  }
+
+  .main {
+    flex: 1;
+    max-width: 800px;
+    padding: 48px 56px;
+    min-height: 100vh;
+  }
+
+  .lesson { display: none; }
+  .lesson.active { display: block; }
+
+  .lesson-header {
+    margin-bottom: 32px;
+  }
+
+  .lesson-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 16px;
+  }
+
+  .lesson-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.3;
+    margin-bottom: 8px;
+  }
+
+  .lesson-subtitle {
+    font-size: 15px;
+    color: var(--text2);
+    line-height: 1.6;
+  }
+
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 32px 0;
+  }
+
+  .section-title {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text3);
+    margin-bottom: 16px;
+  }
+
+  .explanation {
+    font-size: 15px;
+    color: var(--text2);
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+
+  .explanation strong { color: var(--text); font-weight: 600; }
+  .explanation code {
+    font-family: var(--mono);
+    font-size: 13px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 1px 6px;
+    border-radius: 4px;
+    color: var(--accent2);
+  }
+
+  .info-box {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    font-size: 14px;
+    color: var(--text2);
+    line-height: 1.7;
+  }
+
+  .info-box.green { border-left-color: var(--green); }
+  .info-box.yellow { border-left-color: var(--yellow); }
+  .info-box.orange { border-left-color: var(--orange); }
+
+  .info-box strong { color: var(--text); display: block; margin-bottom: 4px; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  .code-block {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin: 16px 0;
+    overflow: hidden;
+  }
+
+  .code-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+  }
+
+  .code-lang {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text3);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .code-dots { display: flex; gap: 5px; }
+  .code-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .code-dot:nth-child(1) { background: #ff5f57; }
+  .code-dot:nth-child(2) { background: #febc2e; }
+  .code-dot:nth-child(3) { background: #28c840; }
+
+  pre {
+    padding: 20px;
+    font-family: var(--mono);
+    font-size: 13px;
+    line-height: 1.8;
+    color: var(--text);
+    overflow-x: auto;
+  }
+
+  .kw { color: #c792ea; }
+  .fn { color: #82aaff; }
+  .str { color: var(--green); }
+  .num { color: var(--orange); }
+  .com { color: var(--text3); font-style: italic; }
+  .builtin { color: #ffcb6b; }
+  .op { color: var(--text2); }
+  .var { color: #f78c6c; }
+
+  .exercise-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 24px 0;
+  }
+
+  .exercise-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+  }
+
+  .exercise-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+    font-family: var(--mono);
+  }
+
+  .exercise-title { font-size: 14px; font-weight: 600; color: var(--text); }
+  .exercise-sub { font-size: 12px; color: var(--text3); margin-top: 1px; }
+
+  .exercise-body { padding: 20px; }
+
+  .exercise-desc {
+    font-size: 14px;
+    color: var(--text2);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .exercise-input {
+    width: 100%;
+    min-height: 120px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--text);
+    resize: vertical;
+    outline: none;
+    line-height: 1.7;
+    transition: border-color 0.2s;
+  }
+
+  .exercise-input:focus { border-color: var(--accent); }
+  .exercise-input::placeholder { color: var(--text3); }
+
+  .exercise-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 18px;
+    border-radius: 8px;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+    border: none;
+    outline: none;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: white;
+  }
+
+  .btn-primary:hover { background: #6b5ce7; transform: translateY(-1px); }
+
+  .btn-ghost {
+    background: var(--surface);
+    color: var(--text2);
+    border: 1px solid var(--border);
+  }
+
+  .btn-ghost:hover { background: var(--surface2); color: var(--text); }
+
+  .btn-success {
+    background: var(--green2);
+    color: white;
+  }
+
+  .btn-nav {
+    background: var(--surface2);
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+
+  .btn-nav:hover { background: var(--border); }
+
+  .feedback-box {
+    margin-top: 12px;
+    padding: 14px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 1.6;
+    display: none;
+  }
+
+  .feedback-box.show { display: block; }
+  .feedback-box.success { background: rgba(62, 207, 130, 0.1); border: 1px solid rgba(62, 207, 130, 0.3); color: var(--green); }
+  .feedback-box.hint { background: rgba(245, 200, 66, 0.08); border: 1px solid rgba(245, 200, 66, 0.3); color: var(--yellow); }
+  .feedback-box.error { background: rgba(245, 96, 96, 0.08); border: 1px solid rgba(245, 96, 96, 0.3); color: var(--red); }
+
+  .pyodide-status {
+    font-size: 11px;
+    color: var(--text3);
+    padding: 6px 0 0;
+    font-family: var(--mono);
+  }
+
+  .pyodide-status.ready { color: var(--green); }
+  .pyodide-status.loading { color: var(--yellow); }
+
+  .input-fields {
+    margin-bottom: 10px;
+  }
+
+  .input-field-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+
+  .input-field-label {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text3);
+    min-width: 120px;
+    flex-shrink: 0;
+  }
+
+  .input-field-val {
+    flex: 1;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .input-field-val:focus { border-color: var(--accent); }
+
+  .output-terminal {
+    margin-top: 10px;
+    background: #0a0c14;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    display: none;
+  }
+
+  .output-terminal.show { display: block; }
+
+  .output-terminal-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 14px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+  }
+
+  .output-terminal-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .output-terminal-content {
+    padding: 14px 16px;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--green);
+    line-height: 1.7;
+    white-space: pre-wrap;
+    min-height: 40px;
+  }
+
+  .output-terminal-content.has-error { color: var(--red); }
+
+  .solution-wrap { display: none; margin-top: 12px; }
+  .solution-wrap.show { display: block; }
+
+  .solution-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text3);
+    margin-bottom: 8px;
+  }
+
+  .lesson-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+
+  .nav-complete {
+    font-size: 13px;
+    color: var(--green);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .tag {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    background: rgba(124, 106, 245, 0.15);
+    color: var(--accent2);
+    border: 1px solid rgba(124, 106, 245, 0.3);
+    margin: 2px;
+  }
+
+  .tag.green { background: rgba(62, 207, 130, 0.1); color: var(--green); border-color: rgba(62, 207, 130, 0.3); }
+  .tag.yellow { background: rgba(245, 200, 66, 0.1); color: var(--yellow); border-color: rgba(245, 200, 66, 0.3); }
+  .tag.blue { background: rgba(74, 158, 255, 0.1); color: var(--blue); border-color: rgba(74, 158, 255, 0.3); }
+
+  .concept-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+
+  .concept-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+
+  .concept-card-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+  }
+
+  .concept-card-val {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--accent2);
+  }
+
+  .welcome-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    text-align: center;
+  }
+
+  .welcome-icon {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, var(--accent), #a855f7);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--mono);
+    font-size: 28px;
+    font-weight: 700;
+    color: white;
+    margin: 0 auto 24px;
+  }
+
+  .welcome-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+
+  .welcome-desc {
+    font-size: 16px;
+    color: var(--text2);
+    line-height: 1.7;
+    max-width: 480px;
+    margin: 0 auto 32px;
+  }
+
+  .welcome-stats {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    margin-bottom: 32px;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-num {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--accent2);
+    font-family: var(--mono);
+  }
+
+  .stat-label {
+    font-size: 12px;
+    color: var(--text3);
+    margin-top: 2px;
+  }
+
+  @media (max-width: 900px) {
+    .sidebar { width: 220px; }
+    .main { padding: 32px 24px; }
+  }
+
+  @media (max-width: 680px) {
+    body { flex-direction: column; }
+    .sidebar { width: 100%; height: auto; position: static; }
+    .main { padding: 24px 16px; }
+    .concept-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <div class="logo">
+      <div class="logo-icon">Py</div>
+      <div>
+        <div class="logo-text">Aprenda Python</div>
+        <div class="logo-sub">10 módulos · do zero</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="progress-bar-wrap">
+    <div class="progress-label">
+      <span>Progresso</span>
+      <span id="progress-text">0 / 10</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+    </div>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">Módulos</div>
+
+    <button class="nav-item active" onclick="goTo(1)" id="nav-1">
+      <span class="nav-dot"></span>
+      <span class="nav-num">01</span>
+      <span>Saída de dados</span>
+    </button>
+
+    <button class="nav-item" onclick="goTo(2)" id="nav-2">
+      <span class="nav-dot"></span>
+      <span class="nav-num">02</span>
+      <span>Entrada de dados</span>
+    </button>
+
+    <button class="nav-item" onclick="goTo(3)" id="nav-3">
+      <span class="nav-dot"></span>
+      <span class="nav-num">03</span>
+      <span>Operações matemáticas</span>
+    </button>
+
+    <button class="nav-item" onclick="goTo(4)" id="nav-4">
+      <span class="nav-dot"></span>
+      <span class="nav-num">04</span>
+      <span>Tipos e strings</span>
+    </button>
+
+    <button class="nav-item" onclick="goTo(5)" id="nav-5">
+      <span class="nav-dot"></span>
+      <span class="nav-num">05</span>
+      <span>Formatação de saída</span>
+    </button>
+
+    <button class="nav-item" onclick="goTo(6)" id="nav-6">
+      <span class="nav-dot"></span>
+      <span class="nav-num">06</span>
+      <span>Importações e math</span>
+    </button>
+
+    <button class="nav-item" onclick="goTo(7)" id="nav-7">
+      <span class="nav-dot"></span>
+      <span class="nav-num">07</span>
+      <span>Problemas práticos</span>
+    </button>
+
+    <button class="nav-item" onclick="goTo(8)" id="nav-8">
+      <span class="nav-dot"></span>
+      <span class="nav-num">08</span>
+      <span>Módulo random</span>
+    </button>
+
+    <button class="nav-item" onclick="goTo(9)" id="nav-9">
+      <span class="nav-dot"></span>
+      <span class="nav-num">09</span>
+      <span>Conversão de unidades</span>
+    </button>
+
+    <button class="nav-item" onclick="goTo(10)" id="nav-10">
+      <span class="nav-dot"></span>
+      <span class="nav-num">10</span>
+      <span>Desafio final</span>
+    </button>
+  </div>
+</aside>
+
+<main class="main">
+
+  <!-- LESSON 1: print -->
+  <div class="lesson active" id="lesson-1">
+    <div class="lesson-header">
+      <div class="lesson-badge">Módulo 01</div>
+      <div class="lesson-title">Saída de dados com <code style="font-size:22px;">print()</code></div>
+      <div class="lesson-subtitle">A primeira coisa que todo programador aprende: exibir informações na tela.</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Conceito</div>
+
+    <div class="explanation">
+      Em Python, usamos a função <code>print()</code> para exibir qualquer coisa na tela. Você passa o que quer exibir dentro dos parênteses.
+    </div>
+
+    <div class="explanation">
+      Texto (chamado de <strong>string</strong>) precisa estar entre aspas — pode ser simples <code>'texto'</code> ou duplas <code>"texto"</code>.
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">Python</div>
+      </div>
+      <pre><span class="fn">print</span>(<span class="str">'Olá Mundo!'</span>)
+<span class="fn">print</span>(<span class="str">"Python é incrível"</span>)
+<span class="fn">print</span>(<span class="num">42</span>)
+<span class="fn">print</span>(<span class="num">3.14</span>)</pre>
+    </div>
+
+    <div class="info-box green">
+      <strong>Saída do programa</strong>
+      Olá Mundo!<br>
+      Python é incrível<br>
+      42<br>
+      3.14
+    </div>
+
+    <div class="info-box">
+      <strong>Dica</strong>
+      Você pode usar <code>\n</code> dentro de uma string para pular linha: <code>print('linha1\nlinha2')</code>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Variáveis</div>
+
+    <div class="explanation">
+      Uma <strong>variável</strong> é um nome que guarda um valor na memória do programa. Pense nela como uma caixinha com um rótulo: você dá um nome à caixinha e coloca algo dentro.
+    </div>
+
+    <div class="explanation">
+      Para criar uma variável, use o sinal <code>=</code> — que aqui significa <em>"recebe"</em>, não igualdade matemática. O nome fica à esquerda e o valor à direita.
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">Python</div>
+      </div>
+      <pre><span class="var">nome</span> = <span class="str">'Tainá'</span>        <span class="com"># a variável 'nome' guarda o texto 'Tainá'</span>
+<span class="var">idade</span> = <span class="num">28</span>         <span class="com"># a variável 'idade' guarda o número 28</span>
+<span class="fn">print</span>(<span class="var">nome</span>)        <span class="com"># exibe: Tainá</span>
+<span class="fn">print</span>(<span class="var">idade</span>)       <span class="com"># exibe: 28</span></pre>
+    </div>
+
+    <div class="info-box yellow">
+      <strong>Atenção</strong>
+      Nomes de variáveis não podem ter espaços nem começar com número. Use letras, números e underline (o traço embaixo <code>_</code>): <code>nome_completo</code>, <code>nota1</code>.
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Exercícios de fixação</div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">01</div>
+        <div>
+          <div class="exercise-title">Olá Mundo</div>
+          <div class="exercise-sub">Exercício clássico de iniciação</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Escreva um script que exiba a mensagem <strong>"Olá Mundo!"</strong> na tela.</div>
+        <textarea class="exercise-input" id="ex1-1" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex1-1', 'ex1-1-inputs')"></textarea>
+        <div class="input-fields" id="ex1-1-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="renderInputFields('ex1-1', 'ex1-1-inputs'); runEx('ex1-1', 'ex1-1-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick=\"showSolution('sol1-1')\">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex1-1-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol1-1">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="fn">print</span>(<span class="str">'Olá Mundo!'</span>)</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">02</div>
+        <div>
+          <div class="exercise-title">Múltiplas linhas</div>
+          <div class="exercise-sub">Praticando print com várias saídas</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Escreva um script que exiba seu nome, sua idade e sua cidade <strong>cada um em uma linha diferente</strong>. Use <code>print()</code> diretamente com os valores, como <code>print('seu nome')</code>.</div>
+        <textarea class="exercise-input" id="ex1-2" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex1-2', 'ex1-2-inputs')"></textarea>
+        <div class="input-fields" id="ex1-2-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="renderInputFields('ex1-2', 'ex1-2-inputs'); runEx('ex1-2', 'ex1-2-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick=\"showSolution('sol1-2')\">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex1-2-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol1-2">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="fn">print</span>(<span class="str">'Tainá'</span>)
+<span class="fn">print</span>(<span class="num">28</span>)
+<span class="fn">print</span>(<span class="str">'Curitiba'</span>)</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <button class="btn btn-nav" style="visibility:hidden">← Voltar</button>
+      <button class="btn btn-primary" onclick="completeAndNext(1)">Próximo módulo →</button>
+    </div>
+  </div>
+
+  <!-- LESSON 2: input -->
+  <div class="lesson" id="lesson-2">
+    <div class="lesson-header">
+      <div class="lesson-badge">Módulo 02</div>
+      <div class="lesson-title">Entrada de dados com <code style="font-size:22px;">input()</code></div>
+      <div class="lesson-subtitle">Como fazer o programa conversar com o usuário e capturar o que ele digita.</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Conceito</div>
+
+    <div class="explanation">
+      A função <code>input()</code> pausa o programa e espera o usuário digitar algo. O que for digitado é retornado como uma <strong>string</strong> e pode ser guardado em uma variável.
+    </div>
+
+    <div class="explanation">
+      Dentro dos parênteses de <code>input()</code> você pode colocar uma mensagem para orientar o usuário — isso é chamado de <strong>prompt</strong>.
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">Python</div>
+      </div>
+      <pre><span class="var">nome</span> = <span class="fn">input</span>(<span class="str">'Qual é o seu nome? '</span>)
+<span class="fn">print</span>(<span class="str">'Olá, '</span> + <span class="var">nome</span> + <span class="str">'!'</span>)</pre>
+    </div>
+
+    <div class="info-box yellow">
+      <strong>Atenção</strong>
+      <code>input()</code> sempre retorna uma <strong>string</strong>, mesmo que o usuário digite um número. Para usar como número, é preciso converter com <code>int()</code> ou <code>float()</code>.
+    </div>
+
+    <div class="explanation">
+      Para combinar textos e variáveis no <code>print()</code>, use o operador <code>+</code> para <strong>concatenar</strong> (juntar) strings. Qualquer parte que não seja variável precisa estar entre aspas.
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">Concatenação com +</div>
+      </div>
+      <pre><span class="var">nome</span> = <span class="fn">input</span>(<span class="str">'Qual é o seu nome? '</span>)
+<span class="var">cidade</span> = <span class="fn">input</span>(<span class="str">'De onde você é? '</span>)
+<span class="fn">print</span>(<span class="str">'Olá, '</span> + <span class="var">nome</span> + <span class="str">'! Você é de '</span> + <span class="var">cidade</span> + <span class="str">'.'</span>)</pre>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Exercícios de fixação</div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">01</div>
+        <div>
+          <div class="exercise-title">Boas-vindas</div>
+          <div class="exercise-sub">Leitura e exibição de dados</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Crie um script que leia o nome de uma pessoa e exiba uma mensagem de boas-vindas personalizada.</div>
+        <textarea class="exercise-input" id="ex2-1" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex2-1', 'ex2-1-inputs')"></textarea>
+        <div class="input-fields" id="ex2-1-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="renderInputFields('ex2-1', 'ex2-1-inputs'); runEx('ex2-1', 'ex2-1-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick=\"showSolution('sol2-1')\">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex2-1-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol2-1">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">nome</span> = <span class="fn">input</span>(<span class="str">'Qual é o seu nome? '</span>)
+<span class="fn">print</span>(<span class="str">'Olá, '</span> + <span class="var">nome</span> + <span class="str">'! Seja bem-vindo!'</span>)</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">02</div>
+        <div>
+          <div class="exercise-title">Apresentação completa</div>
+          <div class="exercise-sub">Múltiplas entradas</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia o nome, a idade e a cidade do usuário, depois exiba uma frase completa usando todos esses dados. Ex: <em>"Olá Tainá, você tem 28 anos e mora em Curitiba."</em><br><em>Dica: use <code>+</code> para juntar as partes.</em></div>
+        <textarea class="exercise-input" id="ex2-2" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex2-2', 'ex2-2-inputs')"></textarea>
+        <div class="input-fields" id="ex2-2-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="renderInputFields('ex2-2', 'ex2-2-inputs'); runEx('ex2-2', 'ex2-2-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick=\"showSolution('sol2-2')\">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex2-2-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol2-2">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">nome</span> = <span class="fn">input</span>(<span class="str">'Nome: '</span>)
+<span class="var">idade</span> = <span class="fn">input</span>(<span class="str">'Idade: '</span>)
+<span class="var">cidade</span> = <span class="fn">input</span>(<span class="str">'Cidade: '</span>)
+<span class="fn">print</span>(<span class="str">'Olá '</span> + <span class="var">nome</span> + <span class="str">', você tem '</span> + <span class="var">idade</span> + <span class="str">' anos e mora em '</span> + <span class="var">cidade</span> + <span class="str">'.'</span>)</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <button class="btn btn-nav" onclick="goTo(1)">← Anterior</button>
+      <button class="btn btn-primary" onclick="completeAndNext(2)">Próximo módulo →</button>
+    </div>
+  </div>
+
+  <!-- LESSON 3: Operações matemáticas -->
+  <div class="lesson" id="lesson-3">
+    <div class="lesson-header">
+      <div class="lesson-badge">Módulo 03</div>
+      <div class="lesson-title">Operações matemáticas</div>
+      <div class="lesson-subtitle">Python como calculadora: soma, subtração, multiplicação, divisão e muito mais.</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Conceito</div>
+
+    <div class="explanation">
+      Python suporta todas as operações matemáticas básicas. Para trabalhar com números digitados pelo usuário, precisamos <strong>converter</strong> a string que <code>input()</code> retorna usando <code>int()</code> para inteiros ou <code>float()</code> para decimais.
+    </div>
+
+    <div class="explanation">
+      <code>int()</code> e <code>float()</code> são funções de conversão. Você passa um valor dentro dos parênteses e recebe o mesmo valor em outro tipo:
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">Conversão de tipo</div>
+      </div>
+      <pre><span class="fn">int</span>(<span class="str">'10'</span>)       <span class="com"># transforma a string '10' no número 10</span>
+<span class="fn">float</span>(<span class="str">'3.14'</span>)   <span class="com"># transforma a string '3.14' no número 3.14</span>
+<span class="fn">str</span>(<span class="num">42</span>)         <span class="com"># transforma o número 42 na string '42'</span></pre>
+    </div>
+
+    <div class="explanation">
+      Na prática, combinamos <code>int()</code> com <code>input()</code> em uma só linha — o resultado de <code>input()</code> vai direto para dentro de <code>int()</code>:
+    </div>
+
+    <div class="concept-grid">
+      <div class="concept-card">
+        <div class="concept-card-title">Operadores básicos</div>
+        <div class="concept-card-val">+ - * / // % **</div>
+      </div>
+      <div class="concept-card">
+        <div class="concept-card-title">Conversão de tipo</div>
+        <div class="concept-card-val">int() · float() · str()</div>
+      </div>
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">Python</div>
+      </div>
+      <pre><span class="var">n1</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Primeiro número: '</span>))
+<span class="var">n2</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Segundo número: '</span>))
+
+<span class="fn">print</span>(<span class="var">n1</span> + <span class="var">n2</span>)   <span class="com"># Soma</span>
+<span class="fn">print</span>(<span class="var">n1</span> - <span class="var">n2</span>)   <span class="com"># Subtração</span>
+<span class="fn">print</span>(<span class="var">n1</span> * <span class="var">n2</span>)   <span class="com"># Multiplicação</span>
+<span class="fn">print</span>(<span class="var">n1</span> / <span class="var">n2</span>)   <span class="com"># Divisão real</span>
+<span class="fn">print</span>(<span class="var">n1</span> ** <span class="num">2</span>)   <span class="com"># Potência</span>
+<span class="fn">print</span>(<span class="var">n1</span> % <span class="var">n2</span>)   <span class="com"># Resto da divisão</span></pre>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Exercícios de fixação</div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">01</div>
+        <div>
+          <div class="exercise-title">Soma de dois números</div>
+          <div class="exercise-sub">Conversão e operação básica</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia dois números inteiros e mostre a soma deles.</div>
+        <textarea class="exercise-input" id="ex3-1" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex3-1', 'ex3-1-inputs')"></textarea>
+        <div class="input-fields" id="ex3-1-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="renderInputFields('ex3-1', 'ex3-1-inputs'); runEx('ex3-1', 'ex3-1-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick=\"showSolution('sol3-1')\">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex3-1-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol3-1">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">n1</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Primeiro: '</span>))
+<span class="var">n2</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Segundo: '</span>))
+<span class="var">resultado</span> = <span class="var">n1</span> + <span class="var">n2</span>
+<span class="fn">print</span>(<span class="str">'A soma é: '</span> + <span class="fn">str</span>(<span class="var">resultado</span>))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">02</div>
+        <div>
+          <div class="exercise-title">Dobro, triplo e raiz</div>
+          <div class="exercise-sub">Múltiplas operações sobre um número</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia um número e mostre: seu dobro, seu triplo e sua raiz quadrada. <br><em>Dica: raiz quadrada = número elevado a 1/2, ex: <code>n ** (1/2)</code></em></div>
+        <textarea class="exercise-input" id="ex3-2" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex3-2', 'ex3-2-inputs')"></textarea>
+        <div class="input-fields" id="ex3-2-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="renderInputFields('ex3-2', 'ex3-2-inputs'); runEx('ex3-2', 'ex3-2-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick=\"showSolution('sol3-2')\">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex3-2-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol3-2">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">n</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Digite um número: '</span>))
+<span class="fn">print</span>(<span class="str">'Dobro: '</span> + <span class="fn">str</span>(<span class="var">n</span> * <span class="num">2</span>))
+<span class="fn">print</span>(<span class="str">'Triplo: '</span> + <span class="fn">str</span>(<span class="var">n</span> * <span class="num">3</span>))
+<span class="fn">print</span>(<span class="str">'Raiz: '</span> + <span class="fn">str</span>(<span class="var">n</span> ** (<span class="num">1</span>/<span class="num">2</span>)))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">03</div>
+        <div>
+          <div class="exercise-title">Sucessor e antecessor</div>
+          <div class="exercise-sub">Operações simples com resultado formatado</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia um número inteiro e mostre na mesma frase o número, seu antecessor (<code>n - 1</code>) e seu sucessor (<code>n + 1</code>).</div>
+        <textarea class="exercise-input" id="ex3-3" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex3-3', 'ex3-3-inputs')"></textarea>
+        <div class="input-fields" id="ex3-3-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="renderInputFields('ex3-3', 'ex3-3-inputs'); runEx('ex3-3', 'ex3-3-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick=\"showSolution('sol3-3')\">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex3-3-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol3-3">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">n</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Digite um número: '</span>))
+<span class="fn">print</span>(<span class="str">'Número: '</span> + <span class="fn">str</span>(<span class="var">n</span>) + <span class="str">', antecessor: '</span> + <span class="fn">str</span>(<span class="var">n</span>-<span class="num">1</span>) + <span class="str">', sucessor: '</span> + <span class="fn">str</span>(<span class="var">n</span>+<span class="num">1</span>))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <button class="btn btn-nav" onclick="goTo(2)">← Anterior</button>
+      <button class="btn btn-primary" onclick="completeAndNext(3)">Próximo módulo →</button>
+    </div>
+  </div>
+
+  <!-- LESSON 4: Tipos e strings -->
+  <div class="lesson" id="lesson-4">
+    <div class="lesson-header">
+      <div class="lesson-badge">Módulo 04</div>
+      <div class="lesson-title">Tipos primitivos e métodos de string</div>
+      <div class="lesson-subtitle">Entendendo os tipos de dados e explorando as capacidades das strings em Python.</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Conceito</div>
+
+    <div class="explanation">
+      Todo valor em Python tem um <strong>tipo</strong>. Os principais são: <code>str</code> (texto), <code>int</code> (inteiro), <code>float</code> (decimal) e <code>bool</code> (verdadeiro/falso). Use <code>type()</code> para descobrir o tipo de qualquer valor.
+    </div>
+
+    <div class="explanation">
+      Strings possuem <strong>métodos</strong> — funções que já vêm embutidas em todo texto. Pense assim: assim como um canivete suíço tem ferramentas dentro dele, uma string carrega suas próprias ferramentas. Para usar, escreva o nome da variável, um ponto, e o nome da ferramenta: <code>variavel.metodo()</code>.
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">Métodos de string</div>
+      </div>
+      <pre><span class="var">texto</span> = <span class="str">'Python'</span>
+
+<span class="fn">print</span>(<span class="fn">type</span>(<span class="var">texto</span>))          <span class="com"># descobre o tipo → &lt;class 'str'&gt;</span>
+
+<span class="com"># Métodos de verificação — retornam True ou False</span>
+<span class="fn">print</span>(<span class="var">texto</span>.<span class="fn">isupper</span>())      <span class="com"># está tudo em MAIÚSCULAS? → False</span>
+<span class="fn">print</span>(<span class="var">texto</span>.<span class="fn">islower</span>())      <span class="com"># está tudo em minúsculas? → False</span>
+<span class="fn">print</span>(<span class="var">texto</span>.<span class="fn">isalpha</span>())      <span class="com"># contém só letras (sem número)? → True</span>
+<span class="fn">print</span>(<span class="var">texto</span>.<span class="fn">isnumeric</span>())    <span class="com"># contém só números? → False</span>
+<span class="fn">print</span>(<span class="var">texto</span>.<span class="fn">isalnum</span>())      <span class="com"># contém só letras e/ou números? → True</span>
+<span class="fn">print</span>(<span class="var">texto</span>.<span class="fn">istitle</span>())      <span class="com"># cada palavra começa com maiúscula? → True</span>
+
+<span class="com"># Métodos de transformação — retornam o texto modificado</span>
+<span class="fn">print</span>(<span class="var">texto</span>.<span class="fn">upper</span>())        <span class="com"># converte tudo para MAIÚSCULAS → PYTHON</span>
+<span class="fn">print</span>(<span class="var">texto</span>.<span class="fn">lower</span>())        <span class="com"># converte tudo para minúsculas → python</span>
+<span class="fn">print</span>(<span class="var">texto</span>.<span class="fn">title</span>())        <span class="com"># primeira letra de cada palavra em maiúscula → Python</span>
+
+<span class="com"># len() conta o número de caracteres</span>
+<span class="fn">print</span>(<span class="fn">len</span>(<span class="var">texto</span>))           <span class="com"># quantos caracteres tem? → 6</span></pre>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Exercícios de fixação</div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">01</div>
+        <div>
+          <div class="exercise-title">Analisador de entrada</div>
+          <div class="exercise-sub">type() e métodos de string</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia algo digitado pelo usuário e mostre: o tipo, se é numérico, se é alfabético, se está em maiúsculas e o tamanho (número de caracteres).</div>
+        <textarea class="exercise-input" id="ex4-1" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex4-1', 'ex4-1-inputs')"></textarea>
+        <div class="input-fields" id="ex4-1-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="renderInputFields('ex4-1', 'ex4-1-inputs'); runEx('ex4-1', 'ex4-1-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick=\"showSolution('sol4-1')\">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex4-1-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol4-1">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">n</span> = <span class="fn">input</span>(<span class="str">'Digite algo: '</span>)
+<span class="fn">print</span>(<span class="str">'Tipo: '</span> + <span class="fn">str</span>(<span class="fn">type</span>(<span class="var">n</span>)))
+<span class="fn">print</span>(<span class="str">'É numérico? '</span> + <span class="fn">str</span>(<span class="var">n</span>.<span class="fn">isnumeric</span>()))
+<span class="fn">print</span>(<span class="str">'É alfabético? '</span> + <span class="fn">str</span>(<span class="var">n</span>.<span class="fn">isalpha</span>()))
+<span class="fn">print</span>(<span class="str">'Está maiúsculo? '</span> + <span class="fn">str</span>(<span class="var">n</span>.<span class="fn">isupper</span>()))
+<span class="fn">print</span>(<span class="str">'Tamanho: '</span> + <span class="fn">str</span>(<span class="fn">len</span>(<span class="var">n</span>)) + <span class="str">' caracteres'</span>)</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">02</div>
+        <div>
+          <div class="exercise-title">Transformador de texto</div>
+          <div class="exercise-sub">Métodos de transformação</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia uma frase e exiba-a em <strong>três versões</strong>: toda em maiúsculas, toda em minúsculas e com a primeira letra de cada palavra em maiúscula.</div>
+        <textarea class="exercise-input" id="ex4-2" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex4-2', 'ex4-2-inputs')"></textarea>
+        <div class="input-fields" id="ex4-2-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="renderInputFields('ex4-2', 'ex4-2-inputs'); runEx('ex4-2', 'ex4-2-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick=\"showSolution('sol4-2')\">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex4-2-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol4-2">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">frase</span> = <span class="fn">input</span>(<span class="str">'Digite uma frase: '</span>)
+<span class="fn">print</span>(<span class="var">frase</span>.<span class="fn">upper</span>())
+<span class="fn">print</span>(<span class="var">frase</span>.<span class="fn">lower</span>())
+<span class="fn">print</span>(<span class="var">frase</span>.<span class="fn">title</span>())</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <button class="btn btn-nav" onclick="goTo(3)">← Anterior</button>
+      <button class="btn btn-primary" onclick="completeAndNext(4)">Próximo módulo →</button>
+    </div>
+  </div>
+
+  <!-- LESSON 5: Formatação -->
+  <div class="lesson" id="lesson-5">
+    <div class="lesson-header">
+      <div class="lesson-badge">Módulo 05</div>
+      <div class="lesson-title">Formatação de saída</div>
+      <div class="lesson-subtitle">Controlando casas decimais, alinhamento e como os dados aparecem na tela.</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Conceito</div>
+
+    <div class="explanation">
+      O método <code>.format()</code> é uma forma mais organizada de montar strings com variáveis. Em vez de usar <code>+</code> e <code>str()</code>, você escreve <code>{}</code> dentro da string onde quer inserir um valor, e passa os valores dentro de <code>.format()</code>:
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">Básico do .format()</div>
+      </div>
+      <pre><span class="var">nome</span> = <span class="str">'Tainá'</span>
+<span class="var">idade</span> = <span class="num">28</span>
+
+<span class="com"># com +  e str() — jeito antigo</span>
+<span class="fn">print</span>(<span class="str">'Olá '</span> + <span class="var">nome</span> + <span class="str">', você tem '</span> + <span class="fn">str</span>(<span class="var">idade</span>) + <span class="str">' anos.'</span>)
+
+<span class="com"># com .format() — mais limpo</span>
+<span class="fn">print</span>(<span class="str">'Olá {}, você tem {} anos.'</span>.<span class="fn">format</span>(<span class="var">nome</span>, <span class="var">idade</span>))</pre>
+    </div>
+
+    <div class="explanation">
+      Dentro das chaves <code>{}</code> você também pode usar especificadores para controlar como os números são exibidos — útil especialmente para decimais:
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">Exemplos de formatação</div>
+      </div>
+      <pre><span class="var">n</span> = <span class="num">3.14159</span>
+<span class="var">nota</span> = <span class="num">8.5</span>
+
+<span class="fn">print</span>(<span class="str">'{:.2f}'</span>.<span class="fn">format</span>(<span class="var">n</span>))      <span class="com"># 3.14 — 2 decimais</span>
+<span class="fn">print</span>(<span class="str">'{:.0f}'</span>.<span class="fn">format</span>(<span class="var">n</span>))      <span class="com"># 3 — sem decimais</span>
+<span class="fn">print</span>(<span class="str">'{:10.2f}'</span>.<span class="fn">format</span>(<span class="var">n</span>))    <span class="com"># "      3.14" — largura 10</span>
+<span class="fn">print</span>(<span class="str">'{:1f}'</span>.<span class="fn">format</span>(<span class="var">nota</span>))    <span class="com"># 8.5</span>
+
+<span class="com"># f-strings (Python 3.6+) — alternativa moderna</span>
+<span class="fn">print</span>(<span class="kw">f</span><span class="str">'Nota: {nota:.1f}'</span>)</pre>
+    </div>
+
+    <div class="info-box">
+      <strong>Separador de linhas</strong>
+      Você pode repetir um caractere com <code>*</code>: <code>print(20 * '=')</code> imprime 20 sinais de igual seguidos. Útil para criar bordas visuais.
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Exercícios de fixação</div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">01</div>
+        <div>
+          <div class="exercise-title">Média do aluno</div>
+          <div class="exercise-sub">Cálculo e formatação de float</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia duas notas de um aluno (decimais), calcule a média e exiba com <strong>1 casa decimal</strong>.</div>
+        <textarea class="exercise-input" id="ex5-1" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex5-1', 'ex5-1-inputs')"></textarea>
+        <div class="input-fields" id="ex5-1-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="renderInputFields('ex5-1', 'ex5-1-inputs'); runEx('ex5-1', 'ex5-1-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick=\"showSolution('sol5-1')\">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex5-1-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol5-1">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">n1</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Primeira nota: '</span>))
+<span class="var">n2</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Segunda nota: '</span>))
+<span class="fn">print</span>(<span class="str">'Média: {:.1f}'</span>.<span class="fn">format</span>((<span class="var">n1</span>+<span class="var">n2</span>)/<span class="num">2</span>))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">02</div>
+        <div>
+          <div class="exercise-title">Tabuada formatada</div>
+          <div class="exercise-sub">Repetição de linhas e alinhamento</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia um número inteiro e mostre sua tabuada completa (de 1 a 10), com uma borda de <code>=</code> antes e depois. Use <code>20 * '='</code> para a borda.</div>
+        <textarea class="exercise-input" id="ex5-2" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex5-2', 'ex5-2-inputs')"></textarea>
+        <div class="input-fields" id="ex5-2-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="renderInputFields('ex5-2', 'ex5-2-inputs'); runEx('ex5-2', 'ex5-2-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick=\"showSolution('sol5-2')\">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex5-2-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol5-2">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">n</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Número: '</span>))
+<span class="fn">print</span>(<span class="num">20</span> * <span class="str">'='</span>)
+<span class="fn">print</span>(<span class="str">'{} x  1 = {}'</span>.<span class="fn">format</span>(<span class="var">n</span>, <span class="var">n</span>*<span class="num">1</span>))
+<span class="fn">print</span>(<span class="str">'{} x  2 = {}'</span>.<span class="fn">format</span>(<span class="var">n</span>, <span class="var">n</span>*<span class="num">2</span>))
+<span class="fn">print</span>(<span class="str">'{} x  3 = {}'</span>.<span class="fn">format</span>(<span class="var">n</span>, <span class="var">n</span>*<span class="num">3</span>))
+<span class="fn">print</span>(<span class="str">'{} x  4 = {}'</span>.<span class="fn">format</span>(<span class="var">n</span>, <span class="var">n</span>*<span class="num">4</span>))
+<span class="fn">print</span>(<span class="str">'{} x  5 = {}'</span>.<span class="fn">format</span>(<span class="var">n</span>, <span class="var">n</span>*<span class="num">5</span>))
+<span class="fn">print</span>(<span class="str">'{} x  6 = {}'</span>.<span class="fn">format</span>(<span class="var">n</span>, <span class="var">n</span>*<span class="num">6</span>))
+<span class="fn">print</span>(<span class="str">'{} x  7 = {}'</span>.<span class="fn">format</span>(<span class="var">n</span>, <span class="var">n</span>*<span class="num">7</span>))
+<span class="fn">print</span>(<span class="str">'{} x  8 = {}'</span>.<span class="fn">format</span>(<span class="var">n</span>, <span class="var">n</span>*<span class="num">8</span>))
+<span class="fn">print</span>(<span class="str">'{} x  9 = {}'</span>.<span class="fn">format</span>(<span class="var">n</span>, <span class="var">n</span>*<span class="num">9</span>))
+<span class="fn">print</span>(<span class="str">'{} x 10 = {}'</span>.<span class="fn">format</span>(<span class="var">n</span>, <span class="var">n</span>*<span class="num">10</span>))
+<span class="fn">print</span>(<span class="num">20</span> * <span class="str">'='</span>)</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <button class="btn btn-nav" onclick="goTo(4)">← Anterior</button>
+      <button class="btn btn-primary" onclick="completeAndNext(5)">Próximo módulo →</button>
+    </div>
+  </div>
+
+  <!-- LESSON 6: import math -->
+  <div class="lesson" id="lesson-6">
+    <div class="lesson-header">
+      <div class="lesson-badge">Módulo 06</div>
+      <div class="lesson-title">Importações e o módulo <code style="font-size:22px;">math</code></div>
+      <div class="lesson-subtitle">Usando bibliotecas prontas para cálculos matemáticos mais avançados.</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Conceito</div>
+
+    <div class="explanation">
+      Python vem com <strong>módulos</strong> prontos que adicionam funcionalidades extras. Importamos com a palavra-chave <code>import</code>. O módulo <code>math</code> oferece funções matemáticas como raiz quadrada, seno, cosseno, tangente, etc.
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">Formas de importar</div>
+      </div>
+      <pre><span class="kw">import</span> math
+<span class="fn">math</span>.<span class="fn">sqrt</span>(<span class="num">16</span>)     <span class="com"># 4.0</span>
+
+<span class="kw">from</span> math <span class="kw">import</span> sqrt, trunc, hypot
+<span class="fn">sqrt</span>(<span class="num">16</span>)          <span class="com"># 4.0 (sem prefixo math.)</span>
+<span class="fn">trunc</span>(<span class="num">6.9</span>)        <span class="com"># 6 (parte inteira)</span>
+
+<span class="kw">from</span> math <span class="kw">import</span> sin, cos, tan, radians
+<span class="fn">sin</span>(<span class="fn">radians</span>(<span class="num">90</span>))  <span class="com"># 1.0 (ângulo em graus → radianos)</span></pre>
+    </div>
+
+    <div class="info-box yellow">
+      <strong>Atenção com ângulos</strong>
+      As funções trigonométricas do Python trabalham em <strong>radianos</strong>. Para passar graus, converta com <code>radians(ângulo)</code>.
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Exercícios de fixação</div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">01</div>
+        <div>
+          <div class="exercise-title">Hipotenusa</div>
+          <div class="exercise-sub">Teorema de Pitágoras com math.hypot</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia o comprimento dos dois catetos de um triângulo retângulo e calcule a hipotenusa usando <code>math.hypot()</code>.</div>
+        <textarea class="exercise-input" id="ex6-1" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex6-1', 'ex6-1-inputs')"></textarea>
+        <div class="input-fields" id="ex6-1-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="renderInputFields('ex6-1', 'ex6-1-inputs'); runEx('ex6-1', 'ex6-1-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick=\"showSolution('sol6-1')\">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex6-1-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol6-1">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="kw">import</span> math
+
+<span class="var">catOp</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Cateto oposto: '</span>))
+<span class="var">catAd</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Cateto adjacente: '</span>))
+<span class="var">hipo</span> = math.<span class="fn">hypot</span>(<span class="var">catAd</span>, <span class="var">catOp</span>)
+<span class="fn">print</span>(<span class="str">'Hipotenusa: {:.2f}'</span>.<span class="fn">format</span>(<span class="var">hipo</span>))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">02</div>
+        <div>
+          <div class="exercise-title">Seno, cosseno e tangente</div>
+          <div class="exercise-sub">Trigonometria com conversão de ângulo</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia um ângulo em graus e exiba seu seno, cosseno e tangente, cada um com 2 casas decimais.</div>
+        <textarea class="exercise-input" id="ex6-2" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex6-2', 'ex6-2-inputs')"></textarea>
+        <div class="input-fields" id="ex6-2-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="renderInputFields('ex6-2', 'ex6-2-inputs'); runEx('ex6-2', 'ex6-2-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick=\"showSolution('sol6-2')\">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex6-2-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol6-2">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="kw">from</span> math <span class="kw">import</span> sin, cos, tan, radians
+
+<span class="var">angulo</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Ângulo em graus: '</span>))
+<span class="fn">print</span>(<span class="str">'Seno: {:.2f}'</span>.<span class="fn">format</span>(<span class="fn">sin</span>(<span class="fn">radians</span>(<span class="var">angulo</span>))))
+<span class="fn">print</span>(<span class="str">'Cosseno: {:.2f}'</span>.<span class="fn">format</span>(<span class="fn">cos</span>(<span class="fn">radians</span>(<span class="var">angulo</span>))))
+<span class="fn">print</span>(<span class="str">'Tangente: {:.2f}'</span>.<span class="fn">format</span>(<span class="fn">tan</span>(<span class="fn">radians</span>(<span class="var">angulo</span>))))
+</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <button class="btn btn-nav" onclick="goTo(5)">← Anterior</button>
+      <button class="btn btn-primary" onclick="completeAndNext(6)">Próximo módulo →</button>
+    </div>
+  </div>
+
+  <!-- LESSON 7: Problemas práticos -->
+  <div class="lesson" id="lesson-7">
+    <div class="lesson-header">
+      <div class="lesson-badge">Módulo 07</div>
+      <div class="lesson-title">Problemas do mundo real</div>
+      <div class="lesson-subtitle">Aplicando os conhecimentos anteriores em situações práticas do cotidiano.</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Conceito</div>
+
+    <div class="explanation">
+      Neste módulo, combinamos tudo que aprendemos — leitura de dados, operações, formatação — para resolver problemas reais. A chave é <strong>identificar as variáveis</strong>, as <strong>operações necessárias</strong> e o <strong>formato da saída</strong>.
+    </div>
+
+    <div class="info-box green">
+      <strong>Estratégia de resolução</strong>
+      1. Leia os dados necessários<br>
+      2. Calcule os resultados intermediários<br>
+      3. Exiba o resultado formatado
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Exercícios de fixação</div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">01</div>
+        <div>
+          <div class="exercise-title">Conversor de temperatura</div>
+          <div class="exercise-sub">Celsius → Fahrenheit</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia uma temperatura em °C e converta para °F.<br><em>Fórmula: F = (C × 9 / 5) + 32</em></div>
+        <textarea class="exercise-input" id="ex7-1" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex7-1', 'ex7-1-inputs')"></textarea>
+        <div class="input-fields" id="ex7-1-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="renderInputFields('ex7-1', 'ex7-1-inputs'); runEx('ex7-1', 'ex7-1-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick=\"showSolution('sol7-1')\">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex7-1-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol7-1">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">celsius</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Temperatura em °C: '</span>))
+<span class="var">fahrenheit</span> = (<span class="var">celsius</span> * <span class="num">9</span> / <span class="num">5</span>) + <span class="num">32</span>
+<span class="fn">print</span>(<span class="str">'{}°C = {}°F'</span>.<span class="fn">format</span>(<span class="var">celsius</span>, <span class="var">fahrenheit</span>))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">02</div>
+        <div>
+          <div class="exercise-title">Desconto e aumento</div>
+          <div class="exercise-sub">Percentuais aplicados a valores</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia o preço de um produto e mostre:<br>
+        — O preço com <strong>5% de desconto</strong><br>
+        — O preço com <strong>15% de aumento</strong></div>
+        <textarea class="exercise-input" id="ex7-2" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex7-2', 'ex7-2-inputs')"></textarea>
+        <div class="input-fields" id="ex7-2-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="renderInputFields('ex7-2', 'ex7-2-inputs'); runEx('ex7-2', 'ex7-2-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick=\"showSolution('sol7-2')\">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex7-2-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol7-2">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">preco</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Preço do produto: '</span>))
+<span class="var">desconto</span> = <span class="var">preco</span> * <span class="num">5</span> / <span class="num">100</span>
+<span class="var">aumento</span> = <span class="var">preco</span> * <span class="num">15</span> / <span class="num">100</span>
+<span class="fn">print</span>(<span class="str">'Com 5% de desconto: R${:.2f}'</span>.<span class="fn">format</span>(<span class="var">preco</span> - <span class="var">desconto</span>))
+<span class="fn">print</span>(<span class="str">'Com 15% de aumento: R${:.2f}'</span>.<span class="fn">format</span>(<span class="var">preco</span> + <span class="var">aumento</span>))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">03</div>
+        <div>
+          <div class="exercise-title">Carro alugado</div>
+          <div class="exercise-sub">Combinando múltiplas tarifas</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Um carro custa <strong>R$ 60 por dia</strong> e <strong>R$ 0,15 por km rodado</strong>. Leia quantos dias foi alugado e quantos km rodou, e mostre o total a pagar.</div>
+        <textarea class="exercise-input" id="ex7-3" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex7-3', 'ex7-3-inputs')"></textarea>
+        <div class="input-fields" id="ex7-3-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="renderInputFields('ex7-3', 'ex7-3-inputs'); runEx('ex7-3', 'ex7-3-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick=\"showSolution('sol7-3')\">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex7-3-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol7-3">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">dias</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Dias alugados: '</span>))
+<span class="var">km</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Km rodados: '</span>))
+<span class="var">total</span> = (<span class="var">dias</span> * <span class="num">60</span>) + (<span class="var">km</span> * <span class="num">0.15</span>)
+<span class="fn">print</span>(<span class="str">'Total a pagar: R${:.2f}'</span>.<span class="fn">format</span>(<span class="var">total</span>))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <button class="btn btn-nav" onclick="goTo(6)">← Anterior</button>
+      <button class="btn btn-primary" onclick="completeAndNext(7)">Próximo módulo →</button>
+    </div>
+  </div>
+
+  <!-- LESSON 8: random -->
+  <div class="lesson" id="lesson-8">
+    <div class="lesson-header">
+      <div class="lesson-badge">Módulo 08</div>
+      <div class="lesson-title">Módulo <code style="font-size:22px;">random</code></div>
+      <div class="lesson-subtitle">Gerando valores aleatórios e trabalhando com listas em Python.</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Conceito</div>
+
+    <div class="explanation">
+      O módulo <code>random</code> permite gerar números aleatórios, sortear itens e embaralhar listas. As funções mais usadas são <code>randint()</code>, <code>choice()</code> e <code>shuffle()</code>.
+    </div>
+
+    <div class="explanation">
+      <strong>Listas</strong> são criadas com colchetes e armazenam múltiplos valores: <code>[item1, item2, item3]</code>. Você pode adicionar variáveis a uma lista e operar sobre elas.
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">Módulo random</div>
+      </div>
+      <pre><span class="kw">from</span> random <span class="kw">import</span> randint, choice, shuffle
+
+<span class="com"># Número aleatório entre 1 e 10</span>
+<span class="fn">print</span>(<span class="fn">randint</span>(<span class="num">1</span>, <span class="num">10</span>))
+
+<span class="com"># Sortear um item de uma lista</span>
+<span class="var">frutas</span> = [<span class="str">'maçã'</span>, <span class="str">'banana'</span>, <span class="str">'uva'</span>]
+<span class="fn">print</span>(<span class="fn">choice</span>(<span class="var">frutas</span>))
+
+<span class="com"># Embaralhar a lista (modifica a original)</span>
+<span class="fn">shuffle</span>(<span class="var">frutas</span>)
+<span class="fn">print</span>(<span class="var">frutas</span>)</pre>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Exercícios de fixação</div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">01</div>
+        <div>
+          <div class="exercise-title">Sorteio de aluno</div>
+          <div class="exercise-sub">choice() com lista de nomes</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Um professor precisa sortear 1 aluno entre 4 para apagar o quadro. Leia os nomes dos 4 alunos e exiba o escolhido.</div>
+        <textarea class="exercise-input" id="ex8-1" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex8-1', 'ex8-1-inputs')"></textarea>
+        <div class="input-fields" id="ex8-1-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="renderInputFields('ex8-1', 'ex8-1-inputs'); runEx('ex8-1', 'ex8-1-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick=\"showSolution('sol8-1')\">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex8-1-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol8-1">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="kw">from</span> random <span class="kw">import</span> choice
+
+<span class="var">a1</span> = <span class="fn">input</span>(<span class="str">'Primeiro aluno: '</span>)
+<span class="var">a2</span> = <span class="fn">input</span>(<span class="str">'Segundo aluno: '</span>)
+<span class="var">a3</span> = <span class="fn">input</span>(<span class="str">'Terceiro aluno: '</span>)
+<span class="var">a4</span> = <span class="fn">input</span>(<span class="str">'Quarto aluno: '</span>)
+
+<span class="var">lista</span> = [<span class="var">a1</span>, <span class="var">a2</span>, <span class="var">a3</span>, <span class="var">a4</span>]
+<span class="fn">print</span>(<span class="str">'Aluno escolhido: {}'</span>.<span class="fn">format</span>(<span class="fn">choice</span>(<span class="var">lista</span>)))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">02</div>
+        <div>
+          <div class="exercise-title">Ordem de apresentação</div>
+          <div class="exercise-sub">shuffle() para embaralhar lista</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">O mesmo professor quer sortear a <strong>ordem de apresentação</strong> de trabalhos. Leia 4 nomes e mostre a ordem sorteada.</div>
+        <textarea class="exercise-input" id="ex8-2" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex8-2', 'ex8-2-inputs')"></textarea>
+        <div class="input-fields" id="ex8-2-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="renderInputFields('ex8-2', 'ex8-2-inputs'); runEx('ex8-2', 'ex8-2-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick=\"showSolution('sol8-2')\">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex8-2-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol8-2">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="kw">from</span> random <span class="kw">import</span> shuffle
+
+<span class="var">a1</span> = <span class="fn">input</span>(<span class="str">'Primeiro aluno: '</span>)
+<span class="var">a2</span> = <span class="fn">input</span>(<span class="str">'Segundo aluno: '</span>)
+<span class="var">a3</span> = <span class="fn">input</span>(<span class="str">'Terceiro aluno: '</span>)
+<span class="var">a4</span> = <span class="fn">input</span>(<span class="str">'Quarto aluno: '</span>)
+
+<span class="var">lista</span> = [<span class="var">a1</span>, <span class="var">a2</span>, <span class="var">a3</span>, <span class="var">a4</span>]
+<span class="fn">shuffle</span>(<span class="var">lista</span>)
+<span class="fn">print</span>(<span class="str">'Ordem de apresentação:'</span>)
+<span class="fn">print</span>(<span class="var">lista</span>)</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <button class="btn btn-nav" onclick="goTo(7)">← Anterior</button>
+      <button class="btn btn-primary" onclick="completeAndNext(8)">Próximo módulo →</button>
+    </div>
+  </div>
+
+  <!-- LESSON 9: Conversão de unidades -->
+  <div class="lesson" id="lesson-9">
+    <div class="lesson-header">
+      <div class="lesson-badge">Módulo 09</div>
+      <div class="lesson-title">Conversão de unidades</div>
+      <div class="lesson-subtitle">Trabalhando com múltiplas variáveis derivadas de um único valor de entrada.</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Conceito</div>
+
+    <div class="explanation">
+      Muitas vezes queremos apresentar o mesmo dado em formatos diferentes. Para isso, calculamos cada resultado a partir do valor original e armazenamos em variáveis separadas, depois exibimos tudo de forma organizada.
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">Exemplo — metros para outras unidades</div>
+      </div>
+      <pre><span class="var">metros</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Distância em metros: '</span>))
+
+<span class="var">km</span> = <span class="var">metros</span> / <span class="num">1000</span>
+<span class="var">cm</span> = <span class="var">metros</span> * <span class="num">100</span>
+<span class="var">mm</span> = <span class="var">metros</span> * <span class="num">1000</span>
+
+<span class="fn">print</span>(<span class="str">'{}m = {}km = {:.0f}cm = {:.0f}mm'</span>.<span class="fn">format</span>(
+    <span class="var">metros</span>, <span class="var">km</span>, <span class="var">cm</span>, <span class="var">mm</span>
+))</pre>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Exercícios de fixação</div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">01</div>
+        <div>
+          <div class="exercise-title">Conversor de distâncias</div>
+          <div class="exercise-sub">Um valor, múltiplas unidades</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia uma distância em metros e exiba a equivalência em: km, hm, dam, dm, cm e mm.</div>
+        <textarea class="exercise-input" id="ex9-1" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex9-1', 'ex9-1-inputs')"></textarea>
+        <div class="input-fields" id="ex9-1-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="renderInputFields('ex9-1', 'ex9-1-inputs'); runEx('ex9-1', 'ex9-1-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick=\"showSolution('sol9-1')\">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex9-1-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol9-1">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">n</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Distância em metros: '</span>))
+<span class="fn">print</span>(<span class="str">'{} m = {} km'</span>.<span class="fn">format</span>(<span class="var">n</span>, <span class="var">n</span>/<span class="num">1000</span>))
+<span class="fn">print</span>(<span class="str">'{} m = {} hm'</span>.<span class="fn">format</span>(<span class="var">n</span>, <span class="var">n</span>/<span class="num">100</span>))
+<span class="fn">print</span>(<span class="str">'{} m = {} dam'</span>.<span class="fn">format</span>(<span class="var">n</span>, <span class="var">n</span>/<span class="num">10</span>))
+<span class="fn">print</span>(<span class="str">'{} m = {:.0f} dm'</span>.<span class="fn">format</span>(<span class="var">n</span>, <span class="var">n</span>*<span class="num">10</span>))
+<span class="fn">print</span>(<span class="str">'{} m = {:.0f} cm'</span>.<span class="fn">format</span>(<span class="var">n</span>, <span class="var">n</span>*<span class="num">100</span>))
+<span class="fn">print</span>(<span class="str">'{} m = {:.0f} mm'</span>.<span class="fn">format</span>(<span class="var">n</span>, <span class="var">n</span>*<span class="num">1000</span>))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">02</div>
+        <div>
+          <div class="exercise-title">Conversor de moeda</div>
+          <div class="exercise-sub">R$ para USD e EUR</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia um valor em R$ e mostre quanto equivale em <strong>dólares</strong> (1 USD = R$ 5,10) e em <strong>euros</strong> (1 EUR = R$ 5,60).</div>
+        <textarea class="exercise-input" id="ex9-2" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex9-2', 'ex9-2-inputs')"></textarea>
+        <div class="input-fields" id="ex9-2-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="renderInputFields('ex9-2', 'ex9-2-inputs'); runEx('ex9-2', 'ex9-2-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick=\"showSolution('sol9-2')\">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex9-2-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol9-2">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">reais</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Valor em R$: '</span>))
+<span class="fn">print</span>(<span class="str">'Dólares: ${:.2f}'</span>.<span class="fn">format</span>(<span class="var">reais</span> / <span class="num">5.10</span>))
+<span class="fn">print</span>(<span class="str">'Euros: €{:.2f}'</span>.<span class="fn">format</span>(<span class="var">reais</span> / <span class="num">5.60</span>))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <button class="btn btn-nav" onclick="goTo(8)">← Anterior</button>
+      <button class="btn btn-primary" onclick="completeAndNext(9)">Próximo módulo →</button>
+    </div>
+  </div>
+
+  <!-- LESSON 10: Desafio final -->
+  <div class="lesson" id="lesson-10">
+    <div class="lesson-header">
+      <div class="lesson-badge">Módulo 10 · Desafio Final</div>
+      <div class="lesson-title">Colocando tudo junto</div>
+      <div class="lesson-subtitle">Desafios que combinam múltiplos conceitos aprendidos ao longo do curso.</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="info-box green">
+      <strong>Parabéns por chegar até aqui!</strong>
+      Você aprendeu: print, input, tipos, operações, formatação, módulos math e random, listas e conversão de unidades. Agora é hora do desafio final.
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Desafios</div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon" style="background: var(--orange);">★</div>
+        <div>
+          <div class="exercise-title">Calculadora de tinta</div>
+          <div class="exercise-sub">Área + divisão + formatação</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia a <strong>largura</strong> e a <strong>altura</strong> de uma parede em metros. Calcule a área e quantos litros de tinta são necessários sabendo que <strong>1 litro pinta 2m²</strong>. Exiba os dois valores.</div>
+        <textarea class="exercise-input" id="ex10-1" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex10-1', 'ex10-1-inputs')"></textarea>
+        <div class="input-fields" id="ex10-1-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="renderInputFields('ex10-1', 'ex10-1-inputs'); runEx('ex10-1', 'ex10-1-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick=\"showSolution('sol10-1')\">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex10-1-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol10-1">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">largura</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Largura da parede (m): '</span>))
+<span class="var">altura</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Altura da parede (m): '</span>))
+<span class="var">area</span> = <span class="var">largura</span> * <span class="var">altura</span>
+<span class="var">tinta</span> = <span class="var">area</span> / <span class="num">2</span>
+<span class="fn">print</span>(<span class="str">'Área: {}m²'</span>.<span class="fn">format</span>(<span class="var">area</span>))
+<span class="fn">print</span>(<span class="str">'Tinta necessária: {} litros'</span>.<span class="fn">format</span>(<span class="var">tinta</span>))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon" style="background: var(--orange);">★</div>
+        <div>
+          <div class="exercise-title">Mega análise de número</div>
+          <div class="exercise-sub">Operações + formatação + math</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia um número real e exiba em um único programa: parte inteira (<code>trunc</code>), raiz quadrada (2 decimais), dobro, triplo, antecessor e sucessor.</div>
+        <textarea class="exercise-input" id="ex10-2" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex10-2', 'ex10-2-inputs')"></textarea>
+        <div class="input-fields" id="ex10-2-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="renderInputFields('ex10-2', 'ex10-2-inputs'); runEx('ex10-2', 'ex10-2-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick=\"showSolution('sol10-2')\">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex10-2-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol10-2">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="kw">from</span> math <span class="kw">import</span> trunc
+
+<span class="var">n</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Digite um número real: '</span>))
+<span class="fn">print</span>(<span class="str">'Parte inteira: {}'</span>.<span class="fn">format</span>(<span class="fn">trunc</span>(<span class="var">n</span>)))
+<span class="fn">print</span>(<span class="str">'Raiz quadrada: {:.2f}'</span>.<span class="fn">format</span>(<span class="var">n</span> ** (<span class="num">1</span>/<span class="num">2</span>)))
+<span class="fn">print</span>(<span class="str">'Dobro: {}'</span>.<span class="fn">format</span>(<span class="var">n</span> * <span class="num">2</span>))
+<span class="fn">print</span>(<span class="str">'Triplo: {}'</span>.<span class="fn">format</span>(<span class="var">n</span> * <span class="num">3</span>))
+<span class="fn">print</span>(<span class="str">'Antecessor: {}'</span>.<span class="fn">format</span>(<span class="var">n</span> - <span class="num">1</span>))
+<span class="fn">print</span>(<span class="str">'Sucessor: {}'</span>.<span class="fn">format</span>(<span class="var">n</span> + <span class="num">1</span>))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon" style="background: var(--red);">★★</div>
+        <div>
+          <div class="exercise-title">Calculadora completa</div>
+          <div class="exercise-sub">Combinando todas as operações</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia dois números reais e exiba: a soma, a subtração, a multiplicação, a divisão (2 casas decimais), a potência do primeiro elevado ao segundo e o resto da divisão inteira. Use uma borda de <code>=</code> antes e depois dos resultados.</div>
+        <textarea class="exercise-input" id="ex10-3" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex10-3', 'ex10-3-inputs')"></textarea>
+        <div class="input-fields" id="ex10-3-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="renderInputFields('ex10-3', 'ex10-3-inputs'); runEx('ex10-3', 'ex10-3-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick=\"showSolution('sol10-3')\">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex10-3-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol10-3">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">a</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Primeiro número: '</span>))
+<span class="var">b</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Segundo número: '</span>))
+<span class="fn">print</span>(<span class="num">20</span> * <span class="str">'='</span>)
+<span class="fn">print</span>(<span class="str">'Soma: {}'</span>.<span class="fn">format</span>(<span class="var">a</span> + <span class="var">b</span>))
+<span class="fn">print</span>(<span class="str">'Subtração: {}'</span>.<span class="fn">format</span>(<span class="var">a</span> - <span class="var">b</span>))
+<span class="fn">print</span>(<span class="str">'Multiplicação: {}'</span>.<span class="fn">format</span>(<span class="var">a</span> * <span class="var">b</span>))
+<span class="fn">print</span>(<span class="str">'Divisão: {:.2f}'</span>.<span class="fn">format</span>(<span class="var">a</span> / <span class="var">b</span>))
+<span class="fn">print</span>(<span class="str">'Potência: {}'</span>.<span class="fn">format</span>(<span class="var">a</span> ** <span class="var">b</span>))
+<span class="fn">print</span>(<span class="str">'Resto: {}'</span>.<span class="fn">format</span>(<span class="var">a</span> % <span class="var">b</span>))
+<span class="fn">print</span>(<span class="num">20</span> * <span class="str">'='</span>)</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <button class="btn btn-nav" onclick="goTo(9)">← Anterior</button>
+      <button class="btn btn-success" onclick="completeAndNext(10)">Concluir curso ✓</button>
+    </div>
+  </div>
+
+</main>
+
+<script>
+  const TOTAL = 10;
+  const completed = new Set();
+  let pyodide = null;
+  let pyodideReady = false;
+
+  async function initPyodide() {
+    const statuses = document.querySelectorAll('.pyodide-status');
+    statuses.forEach(s => { s.textContent = '● Carregando Python...'; s.className = 'pyodide-status loading'; });
+    try {
+      pyodide = await loadPyodide();
+      pyodideReady = true;
+      statuses.forEach(s => { s.textContent = '● Python pronto'; s.className = 'pyodide-status ready'; });
+    } catch(e) {
+      statuses.forEach(s => { s.textContent = '● Falha ao carregar Python'; s.className = 'pyodide-status'; });
+    }
+  }
+
+  initPyodide();
+
+  function goTo(idx) {
+    document.querySelectorAll('.lesson').forEach(l => l.classList.remove('active'));
+    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+    document.getElementById('lesson-' + idx).classList.add('active');
+    document.getElementById('nav-' + idx).classList.add('active');
+    window.scrollTo(0, 0);
+  }
+
+  function completeAndNext(idx) {
+    if (idx > 0 && idx <= TOTAL) completed.add(idx);
+    updateProgress();
+    const navItem = document.getElementById('nav-' + idx);
+    if (navItem && idx > 0) navItem.classList.add('completed');
+    if (idx < TOTAL) goTo(idx + 1);
+    else goTo(1);
+  }
+
+  function updateProgress() {
+    const pct = Math.round((completed.size / TOTAL) * 100);
+    document.getElementById('progress-fill').style.width = pct + '%';
+    document.getElementById('progress-text').textContent = completed.size + ' / ' + TOTAL;
+  }
+
+  function countInputCalls(code) {
+    const matches = code.match(/\binput\s*\(/g);
+    return matches ? matches.length : 0;
+  }
+
+  function extractInputPrompts(code) {
+    const regex = /input\s*\(\s*(['"])(.*?)\1\s*\)/g;
+    const prompts = [];
+    let match;
+    while ((match = regex.exec(code)) !== null) {
+      prompts.push(match[2]);
+    }
+    return prompts;
+  }
+
+  function renderInputFields(codeId, inputsWrapperId) {
+    const code = document.getElementById(codeId).value;
+    const wrap = document.getElementById(inputsWrapperId);
+    const count = countInputCalls(code);
+    const prompts = extractInputPrompts(code);
+
+    if (count === 0) { wrap.innerHTML = ''; wrap.style.display = 'none'; return; }
+
+    wrap.style.display = 'block';
+    wrap.innerHTML = '<div style="font-size:12px;color:var(--text3);margin-bottom:8px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;">Valores de entrada</div>';
+
+    for (let i = 0; i < count; i++) {
+      const label = prompts[i] || ('Entrada ' + (i + 1) + ': ');
+      wrap.innerHTML += `
+        <div class="input-field-row">
+          <span class="input-field-label">${label}</span>
+          <input class="input-field-val" type="text" id="${codeId}-inp-${i}" placeholder="valor">
+        </div>`;
+    }
+  }
+
+  function getInputValues(codeId, count) {
+    const values = [];
+    for (let i = 0; i < count; i++) {
+      const el = document.getElementById(codeId + '-inp-' + i);
+      values.push(el ? el.value : '');
+    }
+    return values;
+  }
+
+  async function runEx(codeId, outputId) {
+    const code = document.getElementById(codeId).value.trim();
+    const outputBox = document.getElementById(outputId);
+    const content = outputBox.querySelector('.output-terminal-content');
+
+    if (!code) {
+      outputBox.classList.add('show');
+      content.className = 'output-terminal-content has-error';
+      content.textContent = 'Escreva seu código antes de executar.';
+      return;
+    }
+
+    if (!pyodideReady) {
+      outputBox.classList.add('show');
+      content.className = 'output-terminal-content has-error';
+      content.textContent = 'Python ainda está carregando, aguarde um momento...';
+      return;
+    }
+
+    const count = countInputCalls(code);
+    const values = getInputValues(codeId, count);
+
+    const inputsLine = values.map(v => JSON.stringify(v)).join(', ');
+    const wrapper = `
+import sys, builtins
+from io import StringIO
+
+_inputs = [${inputsLine}]
+_idx = [0]
+_orig_input = builtins.input
+
+def _fake_input(prompt=''):
+    val = _inputs[_idx[0]] if _idx[0] < len(_inputs) else ''
+    _idx[0] += 1
+    sys.stdout.write(str(prompt) + str(val) + '\\n')
+    return val
+
+builtins.input = _fake_input
+_buf = StringIO()
+_old = sys.stdout
+sys.stdout = _buf
+
+try:
+${code.split('\n').map(l => '    ' + l).join('\n')}
+finally:
+    sys.stdout = _old
+    builtins.input = _orig_input
+
+_buf.getvalue()
+`;
+
+    outputBox.classList.add('show');
+    content.className = 'output-terminal-content';
+    content.textContent = 'Executando...';
+
+    try {
+      const result = await pyodide.runPythonAsync(wrapper);
+      content.className = 'output-terminal-content';
+      content.textContent = result || '(sem saída)';
+    } catch (err) {
+      content.className = 'output-terminal-content has-error';
+      let msg = err.message || String(err);
+      msg = msg.replace(/File "<exec>", /g, '');
+      msg = msg.replace(/in _fake_input[\s\S]*/g, '');
+      msg = msg.replace(/in <module>[\s\S]*/g, '');
+      msg = msg.trim();
+      content.textContent = '❌ Erro:\n' + msg;
+    }
+  }
+
+  function showSolution(solId) {
+    const wrap = document.getElementById(solId);
+    wrap.classList.toggle('show');
+  }
+</script>
+</body>
+</html>
