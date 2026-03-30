@@ -16,7 +16,7 @@
       <div class="logo-icon">Py</div>
       <div>
         <div class="logo-text">Aprenda Python</div>
-        <div class="logo-sub">13 módulos · do zero</div>
+        <div class="logo-sub">14 módulos · do zero</div>
       </div>
     </div>
   </div>
@@ -24,7 +24,7 @@
   <div class="progress-bar-wrap">
     <div class="progress-label">
       <span>Progresso</span>
-      <span id="progress-text">0 / 13</span>
+      <span id="progress-text">0 / 14</span>
     </div>
     <div class="progress-track">
       <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
@@ -91,7 +91,7 @@
     <button class="nav-item" onclick="goTo(10)" id="nav-10">
       <span class="nav-dot"></span>
       <span class="nav-num">10</span>
-      <span>Desafio final</span>
+      <span>Desafio de conhecimento</span>
     </button>
 
     <button class="nav-item" onclick="goTo(11)" id="nav-11">
@@ -110,6 +110,12 @@
       <span class="nav-dot"></span>
       <span class="nav-num">13</span>
       <span>Funções</span>
+    </button>
+
+    <button class="nav-item" onclick="goTo(14)" id="nav-14">
+      <span class="nav-dot"></span>
+      <span class="nav-num">14</span>
+      <span>Listas</span>
     </button>
   </div>
 </aside>
@@ -1337,16 +1343,16 @@
 
   <div class="lesson" id="lesson-10">
     <div class="lesson-header">
-      <div class="lesson-badge">Módulo 10 · Desafio Final</div>
+      <div class="lesson-badge">Módulo 10 · Desafio de Conhecimento</div>
       <div class="lesson-title">Colocando tudo junto</div>
-      <div class="lesson-subtitle">Desafios que combinam múltiplos conceitos aprendidos ao longo do curso.</div>
+      <div class="lesson-subtitle">Desafios que combinam múltiplos conceitos aprendidos até aqui.</div>
     </div>
 
     <div class="divider"></div>
 
     <div class="info-box green">
       <strong>Parabéns por chegar até aqui!</strong>
-      Você aprendeu: print, input, tipos, operações, formatação, módulos math e random, listas e conversão de unidades. Agora é hora do desafio final.
+      Você aprendeu: print, input, tipos, operações, formatação, módulos math e random e conversão de unidades. Use tudo isso nos desafios abaixo.
     </div>
 
     <div class="divider"></div>
@@ -2021,7 +2027,265 @@
 
     <div class="lesson-nav">
       <button class="btn btn-nav" onclick="goTo(12)">← Anterior</button>
-      <button class="btn btn-success" onclick="completeAndNext(13)">Concluir curso ✓</button>
+      <button class="btn btn-primary" onclick="completeAndNext(13)">Próximo módulo →</button>
+    </div>
+  </div>
+
+  <div class="lesson" id="lesson-14">
+    <div class="lesson-header">
+      <div class="lesson-badge">Módulo 14</div>
+      <div class="lesson-title">Listas</div>
+      <div class="lesson-subtitle">Armazene e manipule coleções de valores em uma única variável.</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Conceito</div>
+
+    <div class="explanation">
+      Uma <strong>lista</strong> é uma coleção ordenada de valores. Cada valor ocupa uma posição (índice) que começa em <code>0</code>. Você pode guardar inteiros, floats, strings ou até outras listas dentro de uma lista.
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">Criando e acessando listas</div>
+      </div>
+      <pre><span class="var">frutas</span> = [<span class="str">'maçã'</span>, <span class="str">'banana'</span>, <span class="str">'laranja'</span>]
+
+<span class="fn">print</span>(<span class="var">frutas</span>[<span class="num">0</span>])   <span class="com"># maçã   (primeiro elemento)</span>
+<span class="fn">print</span>(<span class="var">frutas</span>[<span class="num">2</span>])   <span class="com"># laranja (terceiro elemento)</span>
+<span class="fn">print</span>(<span class="var">frutas</span>[<span class="num">-1</span>])  <span class="com"># laranja (último elemento)</span>
+<span class="fn">print</span>(<span class="fn">len</span>(<span class="var">frutas</span>)) <span class="com"># 3       (quantidade de itens)</span></pre>
+    </div>
+
+    <div class="info-box">
+      <strong>Índices negativos</strong>
+      <code>lista[-1]</code> acessa o último elemento, <code>lista[-2]</code> o penúltimo, e assim por diante. Muito útil para acessar o final sem precisar saber o tamanho exato da lista.
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Métodos essenciais</div>
+
+    <div class="explanation">
+      Listas possuem métodos que permitem adicionar, remover e reorganizar elementos de forma simples.
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">Métodos de lista</div>
+      </div>
+      <pre><span class="var">numeros</span> = [<span class="num">3</span>, <span class="num">1</span>, <span class="num">4</span>, <span class="num">1</span>, <span class="num">5</span>]
+
+<span class="var">numeros</span>.<span class="fn">append</span>(<span class="num">9</span>)     <span class="com"># adiciona 9 ao final → [3,1,4,1,5,9]</span>
+<span class="var">numeros</span>.<span class="fn">remove</span>(<span class="num">1</span>)     <span class="com"># remove a primeira ocorrência de 1 → [3,4,1,5,9]</span>
+<span class="var">numeros</span>.<span class="fn">sort</span>()        <span class="com"># ordena em ordem crescente → [1,3,4,5,9]</span>
+<span class="fn">print</span>(<span class="fn">sum</span>(<span class="var">numeros</span>))   <span class="com"># soma todos os elementos → 22</span>
+<span class="fn">print</span>(<span class="fn">max</span>(<span class="var">numeros</span>))   <span class="com"># maior valor → 9</span>
+<span class="fn">print</span>(<span class="fn">min</span>(<span class="var">numeros</span>))   <span class="com"># menor valor → 1</span></pre>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Percorrendo uma lista com for</div>
+
+    <div class="explanation">
+      O <code>for</code> percorre cada elemento de uma lista diretamente, sem precisar de índices. Use <code>enumerate()</code> quando precisar do índice junto com o valor.
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">Iterando sobre listas</div>
+      </div>
+      <pre><span class="var">notas</span> = [<span class="num">8.5</span>, <span class="num">7.0</span>, <span class="num">9.2</span>, <span class="num">6.8</span>]
+
+<span class="com"># Percorrendo os valores</span>
+<span class="kw">for</span> <span class="var">nota</span> <span class="kw">in</span> <span class="var">notas</span>:
+    <span class="fn">print</span>(<span class="var">nota</span>)
+
+<span class="com"># Percorrendo com índice</span>
+<span class="kw">for</span> <span class="var">i</span>, <span class="var">nota</span> <span class="kw">in</span> <span class="fn">enumerate</span>(<span class="var">notas</span>):
+    <span class="fn">print</span>(<span class="str">'Aluno {}: {}'</span>.<span class="fn">format</span>(<span class="var">i</span> + <span class="num">1</span>, <span class="var">nota</span>))</pre>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Exercícios de fixação</div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">01</div>
+        <div>
+          <div class="exercise-title">Média de uma lista</div>
+          <div class="exercise-sub">sum(), len() e iteração</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Crie uma lista com <strong>5 notas</strong> digitadas pelo usuário usando um laço <code>for</code> e <code>append()</code>. Ao final, calcule e exiba a <strong>média</strong> com 2 casas decimais.</div>
+        <textarea class="exercise-input" id="ex14-1" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex14-1', 'ex14-1-inputs')"></textarea>
+        <div class="input-fields" id="ex14-1-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex14-1', 'ex14-1-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol14-1')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex14-1-out">
+          <div class="output-terminal-header"><div class="output-terminal-label">▶ Saída</div></div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol14-1">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">notas</span> = []
+<span class="kw">for</span> <span class="var">i</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="num">5</span>):
+    <span class="var">n</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Nota {}: '</span>.<span class="fn">format</span>(<span class="var">i</span> + <span class="num">1</span>)))
+    <span class="var">notas</span>.<span class="fn">append</span>(<span class="var">n</span>)
+<span class="var">media</span> = <span class="fn">sum</span>(<span class="var">notas</span>) / <span class="fn">len</span>(<span class="var">notas</span>)
+<span class="fn">print</span>(<span class="str">'Média: {:.2f}'</span>.<span class="fn">format</span>(<span class="var">media</span>))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">02</div>
+        <div>
+          <div class="exercise-title">Maior e menor da lista</div>
+          <div class="exercise-sub">max(), min() e ordenação</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Peça ao usuário <strong>6 números inteiros</strong>, armazene-os em uma lista e exiba: o <strong>maior</strong>, o <strong>menor</strong>, a <strong>soma</strong> e a lista em <strong>ordem crescente</strong>.</div>
+        <textarea class="exercise-input" id="ex14-2" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex14-2', 'ex14-2-inputs')"></textarea>
+        <div class="input-fields" id="ex14-2-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex14-2', 'ex14-2-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol14-2')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex14-2-out">
+          <div class="output-terminal-header"><div class="output-terminal-label">▶ Saída</div></div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol14-2">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">nums</span> = []
+<span class="kw">for</span> <span class="var">i</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="num">6</span>):
+    <span class="var">n</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Número {}: '</span>.<span class="fn">format</span>(<span class="var">i</span> + <span class="num">1</span>)))
+    <span class="var">nums</span>.<span class="fn">append</span>(<span class="var">n</span>)
+<span class="fn">print</span>(<span class="str">'Maior: {}'</span>.<span class="fn">format</span>(<span class="fn">max</span>(<span class="var">nums</span>)))
+<span class="fn">print</span>(<span class="str">'Menor: {}'</span>.<span class="fn">format</span>(<span class="fn">min</span>(<span class="var">nums</span>)))
+<span class="fn">print</span>(<span class="str">'Soma: {}'</span>.<span class="fn">format</span>(<span class="fn">sum</span>(<span class="var">nums</span>)))
+<span class="var">nums</span>.<span class="fn">sort</span>()
+<span class="fn">print</span>(<span class="str">'Ordenada: {}'</span>.<span class="fn">format</span>(<span class="var">nums</span>))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon" style="background: var(--orange);">★</div>
+        <div>
+          <div class="exercise-title">Filtrar aprovados</div>
+          <div class="exercise-sub">Listas + condicionais + funções</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Crie a função <code>filtrar_aprovados(notas, minimo)</code> que recebe uma lista de notas e uma nota mínima, e retorna uma <strong>nova lista</strong> somente com as notas aprovadas (<code>&gt;= minimo</code>). Leia 5 notas, chame a função com mínimo 6.0 e exiba os aprovados, reprovados e a média geral.</div>
+        <textarea class="exercise-input" id="ex14-3" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex14-3', 'ex14-3-inputs')"></textarea>
+        <div class="input-fields" id="ex14-3-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex14-3', 'ex14-3-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol14-3')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex14-3-out">
+          <div class="output-terminal-header"><div class="output-terminal-label">▶ Saída</div></div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol14-3">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="kw">def</span> <span class="fn">filtrar_aprovados</span>(<span class="var">notas</span>, <span class="var">minimo</span>):
+    <span class="var">aprovados</span> = []
+    <span class="kw">for</span> <span class="var">nota</span> <span class="kw">in</span> <span class="var">notas</span>:
+        <span class="kw">if</span> <span class="var">nota</span> >= <span class="var">minimo</span>:
+            <span class="var">aprovados</span>.<span class="fn">append</span>(<span class="var">nota</span>)
+    <span class="kw">return</span> <span class="var">aprovados</span>
+
+<span class="var">notas</span> = []
+<span class="kw">for</span> <span class="var">i</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="num">5</span>):
+    <span class="var">n</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Nota {}: '</span>.<span class="fn">format</span>(<span class="var">i</span> + <span class="num">1</span>)))
+    <span class="var">notas</span>.<span class="fn">append</span>(<span class="var">n</span>)
+
+<span class="var">aprovados</span> = <span class="fn">filtrar_aprovados</span>(<span class="var">notas</span>, <span class="num">6.0</span>)
+<span class="var">reprovados</span> = <span class="fn">filtrar_aprovados</span>(<span class="var">notas</span>, <span class="num">0</span>)
+<span class="var">reprovados</span> = [<span class="var">n</span> <span class="kw">for</span> <span class="var">n</span> <span class="kw">in</span> <span class="var">notas</span> <span class="kw">if</span> <span class="var">n</span> < <span class="num">6.0</span>]
+<span class="var">media</span> = <span class="fn">sum</span>(<span class="var">notas</span>) / <span class="fn">len</span>(<span class="var">notas</span>)
+<span class="fn">print</span>(<span class="str">'Aprovados: {}'</span>.<span class="fn">format</span>(<span class="var">aprovados</span>))
+<span class="fn">print</span>(<span class="str">'Reprovados: {}'</span>.<span class="fn">format</span>(<span class="var">reprovados</span>))
+<span class="fn">print</span>(<span class="str">'Média geral: {:.2f}'</span>.<span class="fn">format</span>(<span class="var">media</span>))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon" style="background: var(--red);">★★</div>
+        <div>
+          <div class="exercise-title">Inventário de loja</div>
+          <div class="exercise-sub">Listas paralelas + laços + formatação</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Uma loja tem <strong>4 produtos</strong>. Leia o nome e o preço de cada um e armazene-os em duas listas paralelas (<code>nomes</code> e <code>precos</code>). Ao final, exiba uma tabela formatada com todos os produtos e seus preços, o <strong>produto mais caro</strong> e o <strong>valor total do estoque</strong>.</div>
+        <textarea class="exercise-input" id="ex14-4" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex14-4', 'ex14-4-inputs')"></textarea>
+        <div class="input-fields" id="ex14-4-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex14-4', 'ex14-4-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol14-4')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex14-4-out">
+          <div class="output-terminal-header"><div class="output-terminal-label">▶ Saída</div></div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol14-4">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">nomes</span> = []
+<span class="var">precos</span> = []
+<span class="kw">for</span> <span class="var">i</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="num">4</span>):
+    <span class="var">nome</span> = <span class="fn">input</span>(<span class="str">'Nome do produto {}: '</span>.<span class="fn">format</span>(<span class="var">i</span> + <span class="num">1</span>))
+    <span class="var">preco</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Preço: '</span>))
+    <span class="var">nomes</span>.<span class="fn">append</span>(<span class="var">nome</span>)
+    <span class="var">precos</span>.<span class="fn">append</span>(<span class="var">preco</span>)
+
+<span class="fn">print</span>(<span class="str">'\n'</span> + <span class="num">30</span> * <span class="str">'-'</span>)
+<span class="fn">print</span>(<span class="str">'{:<20} {}'</span>.<span class="fn">format</span>(<span class="str">'Produto'</span>, <span class="str">'Preço'</span>))
+<span class="fn">print</span>(<span class="num">30</span> * <span class="str">'-'</span>)
+<span class="kw">for</span> <span class="var">i</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="fn">len</span>(<span class="var">nomes</span>)):
+    <span class="fn">print</span>(<span class="str">'{:<20} R$ {:.2f}'</span>.<span class="fn">format</span>(<span class="var">nomes</span>[<span class="var">i</span>], <span class="var">precos</span>[<span class="var">i</span>]))
+<span class="fn">print</span>(<span class="num">30</span> * <span class="str">'-'</span>)
+
+<span class="var">idx_caro</span> = <span class="var">precos</span>.<span class="fn">index</span>(<span class="fn">max</span>(<span class="var">precos</span>))
+<span class="fn">print</span>(<span class="str">'Mais caro: {} (R$ {:.2f})'</span>.<span class="fn">format</span>(<span class="var">nomes</span>[<span class="var">idx_caro</span>], <span class="var">precos</span>[<span class="var">idx_caro</span>]))
+<span class="fn">print</span>(<span class="str">'Total: R$ {:.2f}'</span>.<span class="fn">format</span>(<span class="fn">sum</span>(<span class="var">precos</span>)))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <button class="btn btn-nav" onclick="goTo(13)">← Anterior</button>
+      <button class="btn btn-success" onclick="completeAndNext(14)">Concluir curso ✓</button>
     </div>
   </div>
 
