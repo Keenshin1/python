@@ -16,7 +16,7 @@
       <div class="logo-icon">Py</div>
       <div>
         <div class="logo-text">Aprenda Python</div>
-        <div class="logo-sub">10 módulos · do zero</div>
+        <div class="logo-sub">13 módulos · do zero</div>
       </div>
     </div>
   </div>
@@ -24,7 +24,7 @@
   <div class="progress-bar-wrap">
     <div class="progress-label">
       <span>Progresso</span>
-      <span id="progress-text">0 / 10</span>
+      <span id="progress-text">0 / 13</span>
     </div>
     <div class="progress-track">
       <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
@@ -34,7 +34,7 @@
   <div class="nav-section">
     <div class="nav-label">Módulos</div>
 
-    <button class="nav-item active" onclick="goTo(1)" id="nav-1">
+        <button class="nav-item active" onclick="goTo(1)" id="nav-1">
       <span class="nav-dot"></span>
       <span class="nav-num">01</span>
       <span>Saída de dados</span>
@@ -93,13 +93,30 @@
       <span class="nav-num">10</span>
       <span>Desafio final</span>
     </button>
+
+    <button class="nav-item" onclick="goTo(11)" id="nav-11">
+      <span class="nav-dot"></span>
+      <span class="nav-num">11</span>
+      <span>Condicionais</span>
+    </button>
+
+    <button class="nav-item" onclick="goTo(12)" id="nav-12">
+      <span class="nav-dot"></span>
+      <span class="nav-num">12</span>
+      <span>Laços de repetição</span>
+    </button>
+
+    <button class="nav-item" onclick="goTo(13)" id="nav-13">
+      <span class="nav-dot"></span>
+      <span class="nav-num">13</span>
+      <span>Funções</span>
+    </button>
   </div>
 </aside>
 
 <main class="main">
 
-  <!-- LESSON 1: print -->
-  <div class="lesson active" id="lesson-1">
+    <div class="lesson active" id="lesson-1">
     <div class="lesson-header">
       <div class="lesson-badge">Módulo 01</div>
       <div class="lesson-title">Saída de dados com <code style="font-size:22px;">print()</code></div>
@@ -246,7 +263,6 @@
     </div>
   </div>
 
-  <!-- LESSON 2: input -->
   <div class="lesson" id="lesson-2">
     <div class="lesson-header">
       <div class="lesson-badge">Módulo 02</div>
@@ -372,7 +388,6 @@
     </div>
   </div>
 
-  <!-- LESSON 3: Operações matemáticas -->
   <div class="lesson" id="lesson-3">
     <div class="lesson-header">
       <div class="lesson-badge">Módulo 03</div>
@@ -546,7 +561,6 @@
     </div>
   </div>
 
-  <!-- LESSON 4: Tipos e strings -->
   <div class="lesson" id="lesson-4">
     <div class="lesson-header">
       <div class="lesson-badge">Módulo 04</div>
@@ -674,7 +688,6 @@
     </div>
   </div>
 
-  <!-- LESSON 5: Formatação -->
   <div class="lesson" id="lesson-5">
     <div class="lesson-header">
       <div class="lesson-badge">Módulo 05</div>
@@ -819,7 +832,6 @@
     </div>
   </div>
 
-  <!-- LESSON 6: import math -->
   <div class="lesson" id="lesson-6">
     <div class="lesson-header">
       <div class="lesson-badge">Módulo 06</div>
@@ -941,7 +953,6 @@
     </div>
   </div>
 
-  <!-- LESSON 7: Problemas práticos -->
   <div class="lesson" id="lesson-7">
     <div class="lesson-header">
       <div class="lesson-badge">Módulo 07</div>
@@ -1081,7 +1092,6 @@
     </div>
   </div>
 
-  <!-- LESSON 8: random -->
   <div class="lesson" id="lesson-8">
     <div class="lesson-header">
       <div class="lesson-badge">Módulo 08</div>
@@ -1212,7 +1222,6 @@
     </div>
   </div>
 
-  <!-- LESSON 9: Conversão de unidades -->
   <div class="lesson" id="lesson-9">
     <div class="lesson-header">
       <div class="lesson-badge">Módulo 09</div>
@@ -1326,7 +1335,6 @@
     </div>
   </div>
 
-  <!-- LESSON 10: Desafio final -->
   <div class="lesson" id="lesson-10">
     <div class="lesson-header">
       <div class="lesson-badge">Módulo 10 · Desafio Final</div>
@@ -1465,7 +1473,555 @@
 
     <div class="lesson-nav">
       <button class="btn btn-nav" onclick="goTo(9)">← Anterior</button>
-      <button class="btn btn-success" onclick="completeAndNext(10)">Concluir curso ✓</button>
+      <button class="btn btn-primary" onclick="completeAndNext(10)">Próximo módulo →</button>
+    </div>
+  </div>
+
+  <div class="lesson" id="lesson-11">
+    <div class="lesson-header">
+      <div class="lesson-badge">Módulo 11</div>
+      <div class="lesson-title">Condicionais: <code style="font-size:22px;">if / elif / else</code></div>
+      <div class="lesson-subtitle">Tome decisões no seu programa com base em condições verdadeiras ou falsas.</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Conceito</div>
+
+    <div class="explanation">
+      Todo programa precisa tomar decisões. Em Python, usamos <code>if</code> para executar um bloco de código apenas quando uma condição for verdadeira, <code>elif</code> para verificar uma segunda condição e <code>else</code> para o caso em que nenhuma condição anterior foi satisfeita.
+    </div>
+
+    <div class="explanation">
+      A <strong>indentação</strong> (recuo de 4 espaços ou Tab) é obrigatória em Python — ela define quais linhas pertencem a cada bloco condicional.
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">Python</div>
+      </div>
+      <pre><span class="var">idade</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Sua idade: '</span>))
+
+<span class="kw">if</span> <span class="var">idade</span> >= <span class="num">18</span>:
+    <span class="fn">print</span>(<span class="str">'Maior de idade'</span>)
+<span class="kw">elif</span> <span class="var">idade</span> >= <span class="num">16</span>:
+    <span class="fn">print</span>(<span class="str">'Pode votar, mas não pode dirigir'</span>)
+<span class="kw">else</span>:
+    <span class="fn">print</span>(<span class="str">'Menor de idade'</span>)</pre>
+    </div>
+
+    <div class="info-box">
+      <strong>Operadores de comparação</strong><br>
+      <code>==</code> igual &nbsp;|&nbsp; <code>!=</code> diferente &nbsp;|&nbsp; <code>&gt;</code> maior &nbsp;|&nbsp; <code>&lt;</code> menor &nbsp;|&nbsp; <code>&gt;=</code> maior ou igual &nbsp;|&nbsp; <code>&lt;=</code> menor ou igual
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Operadores lógicos</div>
+
+    <div class="explanation">
+      Use <code>and</code>, <code>or</code> e <code>not</code> para combinar múltiplas condições em uma única expressão.
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">Operadores lógicos</div>
+      </div>
+      <pre><span class="var">nota</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Nota: '</span>))
+<span class="var">faltas</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Faltas: '</span>))
+
+<span class="kw">if</span> <span class="var">nota</span> >= <span class="num">7.0</span> <span class="kw">and</span> <span class="var">faltas</span> <= <span class="num">5</span>:
+    <span class="fn">print</span>(<span class="str">'Aprovado!'</span>)
+<span class="kw">else</span>:
+    <span class="fn">print</span>(<span class="str">'Reprovado.'</span>)</pre>
+    </div>
+
+    <div class="info-box yellow">
+      <strong>Atenção: = vs ==</strong>
+      Dentro de condições use sempre <code>==</code> (dois sinais de igual) para comparar. Um único <code>=</code> serve apenas para atribuir valores a variáveis.
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Exercícios de fixação</div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">01</div>
+        <div>
+          <div class="exercise-title">Par ou ímpar</div>
+          <div class="exercise-sub">Usando o operador módulo com if/else</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia um número inteiro e informe se ele é <strong>par</strong> ou <strong>ímpar</strong>. Dica: um número é par quando o resto da divisão por 2 é igual a zero (<code>n % 2 == 0</code>).</div>
+        <textarea class="exercise-input" id="ex11-1" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex11-1', 'ex11-1-inputs')"></textarea>
+        <div class="input-fields" id="ex11-1-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex11-1', 'ex11-1-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol11-1')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex11-1-out">
+          <div class="output-terminal-header"><div class="output-terminal-label">▶ Saída</div></div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol11-1">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">n</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Digite um número: '</span>))
+<span class="kw">if</span> <span class="var">n</span> % <span class="num">2</span> == <span class="num">0</span>:
+    <span class="fn">print</span>(<span class="str">'O número {} é par.'</span>.<span class="fn">format</span>(<span class="var">n</span>))
+<span class="kw">else</span>:
+    <span class="fn">print</span>(<span class="str">'O número {} é ímpar.'</span>.<span class="fn">format</span>(<span class="var">n</span>))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">02</div>
+        <div>
+          <div class="exercise-title">Classificador de notas</div>
+          <div class="exercise-sub">Usando if / elif / else encadeado</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia a nota de um aluno (0 a 10) e exiba o conceito correspondente: <strong>A</strong> (9–10), <strong>B</strong> (7–8.9), <strong>C</strong> (5–6.9), <strong>D</strong> (abaixo de 5).</div>
+        <textarea class="exercise-input" id="ex11-2" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex11-2', 'ex11-2-inputs')"></textarea>
+        <div class="input-fields" id="ex11-2-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex11-2', 'ex11-2-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol11-2')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex11-2-out">
+          <div class="output-terminal-header"><div class="output-terminal-label">▶ Saída</div></div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol11-2">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">nota</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Nota do aluno: '</span>))
+<span class="kw">if</span> <span class="var">nota</span> >= <span class="num">9</span>:
+    <span class="fn">print</span>(<span class="str">'Conceito: A'</span>)
+<span class="kw">elif</span> <span class="var">nota</span> >= <span class="num">7</span>:
+    <span class="fn">print</span>(<span class="str">'Conceito: B'</span>)
+<span class="kw">elif</span> <span class="var">nota</span> >= <span class="num">5</span>:
+    <span class="fn">print</span>(<span class="str">'Conceito: C'</span>)
+<span class="kw">else</span>:
+    <span class="fn">print</span>(<span class="str">'Conceito: D'</span>)</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">03</div>
+        <div>
+          <div class="exercise-title">Aprovação com faltas</div>
+          <div class="exercise-sub">Usando operador lógico and</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia a nota (0–10) e o número de faltas de um aluno. Ele é <strong>Aprovado</strong> se nota >= 6 <strong>e</strong> faltas <= 5. Se faltas > 5, é <strong>Reprovado por falta</strong>. Se nota < 6, é <strong>Reprovado por nota</strong>.</div>
+        <textarea class="exercise-input" id="ex11-3" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex11-3', 'ex11-3-inputs')"></textarea>
+        <div class="input-fields" id="ex11-3-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex11-3', 'ex11-3-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol11-3')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex11-3-out">
+          <div class="output-terminal-header"><div class="output-terminal-label">▶ Saída</div></div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol11-3">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">nota</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Nota: '</span>))
+<span class="var">faltas</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Faltas: '</span>))
+<span class="kw">if</span> <span class="var">nota</span> >= <span class="num">6</span> <span class="kw">and</span> <span class="var">faltas</span> <= <span class="num">5</span>:
+    <span class="fn">print</span>(<span class="str">'Aprovado!'</span>)
+<span class="kw">elif</span> <span class="var">faltas</span> > <span class="num">5</span>:
+    <span class="fn">print</span>(<span class="str">'Reprovado por falta.'</span>)
+<span class="kw">else</span>:
+    <span class="fn">print</span>(<span class="str">'Reprovado por nota.'</span>)</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <button class="btn btn-nav" onclick="goTo(10)">← Anterior</button>
+      <button class="btn btn-primary" onclick="completeAndNext(11)">Próximo módulo →</button>
+    </div>
+  </div>
+
+  <div class="lesson" id="lesson-12">
+    <div class="lesson-header">
+      <div class="lesson-badge">Módulo 12</div>
+      <div class="lesson-title">Laços de repetição: <code style="font-size:22px;">for / while</code></div>
+      <div class="lesson-subtitle">Execute blocos de código múltiplas vezes de forma automática.</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">O laço for</div>
+
+    <div class="explanation">
+      O <code>for</code> em Python percorre uma sequência de valores. Combinado com <code>range()</code>, você controla quantas vezes o bloco se repete e com quais valores.
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">for com range()</div>
+      </div>
+      <pre><span class="com"># range(5) gera: 0, 1, 2, 3, 4</span>
+<span class="kw">for</span> <span class="var">i</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="num">5</span>):
+    <span class="fn">print</span>(<span class="str">'Iteração'</span>, <span class="var">i</span>)
+
+<span class="com"># range(1, 6) gera: 1, 2, 3, 4, 5</span>
+<span class="kw">for</span> <span class="var">i</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="num">1</span>, <span class="num">6</span>):
+    <span class="fn">print</span>(<span class="var">i</span>)
+
+<span class="com"># range(0, 11, 2) gera: 0, 2, 4, 6, 8, 10</span>
+<span class="kw">for</span> <span class="var">i</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="num">0</span>, <span class="num">11</span>, <span class="num">2</span>):
+    <span class="fn">print</span>(<span class="var">i</span>)</pre>
+    </div>
+
+    <div class="info-box">
+      <strong>range(início, fim, passo)</strong>
+      <code>range(5)</code> — de 0 até 4 &nbsp;|&nbsp; <code>range(1,6)</code> — de 1 até 5 &nbsp;|&nbsp; <code>range(0,10,2)</code> — pares de 0 a 8
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">O laço while</div>
+
+    <div class="explanation">
+      O <code>while</code> repete o bloco enquanto uma condição for verdadeira. É útil quando você não sabe de antemão quantas repetições serão necessárias. Cuidado: se a condição nunca ficar falsa, o programa entra em loop infinito!
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">while</div>
+      </div>
+      <pre><span class="var">contador</span> = <span class="num">1</span>
+<span class="kw">while</span> <span class="var">contador</span> <= <span class="num">5</span>:
+    <span class="fn">print</span>(<span class="str">'Contagem:'</span>, <span class="var">contador</span>)
+    <span class="var">contador</span> = <span class="var">contador</span> + <span class="num">1</span>  <span class="com"># ou: contador += 1</span></pre>
+    </div>
+
+    <div class="info-box yellow">
+      <strong>Atenção</strong>
+      Sempre garanta que a variável de controle do <code>while</code> seja atualizada dentro do loop, caso contrário o programa nunca para.
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Exercícios de fixação</div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">01</div>
+        <div>
+          <div class="exercise-title">Tabuada</div>
+          <div class="exercise-sub">Usando for com range()</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia um número inteiro e exiba sua <strong>tabuada completa</strong> (de 1 a 10), no formato: <code>5 x 1 = 5</code>, <code>5 x 2 = 10</code>, ...</div>
+        <textarea class="exercise-input" id="ex12-1" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex12-1', 'ex12-1-inputs')"></textarea>
+        <div class="input-fields" id="ex12-1-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex12-1', 'ex12-1-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol12-1')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex12-1-out">
+          <div class="output-terminal-header"><div class="output-terminal-label">▶ Saída</div></div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol12-1">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">n</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Número para tabuada: '</span>))
+<span class="kw">for</span> <span class="var">i</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="num">1</span>, <span class="num">11</span>):
+    <span class="fn">print</span>(<span class="str">'{} x {} = {}'</span>.<span class="fn">format</span>(<span class="var">n</span>, <span class="var">i</span>, <span class="var">n</span> * <span class="var">i</span>))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">02</div>
+        <div>
+          <div class="exercise-title">Soma acumulada</div>
+          <div class="exercise-sub">Acumulando valores em uma variável</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia um número inteiro <strong>N</strong> e calcule e exiba a <strong>soma de todos os números de 1 até N</strong>. Por exemplo, se N=5, a soma é 1+2+3+4+5 = 15.</div>
+        <textarea class="exercise-input" id="ex12-2" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex12-2', 'ex12-2-inputs')"></textarea>
+        <div class="input-fields" id="ex12-2-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex12-2', 'ex12-2-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol12-2')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex12-2-out">
+          <div class="output-terminal-header"><div class="output-terminal-label">▶ Saída</div></div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol12-2">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">n</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Digite N: '</span>))
+<span class="var">soma</span> = <span class="num">0</span>
+<span class="kw">for</span> <span class="var">i</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="num">1</span>, <span class="var">n</span> + <span class="num">1</span>):
+    <span class="var">soma</span> = <span class="var">soma</span> + <span class="var">i</span>
+<span class="fn">print</span>(<span class="str">'Soma de 1 a {}: {}'</span>.<span class="fn">format</span>(<span class="var">n</span>, <span class="var">soma</span>))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">03</div>
+        <div>
+          <div class="exercise-title">Contagem regressiva</div>
+          <div class="exercise-sub">Usando while com decrementação</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia um número inteiro positivo e use <code>while</code> para exibir uma <strong>contagem regressiva</strong> desde esse número até 0, e ao final exiba <strong>"Fogo!"</strong>.</div>
+        <textarea class="exercise-input" id="ex12-3" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex12-3', 'ex12-3-inputs')"></textarea>
+        <div class="input-fields" id="ex12-3-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex12-3', 'ex12-3-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol12-3')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex12-3-out">
+          <div class="output-terminal-header"><div class="output-terminal-label">▶ Saída</div></div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol12-3">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">n</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Início da contagem: '</span>))
+<span class="kw">while</span> <span class="var">n</span> >= <span class="num">0</span>:
+    <span class="fn">print</span>(<span class="var">n</span>)
+    <span class="var">n</span> -= <span class="num">1</span>
+<span class="fn">print</span>(<span class="str">'Fogo!'</span>)</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <button class="btn btn-nav" onclick="goTo(11)">← Anterior</button>
+      <button class="btn btn-primary" onclick="completeAndNext(12)">Próximo módulo →</button>
+    </div>
+  </div>
+
+  <div class="lesson" id="lesson-13">
+    <div class="lesson-header">
+      <div class="lesson-badge">Módulo 13</div>
+      <div class="lesson-title">Funções com <code style="font-size:22px;">def</code></div>
+      <div class="lesson-subtitle">Agrupe blocos de código reutilizáveis em funções com parâmetros e retorno.</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Conceito</div>
+
+    <div class="explanation">
+      Uma <strong>função</strong> é um bloco de código nomeado que pode ser executado ("chamado") quantas vezes quiser. Funções evitam repetição de código e tornam o programa mais organizado.
+    </div>
+
+    <div class="explanation">
+      Definimos uma função com a palavra-chave <code>def</code>, seguida do nome e dos <strong>parâmetros</strong> entre parênteses. O <code>return</code> devolve um valor para quem chamou a função.
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">Definindo e chamando funções</div>
+      </div>
+      <pre><span class="kw">def</span> <span class="fn">saudacao</span>(<span class="var">nome</span>):
+    <span class="fn">print</span>(<span class="str">'Olá, {}!'</span>.<span class="fn">format</span>(<span class="var">nome</span>))
+
+<span class="fn">saudacao</span>(<span class="str">'Ana'</span>)    <span class="com"># saída: Olá, Ana!</span>
+<span class="fn">saudacao</span>(<span class="str">'Bruno'</span>)  <span class="com"># saída: Olá, Bruno!</span></pre>
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">Função com return</div>
+      </div>
+      <pre><span class="kw">def</span> <span class="fn">soma</span>(<span class="var">a</span>, <span class="var">b</span>):
+    <span class="kw">return</span> <span class="var">a</span> + <span class="var">b</span>
+
+<span class="var">resultado</span> = <span class="fn">soma</span>(<span class="num">10</span>, <span class="num">5</span>)
+<span class="fn">print</span>(<span class="var">resultado</span>)  <span class="com"># saída: 15</span></pre>
+    </div>
+
+    <div class="info-box green">
+      <strong>Boas práticas</strong>
+      Nomeie suas funções com verbos que descrevam o que fazem: <code>calcular_area()</code>, <code>converter_temperatura()</code>, <code>verificar_par()</code>. Use underline para separar palavras.
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Parâmetros com valor padrão</div>
+
+    <div class="explanation">
+      Parâmetros podem ter um <strong>valor padrão</strong>. Se o chamador não passar esse argumento, o valor padrão é usado automaticamente.
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">Valor padrão</div>
+      </div>
+      <pre><span class="kw">def</span> <span class="fn">potencia</span>(<span class="var">base</span>, <span class="var">expoente</span>=<span class="num">2</span>):
+    <span class="kw">return</span> <span class="var">base</span> ** <span class="var">expoente</span>
+
+<span class="fn">print</span>(<span class="fn">potencia</span>(<span class="num">4</span>))     <span class="com"># 16  (expoente padrão = 2)</span>
+<span class="fn">print</span>(<span class="fn">potencia</span>(<span class="num">2</span>, <span class="num">10</span>)) <span class="com"># 1024</span></pre>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Exercícios de fixação</div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">01</div>
+        <div>
+          <div class="exercise-title">Calculadora de área</div>
+          <div class="exercise-sub">Criando e chamando uma função simples</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Crie uma função chamada <code>calcular_area(largura, altura)</code> que retorna a área de um retângulo. Leia largura e altura com <code>input()</code>, chame a função e exiba o resultado.</div>
+        <textarea class="exercise-input" id="ex13-1" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex13-1', 'ex13-1-inputs')"></textarea>
+        <div class="input-fields" id="ex13-1-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex13-1', 'ex13-1-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol13-1')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex13-1-out">
+          <div class="output-terminal-header"><div class="output-terminal-label">▶ Saída</div></div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol13-1">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="kw">def</span> <span class="fn">calcular_area</span>(<span class="var">largura</span>, <span class="var">altura</span>):
+    <span class="kw">return</span> <span class="var">largura</span> * <span class="var">altura</span>
+
+<span class="var">l</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Largura: '</span>))
+<span class="var">h</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Altura: '</span>))
+<span class="var">area</span> = <span class="fn">calcular_area</span>(<span class="var">l</span>, <span class="var">h</span>)
+<span class="fn">print</span>(<span class="str">'Área do retângulo: {} m²'</span>.<span class="fn">format</span>(<span class="var">area</span>))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">02</div>
+        <div>
+          <div class="exercise-title">Conversor de temperatura</div>
+          <div class="exercise-sub">Função reutilizável com return</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Crie a função <code>celsius_para_fahrenheit(c)</code> que converte Celsius em Fahrenheit (fórmula: <code>F = C * 9/5 + 32</code>). Leia uma temperatura em Celsius e exiba o resultado em Fahrenheit com 1 casa decimal.</div>
+        <textarea class="exercise-input" id="ex13-2" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex13-2', 'ex13-2-inputs')"></textarea>
+        <div class="input-fields" id="ex13-2-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex13-2', 'ex13-2-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol13-2')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex13-2-out">
+          <div class="output-terminal-header"><div class="output-terminal-label">▶ Saída</div></div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol13-2">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="kw">def</span> <span class="fn">celsius_para_fahrenheit</span>(<span class="var">c</span>):
+    <span class="kw">return</span> <span class="var">c</span> * <span class="num">9</span> / <span class="num">5</span> + <span class="num">32</span>
+
+<span class="var">temp_c</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Temperatura em Celsius: '</span>))
+<span class="var">temp_f</span> = <span class="fn">celsius_para_fahrenheit</span>(<span class="var">temp_c</span>)
+<span class="fn">print</span>(<span class="str">'{:.1f}°C = {:.1f}°F'</span>.<span class="fn">format</span>(<span class="var">temp_c</span>, <span class="var">temp_f</span>))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon" style="background: var(--orange);">★</div>
+        <div>
+          <div class="exercise-title">Verificador de número primo</div>
+          <div class="exercise-sub">Combinando funções, for e condicionais</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Crie a função <code>eh_primo(n)</code> que retorna <code>True</code> se <strong>n</strong> for primo e <code>False</code> caso contrário. Um número primo é divisível apenas por 1 e por ele mesmo. Leia um número, chame a função e exiba o resultado.</div>
+        <textarea class="exercise-input" id="ex13-3" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex13-3', 'ex13-3-inputs')"></textarea>
+        <div class="input-fields" id="ex13-3-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex13-3', 'ex13-3-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol13-3')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex13-3-out">
+          <div class="output-terminal-header"><div class="output-terminal-label">▶ Saída</div></div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol13-3">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="kw">def</span> <span class="fn">eh_primo</span>(<span class="var">n</span>):
+    <span class="kw">if</span> <span class="var">n</span> < <span class="num">2</span>:
+        <span class="kw">return</span> <span class="kw">False</span>
+    <span class="kw">for</span> <span class="var">i</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="num">2</span>, <span class="var">n</span>):
+        <span class="kw">if</span> <span class="var">n</span> % <span class="var">i</span> == <span class="num">0</span>:
+            <span class="kw">return</span> <span class="kw">False</span>
+    <span class="kw">return</span> <span class="kw">True</span>
+
+<span class="var">num</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Digite um número: '</span>))
+<span class="kw">if</span> <span class="fn">eh_primo</span>(<span class="var">num</span>):
+    <span class="fn">print</span>(<span class="str">'{} é primo.'</span>.<span class="fn">format</span>(<span class="var">num</span>))
+<span class="kw">else</span>:
+    <span class="fn">print</span>(<span class="str">'{} não é primo.'</span>.<span class="fn">format</span>(<span class="var">num</span>))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <button class="btn btn-nav" onclick="goTo(12)">← Anterior</button>
+      <button class="btn btn-success" onclick="completeAndNext(13)">Concluir curso ✓</button>
     </div>
   </div>
 

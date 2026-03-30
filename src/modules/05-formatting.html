@@ -1,0 +1,144 @@
+<!-- module: num="5" nav="Formatação de saída" -->
+  <div class="lesson" id="lesson-5">
+    <div class="lesson-header">
+      <div class="lesson-badge">Módulo 05</div>
+      <div class="lesson-title">Formatação de saída</div>
+      <div class="lesson-subtitle">Controlando casas decimais, alinhamento e como os dados aparecem na tela.</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Conceito</div>
+
+    <div class="explanation">
+      O método <code>.format()</code> é uma forma mais organizada de montar strings com variáveis. Em vez de usar <code>+</code> e <code>str()</code>, você escreve <code>{}</code> dentro da string onde quer inserir um valor, e passa os valores dentro de <code>.format()</code>:
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">Básico do .format()</div>
+      </div>
+      <pre><span class="var">nome</span> = <span class="str">'Tainá'</span>
+<span class="var">idade</span> = <span class="num">28</span>
+
+<span class="com"># com +  e str() — jeito antigo</span>
+<span class="fn">print</span>(<span class="str">'Olá '</span> + <span class="var">nome</span> + <span class="str">', você tem '</span> + <span class="fn">str</span>(<span class="var">idade</span>) + <span class="str">' anos.'</span>)
+
+<span class="com"># com .format() — mais limpo</span>
+<span class="fn">print</span>(<span class="str">'Olá {}, você tem {} anos.'</span>.<span class="fn">format</span>(<span class="var">nome</span>, <span class="var">idade</span>))</pre>
+    </div>
+
+    <div class="explanation">
+      Dentro das chaves <code>{}</code> você também pode usar especificadores para controlar como os números são exibidos — útil especialmente para decimais:
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">Exemplos de formatação</div>
+      </div>
+      <pre><span class="var">n</span> = <span class="num">3.14159</span>
+<span class="var">nota</span> = <span class="num">8.5</span>
+
+<span class="fn">print</span>(<span class="str">'{:.2f}'</span>.<span class="fn">format</span>(<span class="var">n</span>))      <span class="com"># 3.14 — 2 decimais</span>
+<span class="fn">print</span>(<span class="str">'{:.0f}'</span>.<span class="fn">format</span>(<span class="var">n</span>))      <span class="com"># 3 — sem decimais</span>
+<span class="fn">print</span>(<span class="str">'{:10.2f}'</span>.<span class="fn">format</span>(<span class="var">n</span>))    <span class="com"># "      3.14" — largura 10</span>
+<span class="fn">print</span>(<span class="str">'{:1f}'</span>.<span class="fn">format</span>(<span class="var">nota</span>))    <span class="com"># 8.5</span>
+
+<span class="com"># f-strings (Python 3.6+) — alternativa moderna</span>
+<span class="fn">print</span>(<span class="kw">f</span><span class="str">'Nota: {nota:.1f}'</span>)</pre>
+    </div>
+
+    <div class="info-box">
+      <strong>Separador de linhas</strong>
+      Você pode repetir um caractere com <code>*</code>: <code>print(20 * '=')</code> imprime 20 sinais de igual seguidos. Útil para criar bordas visuais.
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Exercícios de fixação</div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">01</div>
+        <div>
+          <div class="exercise-title">Média do aluno</div>
+          <div class="exercise-sub">Cálculo e formatação de float</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia duas notas de um aluno (decimais), calcule a média e exiba com <strong>1 casa decimal</strong>.</div>
+        <textarea class="exercise-input" id="ex5-1" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex5-1', 'ex5-1-inputs')"></textarea>
+        <div class="input-fields" id="ex5-1-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex5-1', 'ex5-1-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol5-1')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex5-1-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol5-1">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">n1</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Primeira nota: '</span>))
+<span class="var">n2</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Segunda nota: '</span>))
+<span class="fn">print</span>(<span class="str">'Média: {:.1f}'</span>.<span class="fn">format</span>((<span class="var">n1</span>+<span class="var">n2</span>)/<span class="num">2</span>))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">02</div>
+        <div>
+          <div class="exercise-title">Tabuada formatada</div>
+          <div class="exercise-sub">Repetição de linhas e alinhamento</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia um número inteiro e mostre sua tabuada completa (de 1 a 10), com uma borda de <code>=</code> antes e depois. Use <code>20 * '='</code> para a borda.</div>
+        <textarea class="exercise-input" id="ex5-2" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex5-2', 'ex5-2-inputs')"></textarea>
+        <div class="input-fields" id="ex5-2-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex5-2', 'ex5-2-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol5-2')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex5-2-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol5-2">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">n</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Número: '</span>))
+<span class="fn">print</span>(<span class="num">20</span> * <span class="str">'='</span>)
+<span class="fn">print</span>(<span class="str">'{} x  1 = {}'</span>.<span class="fn">format</span>(<span class="var">n</span>, <span class="var">n</span>*<span class="num">1</span>))
+<span class="fn">print</span>(<span class="str">'{} x  2 = {}'</span>.<span class="fn">format</span>(<span class="var">n</span>, <span class="var">n</span>*<span class="num">2</span>))
+<span class="fn">print</span>(<span class="str">'{} x  3 = {}'</span>.<span class="fn">format</span>(<span class="var">n</span>, <span class="var">n</span>*<span class="num">3</span>))
+<span class="fn">print</span>(<span class="str">'{} x  4 = {}'</span>.<span class="fn">format</span>(<span class="var">n</span>, <span class="var">n</span>*<span class="num">4</span>))
+<span class="fn">print</span>(<span class="str">'{} x  5 = {}'</span>.<span class="fn">format</span>(<span class="var">n</span>, <span class="var">n</span>*<span class="num">5</span>))
+<span class="fn">print</span>(<span class="str">'{} x  6 = {}'</span>.<span class="fn">format</span>(<span class="var">n</span>, <span class="var">n</span>*<span class="num">6</span>))
+<span class="fn">print</span>(<span class="str">'{} x  7 = {}'</span>.<span class="fn">format</span>(<span class="var">n</span>, <span class="var">n</span>*<span class="num">7</span>))
+<span class="fn">print</span>(<span class="str">'{} x  8 = {}'</span>.<span class="fn">format</span>(<span class="var">n</span>, <span class="var">n</span>*<span class="num">8</span>))
+<span class="fn">print</span>(<span class="str">'{} x  9 = {}'</span>.<span class="fn">format</span>(<span class="var">n</span>, <span class="var">n</span>*<span class="num">9</span>))
+<span class="fn">print</span>(<span class="str">'{} x 10 = {}'</span>.<span class="fn">format</span>(<span class="var">n</span>, <span class="var">n</span>*<span class="num">10</span>))
+<span class="fn">print</span>(<span class="num">20</span> * <span class="str">'='</span>)</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <button class="btn btn-nav" onclick="goTo(4)">← Anterior</button>
+      <button class="btn btn-primary" onclick="completeAndNext(5)">Próximo módulo →</button>
+    </div>
+  </div>

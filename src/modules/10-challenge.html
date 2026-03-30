@@ -1,0 +1,142 @@
+<!-- module: num="10" nav="Desafio final" -->
+  <div class="lesson" id="lesson-10">
+    <div class="lesson-header">
+      <div class="lesson-badge">Módulo 10 · Desafio Final</div>
+      <div class="lesson-title">Colocando tudo junto</div>
+      <div class="lesson-subtitle">Desafios que combinam múltiplos conceitos aprendidos ao longo do curso.</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="info-box green">
+      <strong>Parabéns por chegar até aqui!</strong>
+      Você aprendeu: print, input, tipos, operações, formatação, módulos math e random, listas e conversão de unidades. Agora é hora do desafio final.
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Desafios</div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon" style="background: var(--orange);">★</div>
+        <div>
+          <div class="exercise-title">Calculadora de tinta</div>
+          <div class="exercise-sub">Área + divisão + formatação</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia a <strong>largura</strong> e a <strong>altura</strong> de uma parede em metros. Calcule a área e quantos litros de tinta são necessários sabendo que <strong>1 litro pinta 2m²</strong>. Exiba os dois valores.</div>
+        <textarea class="exercise-input" id="ex10-1" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex10-1', 'ex10-1-inputs')"></textarea>
+        <div class="input-fields" id="ex10-1-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex10-1', 'ex10-1-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol10-1')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex10-1-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol10-1">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">largura</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Largura da parede (m): '</span>))
+<span class="var">altura</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Altura da parede (m): '</span>))
+<span class="var">area</span> = <span class="var">largura</span> * <span class="var">altura</span>
+<span class="var">tinta</span> = <span class="var">area</span> / <span class="num">2</span>
+<span class="fn">print</span>(<span class="str">'Área: {}m²'</span>.<span class="fn">format</span>(<span class="var">area</span>))
+<span class="fn">print</span>(<span class="str">'Tinta necessária: {} litros'</span>.<span class="fn">format</span>(<span class="var">tinta</span>))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon" style="background: var(--orange);">★</div>
+        <div>
+          <div class="exercise-title">Mega análise de número</div>
+          <div class="exercise-sub">Operações + formatação + math</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia um número real e exiba em um único programa: parte inteira (<code>trunc</code>), raiz quadrada (2 decimais), dobro, triplo, antecessor e sucessor.</div>
+        <textarea class="exercise-input" id="ex10-2" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex10-2', 'ex10-2-inputs')"></textarea>
+        <div class="input-fields" id="ex10-2-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex10-2', 'ex10-2-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol10-2')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex10-2-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol10-2">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="kw">from</span> math <span class="kw">import</span> trunc
+
+<span class="var">n</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Digite um número real: '</span>))
+<span class="fn">print</span>(<span class="str">'Parte inteira: {}'</span>.<span class="fn">format</span>(<span class="fn">trunc</span>(<span class="var">n</span>)))
+<span class="fn">print</span>(<span class="str">'Raiz quadrada: {:.2f}'</span>.<span class="fn">format</span>(<span class="var">n</span> ** (<span class="num">1</span>/<span class="num">2</span>)))
+<span class="fn">print</span>(<span class="str">'Dobro: {}'</span>.<span class="fn">format</span>(<span class="var">n</span> * <span class="num">2</span>))
+<span class="fn">print</span>(<span class="str">'Triplo: {}'</span>.<span class="fn">format</span>(<span class="var">n</span> * <span class="num">3</span>))
+<span class="fn">print</span>(<span class="str">'Antecessor: {}'</span>.<span class="fn">format</span>(<span class="var">n</span> - <span class="num">1</span>))
+<span class="fn">print</span>(<span class="str">'Sucessor: {}'</span>.<span class="fn">format</span>(<span class="var">n</span> + <span class="num">1</span>))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon" style="background: var(--red);">★★</div>
+        <div>
+          <div class="exercise-title">Calculadora completa</div>
+          <div class="exercise-sub">Combinando todas as operações</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia dois números reais e exiba: a soma, a subtração, a multiplicação, a divisão (2 casas decimais), a potência do primeiro elevado ao segundo e o resto da divisão inteira. Use uma borda de <code>=</code> antes e depois dos resultados.</div>
+        <textarea class="exercise-input" id="ex10-3" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex10-3', 'ex10-3-inputs')"></textarea>
+        <div class="input-fields" id="ex10-3-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex10-3', 'ex10-3-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol10-3')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex10-3-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol10-3">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">a</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Primeiro número: '</span>))
+<span class="var">b</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Segundo número: '</span>))
+<span class="fn">print</span>(<span class="num">20</span> * <span class="str">'='</span>)
+<span class="fn">print</span>(<span class="str">'Soma: {}'</span>.<span class="fn">format</span>(<span class="var">a</span> + <span class="var">b</span>))
+<span class="fn">print</span>(<span class="str">'Subtração: {}'</span>.<span class="fn">format</span>(<span class="var">a</span> - <span class="var">b</span>))
+<span class="fn">print</span>(<span class="str">'Multiplicação: {}'</span>.<span class="fn">format</span>(<span class="var">a</span> * <span class="var">b</span>))
+<span class="fn">print</span>(<span class="str">'Divisão: {:.2f}'</span>.<span class="fn">format</span>(<span class="var">a</span> / <span class="var">b</span>))
+<span class="fn">print</span>(<span class="str">'Potência: {}'</span>.<span class="fn">format</span>(<span class="var">a</span> ** <span class="var">b</span>))
+<span class="fn">print</span>(<span class="str">'Resto: {}'</span>.<span class="fn">format</span>(<span class="var">a</span> % <span class="var">b</span>))
+<span class="fn">print</span>(<span class="num">20</span> * <span class="str">'='</span>)</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <button class="btn btn-nav" onclick="goTo(9)">← Anterior</button>
+      <button class="btn btn-primary" onclick="completeAndNext(10)">Próximo módulo →</button>
+    </div>
+  </div>

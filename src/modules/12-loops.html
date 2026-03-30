@@ -1,0 +1,172 @@
+<!-- module: num="12" nav="Laços de repetição" -->
+  <div class="lesson" id="lesson-12">
+    <div class="lesson-header">
+      <div class="lesson-badge">Módulo 12</div>
+      <div class="lesson-title">Laços de repetição: <code style="font-size:22px;">for / while</code></div>
+      <div class="lesson-subtitle">Execute blocos de código múltiplas vezes de forma automática.</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">O laço for</div>
+
+    <div class="explanation">
+      O <code>for</code> em Python percorre uma sequência de valores. Combinado com <code>range()</code>, você controla quantas vezes o bloco se repete e com quais valores.
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">for com range()</div>
+      </div>
+      <pre><span class="com"># range(5) gera: 0, 1, 2, 3, 4</span>
+<span class="kw">for</span> <span class="var">i</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="num">5</span>):
+    <span class="fn">print</span>(<span class="str">'Iteração'</span>, <span class="var">i</span>)
+
+<span class="com"># range(1, 6) gera: 1, 2, 3, 4, 5</span>
+<span class="kw">for</span> <span class="var">i</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="num">1</span>, <span class="num">6</span>):
+    <span class="fn">print</span>(<span class="var">i</span>)
+
+<span class="com"># range(0, 11, 2) gera: 0, 2, 4, 6, 8, 10</span>
+<span class="kw">for</span> <span class="var">i</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="num">0</span>, <span class="num">11</span>, <span class="num">2</span>):
+    <span class="fn">print</span>(<span class="var">i</span>)</pre>
+    </div>
+
+    <div class="info-box">
+      <strong>range(início, fim, passo)</strong>
+      <code>range(5)</code> — de 0 até 4 &nbsp;|&nbsp; <code>range(1,6)</code> — de 1 até 5 &nbsp;|&nbsp; <code>range(0,10,2)</code> — pares de 0 a 8
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">O laço while</div>
+
+    <div class="explanation">
+      O <code>while</code> repete o bloco enquanto uma condição for verdadeira. É útil quando você não sabe de antemão quantas repetições serão necessárias. Cuidado: se a condição nunca ficar falsa, o programa entra em loop infinito!
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">while</div>
+      </div>
+      <pre><span class="var">contador</span> = <span class="num">1</span>
+<span class="kw">while</span> <span class="var">contador</span> <= <span class="num">5</span>:
+    <span class="fn">print</span>(<span class="str">'Contagem:'</span>, <span class="var">contador</span>)
+    <span class="var">contador</span> = <span class="var">contador</span> + <span class="num">1</span>  <span class="com"># ou: contador += 1</span></pre>
+    </div>
+
+    <div class="info-box yellow">
+      <strong>Atenção</strong>
+      Sempre garanta que a variável de controle do <code>while</code> seja atualizada dentro do loop, caso contrário o programa nunca para.
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Exercícios de fixação</div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">01</div>
+        <div>
+          <div class="exercise-title">Tabuada</div>
+          <div class="exercise-sub">Usando for com range()</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia um número inteiro e exiba sua <strong>tabuada completa</strong> (de 1 a 10), no formato: <code>5 x 1 = 5</code>, <code>5 x 2 = 10</code>, ...</div>
+        <textarea class="exercise-input" id="ex12-1" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex12-1', 'ex12-1-inputs')"></textarea>
+        <div class="input-fields" id="ex12-1-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex12-1', 'ex12-1-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol12-1')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex12-1-out">
+          <div class="output-terminal-header"><div class="output-terminal-label">▶ Saída</div></div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol12-1">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">n</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Número para tabuada: '</span>))
+<span class="kw">for</span> <span class="var">i</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="num">1</span>, <span class="num">11</span>):
+    <span class="fn">print</span>(<span class="str">'{} x {} = {}'</span>.<span class="fn">format</span>(<span class="var">n</span>, <span class="var">i</span>, <span class="var">n</span> * <span class="var">i</span>))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">02</div>
+        <div>
+          <div class="exercise-title">Soma acumulada</div>
+          <div class="exercise-sub">Acumulando valores em uma variável</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia um número inteiro <strong>N</strong> e calcule e exiba a <strong>soma de todos os números de 1 até N</strong>. Por exemplo, se N=5, a soma é 1+2+3+4+5 = 15.</div>
+        <textarea class="exercise-input" id="ex12-2" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex12-2', 'ex12-2-inputs')"></textarea>
+        <div class="input-fields" id="ex12-2-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex12-2', 'ex12-2-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol12-2')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex12-2-out">
+          <div class="output-terminal-header"><div class="output-terminal-label">▶ Saída</div></div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol12-2">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">n</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Digite N: '</span>))
+<span class="var">soma</span> = <span class="num">0</span>
+<span class="kw">for</span> <span class="var">i</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="num">1</span>, <span class="var">n</span> + <span class="num">1</span>):
+    <span class="var">soma</span> = <span class="var">soma</span> + <span class="var">i</span>
+<span class="fn">print</span>(<span class="str">'Soma de 1 a {}: {}'</span>.<span class="fn">format</span>(<span class="var">n</span>, <span class="var">soma</span>))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">03</div>
+        <div>
+          <div class="exercise-title">Contagem regressiva</div>
+          <div class="exercise-sub">Usando while com decrementação</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia um número inteiro positivo e use <code>while</code> para exibir uma <strong>contagem regressiva</strong> desde esse número até 0, e ao final exiba <strong>"Fogo!"</strong>.</div>
+        <textarea class="exercise-input" id="ex12-3" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex12-3', 'ex12-3-inputs')"></textarea>
+        <div class="input-fields" id="ex12-3-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex12-3', 'ex12-3-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol12-3')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex12-3-out">
+          <div class="output-terminal-header"><div class="output-terminal-label">▶ Saída</div></div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol12-3">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">n</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Início da contagem: '</span>))
+<span class="kw">while</span> <span class="var">n</span> >= <span class="num">0</span>:
+    <span class="fn">print</span>(<span class="var">n</span>)
+    <span class="var">n</span> -= <span class="num">1</span>
+<span class="fn">print</span>(<span class="str">'Fogo!'</span>)</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <button class="btn btn-nav" onclick="goTo(11)">← Anterior</button>
+      <button class="btn btn-primary" onclick="completeAndNext(12)">Próximo módulo →</button>
+    </div>
+  </div>

@@ -1,4 +1,4 @@
-const TOTAL = 10;
+const TOTAL = document.querySelectorAll('.lesson').length;
   const completed = new Set();
   let pyodide = null;
   let pyodideReady = false;

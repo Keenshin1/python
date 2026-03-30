@@ -1,0 +1,139 @@
+<!-- module: num="7" nav="Problemas práticos" -->
+  <div class="lesson" id="lesson-7">
+    <div class="lesson-header">
+      <div class="lesson-badge">Módulo 07</div>
+      <div class="lesson-title">Problemas do mundo real</div>
+      <div class="lesson-subtitle">Aplicando os conhecimentos anteriores em situações práticas do cotidiano.</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Conceito</div>
+
+    <div class="explanation">
+      Neste módulo, combinamos tudo que aprendemos — leitura de dados, operações, formatação — para resolver problemas reais. A chave é <strong>identificar as variáveis</strong>, as <strong>operações necessárias</strong> e o <strong>formato da saída</strong>.
+    </div>
+
+    <div class="info-box green">
+      <strong>Estratégia de resolução</strong>
+      1. Leia os dados necessários<br>
+      2. Calcule os resultados intermediários<br>
+      3. Exiba o resultado formatado
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Exercícios de fixação</div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">01</div>
+        <div>
+          <div class="exercise-title">Conversor de temperatura</div>
+          <div class="exercise-sub">Celsius → Fahrenheit</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia uma temperatura em °C e converta para °F.<br><em>Fórmula: F = (C × 9 / 5) + 32</em></div>
+        <textarea class="exercise-input" id="ex7-1" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex7-1', 'ex7-1-inputs')"></textarea>
+        <div class="input-fields" id="ex7-1-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex7-1', 'ex7-1-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol7-1')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex7-1-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol7-1">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">celsius</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Temperatura em °C: '</span>))
+<span class="var">fahrenheit</span> = (<span class="var">celsius</span> * <span class="num">9</span> / <span class="num">5</span>) + <span class="num">32</span>
+<span class="fn">print</span>(<span class="str">'{}°C = {}°F'</span>.<span class="fn">format</span>(<span class="var">celsius</span>, <span class="var">fahrenheit</span>))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">02</div>
+        <div>
+          <div class="exercise-title">Desconto e aumento</div>
+          <div class="exercise-sub">Percentuais aplicados a valores</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia o preço de um produto e mostre:<br>
+        — O preço com <strong>5% de desconto</strong><br>
+        — O preço com <strong>15% de aumento</strong></div>
+        <textarea class="exercise-input" id="ex7-2" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex7-2', 'ex7-2-inputs')"></textarea>
+        <div class="input-fields" id="ex7-2-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex7-2', 'ex7-2-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol7-2')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex7-2-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol7-2">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">preco</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Preço do produto: '</span>))
+<span class="var">desconto</span> = <span class="var">preco</span> * <span class="num">5</span> / <span class="num">100</span>
+<span class="var">aumento</span> = <span class="var">preco</span> * <span class="num">15</span> / <span class="num">100</span>
+<span class="fn">print</span>(<span class="str">'Com 5% de desconto: R${:.2f}'</span>.<span class="fn">format</span>(<span class="var">preco</span> - <span class="var">desconto</span>))
+<span class="fn">print</span>(<span class="str">'Com 15% de aumento: R${:.2f}'</span>.<span class="fn">format</span>(<span class="var">preco</span> + <span class="var">aumento</span>))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">03</div>
+        <div>
+          <div class="exercise-title">Carro alugado</div>
+          <div class="exercise-sub">Combinando múltiplas tarifas</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Um carro custa <strong>R$ 60 por dia</strong> e <strong>R$ 0,15 por km rodado</strong>. Leia quantos dias foi alugado e quantos km rodou, e mostre o total a pagar.</div>
+        <textarea class="exercise-input" id="ex7-3" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex7-3', 'ex7-3-inputs')"></textarea>
+        <div class="input-fields" id="ex7-3-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex7-3', 'ex7-3-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol7-3')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex7-3-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol7-3">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">dias</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Dias alugados: '</span>))
+<span class="var">km</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Km rodados: '</span>))
+<span class="var">total</span> = (<span class="var">dias</span> * <span class="num">60</span>) + (<span class="var">km</span> * <span class="num">0.15</span>)
+<span class="fn">print</span>(<span class="str">'Total a pagar: R${:.2f}'</span>.<span class="fn">format</span>(<span class="var">total</span>))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <button class="btn btn-nav" onclick="goTo(6)">← Anterior</button>
+      <button class="btn btn-primary" onclick="completeAndNext(7)">Próximo módulo →</button>
+    </div>
+  </div>
