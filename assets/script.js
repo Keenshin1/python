@@ -1,4 +1,4 @@
-const TOTAL = 10;
+const TOTAL = 13;
   const completed = new Set();
   let pyodide = null;
   let pyodideReady = false;
