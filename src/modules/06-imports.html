@@ -135,6 +135,42 @@
       </div>
     </div>
 
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">03</div>
+        <div>
+          <div class="exercise-title">Distância entre números</div>
+          <div class="exercise-sub">abs() e valor absoluto</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia dois números reais (podem ser negativos). Exiba: o <strong>valor absoluto</strong> de cada um e a <strong>distância</strong> entre eles (use <code>abs(a - b)</code>). Todos os resultados com 2 casas decimais. <br><em>Exemplo: -8.5 e 3.0 → abs: 8.50 e 3.00, distância: 11.50</em></div>
+        <textarea class="exercise-input" id="ex6-3" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex6-3', 'ex6-3-inputs')"></textarea>
+        <div class="input-fields" id="ex6-3-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex6-3', 'ex6-3-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol6-3')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex6-3-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol6-3">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">a</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Primeiro número: '</span>))
+<span class="var">b</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Segundo número: '</span>))
+<span class="fn">print</span>(<span class="str">'Valor absoluto de A: {:.2f}'</span>.<span class="fn">format</span>(<span class="fn">abs</span>(<span class="var">a</span>)))
+<span class="fn">print</span>(<span class="str">'Valor absoluto de B: {:.2f}'</span>.<span class="fn">format</span>(<span class="fn">abs</span>(<span class="var">b</span>)))
+<span class="fn">print</span>(<span class="str">'Distância entre A e B: {:.2f}'</span>.<span class="fn">format</span>(<span class="fn">abs</span>(<span class="var">a</span> - <span class="var">b</span>)))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="lesson-nav">
       <button class="btn btn-nav" onclick="goTo(5)">← Anterior</button>
       <button class="btn btn-primary" onclick="completeAndNext(6)">Próximo módulo →</button>
