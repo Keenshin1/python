@@ -165,6 +165,47 @@
       </div>
     </div>
 
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">04</div>
+        <div>
+          <div class="exercise-title">Múltiplos de N</div>
+          <div class="exercise-sub">Usando range(início, fim, passo)</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia um número inteiro <strong>N</strong> e um <strong>limite</strong>. Use <code>range(N, limite + 1, N)</code> para exibir todos os múltiplos de N até o limite (inclusive), um por linha. Ao final, exiba a <strong>quantidade</strong> de múltiplos encontrados e a <strong>soma</strong> deles.</div>
+        <textarea class="exercise-input" id="ex12-4" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex12-4', 'ex12-4-inputs')"></textarea>
+        <div class="input-fields" id="ex12-4-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex12-4', 'ex12-4-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol12-4')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex12-4-out">
+          <div class="output-terminal-header"><div class="output-terminal-label">▶ Saída</div></div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol12-4">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">n</span>      = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Valor de N: '</span>))
+<span class="var">limite</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Limite: '</span>))
+
+<span class="var">soma</span>       = <span class="num">0</span>
+<span class="var">quantidade</span> = <span class="num">0</span>
+<span class="kw">for</span> <span class="var">mult</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="var">n</span>, <span class="var">limite</span> + <span class="num">1</span>, <span class="var">n</span>):
+    <span class="fn">print</span>(<span class="var">mult</span>)
+    <span class="var">soma</span>       += <span class="var">mult</span>
+    <span class="var">quantidade</span> += <span class="num">1</span>
+
+<span class="fn">print</span>(<span class="str">'Quantidade: {}'</span>.<span class="fn">format</span>(<span class="var">quantidade</span>))
+<span class="fn">print</span>(<span class="str">'Soma: {}'</span>.<span class="fn">format</span>(<span class="var">soma</span>))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="lesson-nav">
       <button class="btn btn-nav" onclick="goTo(11)">← Anterior</button>
       <button class="btn btn-primary" onclick="completeAndNext(12)">Próximo módulo →</button>

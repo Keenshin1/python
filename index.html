@@ -2055,6 +2055,45 @@
       </div>
     </div>
 
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">04</div>
+        <div>
+          <div class="exercise-title">Elegibilidade para desconto</div>
+          <div class="exercise-sub">Usando operadores lógicos or e not</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Uma loja concede desconto a clientes que sejam <strong>estudantes</strong> ou tenham <strong>mais de 60 anos</strong>, desde que <strong>não estejam inadimplentes</strong>. Leia: se é estudante (<code>s/n</code>), a idade e se está inadimplente (<code>s/n</code>). Exiba se o cliente tem direito ao desconto. Use <code>or</code> e <code>not</code> na sua condição.</div>
+        <textarea class="exercise-input" id="ex11-4" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex11-4', 'ex11-4-inputs')"></textarea>
+        <div class="input-fields" id="ex11-4-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex11-4', 'ex11-4-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol11-4')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex11-4-out">
+          <div class="output-terminal-header"><div class="output-terminal-label">▶ Saída</div></div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol11-4">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">estudante</span>    = <span class="fn">input</span>(<span class="str">'É estudante? (s/n): '</span>).<span class="fn">strip</span>().<span class="fn">lower</span>() == <span class="str">'s'</span>
+<span class="var">idade</span>        = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Idade: '</span>))
+<span class="var">inadimplente</span> = <span class="fn">input</span>(<span class="str">'Está inadimplente? (s/n): '</span>).<span class="fn">strip</span>().<span class="fn">lower</span>() == <span class="str">'s'</span>
+
+<span class="var">tem_perfil</span> = <span class="var">estudante</span> <span class="kw">or</span> <span class="var">idade</span> > <span class="num">60</span>
+
+<span class="kw">if</span> <span class="var">tem_perfil</span> <span class="kw">and</span> <span class="kw">not</span> <span class="var">inadimplente</span>:
+    <span class="fn">print</span>(<span class="str">'Cliente tem direito ao desconto!'</span>)
+<span class="kw">else</span>:
+    <span class="fn">print</span>(<span class="str">'Cliente não tem direito ao desconto.'</span>)</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="lesson-nav">
       <button class="btn btn-nav" onclick="goTo(10)">← Anterior</button>
       <button class="btn btn-primary" onclick="completeAndNext(11)">Próximo módulo →</button>
@@ -2227,6 +2266,47 @@
       </div>
     </div>
 
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">04</div>
+        <div>
+          <div class="exercise-title">Múltiplos de N</div>
+          <div class="exercise-sub">Usando range(início, fim, passo)</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia um número inteiro <strong>N</strong> e um <strong>limite</strong>. Use <code>range(N, limite + 1, N)</code> para exibir todos os múltiplos de N até o limite (inclusive), um por linha. Ao final, exiba a <strong>quantidade</strong> de múltiplos encontrados e a <strong>soma</strong> deles.</div>
+        <textarea class="exercise-input" id="ex12-4" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex12-4', 'ex12-4-inputs')"></textarea>
+        <div class="input-fields" id="ex12-4-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex12-4', 'ex12-4-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol12-4')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex12-4-out">
+          <div class="output-terminal-header"><div class="output-terminal-label">▶ Saída</div></div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol12-4">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">n</span>      = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Valor de N: '</span>))
+<span class="var">limite</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Limite: '</span>))
+
+<span class="var">soma</span>       = <span class="num">0</span>
+<span class="var">quantidade</span> = <span class="num">0</span>
+<span class="kw">for</span> <span class="var">mult</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="var">n</span>, <span class="var">limite</span> + <span class="num">1</span>, <span class="var">n</span>):
+    <span class="fn">print</span>(<span class="var">mult</span>)
+    <span class="var">soma</span>       += <span class="var">mult</span>
+    <span class="var">quantidade</span> += <span class="num">1</span>
+
+<span class="fn">print</span>(<span class="str">'Quantidade: {}'</span>.<span class="fn">format</span>(<span class="var">quantidade</span>))
+<span class="fn">print</span>(<span class="str">'Soma: {}'</span>.<span class="fn">format</span>(<span class="var">soma</span>))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="lesson-nav">
       <button class="btn btn-nav" onclick="goTo(11)">← Anterior</button>
       <button class="btn btn-primary" onclick="completeAndNext(12)">Próximo módulo →</button>
@@ -2380,12 +2460,12 @@
       <div class="exercise-header">
         <div class="exercise-icon">03</div>
         <div>
-          <div class="exercise-title">Verificador de número primo</div>
-          <div class="exercise-sub">Combinando funções, for e condicionais</div>
+          <div class="exercise-title">Calculadora de desconto</div>
+          <div class="exercise-sub">Parâmetro com valor padrão + reutilização</div>
         </div>
       </div>
       <div class="exercise-body">
-        <div class="exercise-desc">Crie a função <code>eh_primo(n)</code> que retorna <code>True</code> se <strong>n</strong> for primo e <code>False</code> caso contrário. Um número primo é divisível apenas por 1 e por ele mesmo. Leia um número, chame a função e exiba o resultado.</div>
+        <div class="exercise-desc">Crie a função <code>calcular_desconto(preco, desconto=10)</code> que retorna o preço final após aplicar o percentual de desconto. O parâmetro <code>desconto</code> tem valor padrão de <strong>10%</strong>. Leia o preço e chame a função duas vezes: uma sem informar o desconto (usando o padrão) e outra com um percentual digitado pelo usuário.</div>
         <textarea class="exercise-input" id="ex13-3" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex13-3', 'ex13-3-inputs')"></textarea>
         <div class="input-fields" id="ex13-3-inputs" style="display:none"></div>
         <div class="exercise-actions">
@@ -2398,6 +2478,44 @@
           <div class="output-terminal-content"></div>
         </div>
         <div class="solution-wrap" id="sol13-3">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="kw">def</span> <span class="fn">calcular_desconto</span>(<span class="var">preco</span>, <span class="var">desconto</span>=<span class="num">10</span>):
+    <span class="var">valor_desconto</span> = <span class="var">preco</span> * <span class="var">desconto</span> / <span class="num">100</span>
+    <span class="kw">return</span> <span class="var">preco</span> - <span class="var">valor_desconto</span>
+
+<span class="var">preco</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Preço original: R$ '</span>))
+<span class="fn">print</span>(<span class="str">'Com desconto padrão (10%): R$ {:.2f}'</span>.<span class="fn">format</span>(<span class="fn">calcular_desconto</span>(<span class="var">preco</span>)))
+
+<span class="var">d</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Percentual de desconto personalizado: '</span>))
+<span class="fn">print</span>(<span class="str">'Com desconto de {}%: R$ {:.2f}'</span>.<span class="fn">format</span>(<span class="var">d</span>, <span class="fn">calcular_desconto</span>(<span class="var">preco</span>, <span class="var">d</span>)))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">04</div>
+        <div>
+          <div class="exercise-title">Verificador de número primo</div>
+          <div class="exercise-sub">Combinando funções, for e condicionais</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Crie a função <code>eh_primo(n)</code> que retorna <code>True</code> se <strong>n</strong> for primo e <code>False</code> caso contrário. Um número primo é divisível apenas por 1 e por ele mesmo. Leia um número, chame a função e exiba o resultado.</div>
+        <textarea class="exercise-input" id="ex13-4" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex13-4', 'ex13-4-inputs')"></textarea>
+        <div class="input-fields" id="ex13-4-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex13-4', 'ex13-4-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol13-4')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex13-4-out">
+          <div class="output-terminal-header"><div class="output-terminal-label">▶ Saída</div></div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol13-4">
           <div class="code-block" style="margin-top:0">
             <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
             <pre><span class="kw">def</span> <span class="fn">eh_primo</span>(<span class="var">n</span>):
@@ -2552,7 +2670,7 @@
         </div>
       </div>
       <div class="exercise-body">
-        <div class="exercise-desc">Peça ao usuário <strong>6 números inteiros</strong>, armazene-os em uma lista e exiba: o <strong>maior</strong>, o <strong>menor</strong>, a <strong>soma</strong> e a lista em <strong>ordem crescente</strong>.</div>
+        <div class="exercise-desc">Peça ao usuário <strong>6 números inteiros</strong>, armazene-os em uma lista e exiba: o <strong>maior</strong>, o <strong>menor</strong>, a <strong>soma</strong> e a lista em <strong>ordem crescente</strong>. Depois, remova o menor número da lista com <code>remove()</code> e exiba a lista resultante.</div>
         <textarea class="exercise-input" id="ex14-2" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex14-2', 'ex14-2-inputs')"></textarea>
         <div class="input-fields" id="ex14-2-inputs" style="display:none"></div>
         <div class="exercise-actions">
@@ -2575,7 +2693,9 @@
 <span class="fn">print</span>(<span class="str">'Menor: {}'</span>.<span class="fn">format</span>(<span class="fn">min</span>(<span class="var">nums</span>)))
 <span class="fn">print</span>(<span class="str">'Soma: {}'</span>.<span class="fn">format</span>(<span class="fn">sum</span>(<span class="var">nums</span>)))
 <span class="var">nums</span>.<span class="fn">sort</span>()
-<span class="fn">print</span>(<span class="str">'Ordenada: {}'</span>.<span class="fn">format</span>(<span class="var">nums</span>))</pre>
+<span class="fn">print</span>(<span class="str">'Ordenada: {}'</span>.<span class="fn">format</span>(<span class="var">nums</span>))
+<span class="var">nums</span>.<span class="fn">remove</span>(<span class="fn">min</span>(<span class="var">nums</span>))
+<span class="fn">print</span>(<span class="str">'Sem o menor: {}'</span>.<span class="fn">format</span>(<span class="var">nums</span>))</pre>
           </div>
         </div>
       </div>
@@ -2640,7 +2760,7 @@
         </div>
       </div>
       <div class="exercise-body">
-        <div class="exercise-desc">Uma loja tem <strong>4 produtos</strong>. Leia o nome e o preço de cada um e armazene-os em duas listas paralelas (<code>nomes</code> e <code>precos</code>). Ao final, exiba uma tabela formatada com todos os produtos e seus preços, o <strong>produto mais caro</strong> e o <strong>valor total do estoque</strong>.</div>
+        <div class="exercise-desc">Uma loja tem <strong>4 produtos</strong>. Leia o nome e o preço de cada um e armazene-os em duas listas paralelas (<code>nomes</code> e <code>precos</code>). Ao final, exiba uma tabela formatada com todos os produtos e seus preços usando <code>enumerate()</code>, o <strong>produto mais caro</strong> e o <strong>valor total do estoque</strong>.</div>
         <textarea class="exercise-input" id="ex14-4" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex14-4', 'ex14-4-inputs')"></textarea>
         <div class="input-fields" id="ex14-4-inputs" style="display:none"></div>
         <div class="exercise-actions">
@@ -2666,8 +2786,8 @@
 <span class="fn">print</span>(<span class="str">'\n'</span> + <span class="num">30</span> * <span class="str">'-'</span>)
 <span class="fn">print</span>(<span class="str">'{:<20} {}'</span>.<span class="fn">format</span>(<span class="str">'Produto'</span>, <span class="str">'Preço'</span>))
 <span class="fn">print</span>(<span class="num">30</span> * <span class="str">'-'</span>)
-<span class="kw">for</span> <span class="var">i</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="fn">len</span>(<span class="var">nomes</span>)):
-    <span class="fn">print</span>(<span class="str">'{:<20} R$ {:.2f}'</span>.<span class="fn">format</span>(<span class="var">nomes</span>[<span class="var">i</span>], <span class="var">precos</span>[<span class="var">i</span>]))
+<span class="kw">for</span> <span class="var">i</span>, <span class="var">nome</span> <span class="kw">in</span> <span class="fn">enumerate</span>(<span class="var">nomes</span>):
+    <span class="fn">print</span>(<span class="str">'{:<20} R$ {:.2f}'</span>.<span class="fn">format</span>(<span class="var">nome</span>, <span class="var">precos</span>[<span class="var">i</span>]))
 <span class="fn">print</span>(<span class="num">30</span> * <span class="str">'-'</span>)
 
 <span class="var">idx_caro</span> = <span class="var">precos</span>.<span class="fn">index</span>(<span class="fn">max</span>(<span class="var">precos</span>))
@@ -2846,7 +2966,7 @@
         </div>
       </div>
       <div class="exercise-body">
-        <div class="exercise-desc">Leia uma frase digitada pelo usuário e exiba: o número de <strong>palavras</strong>, o número de <strong>vogais</strong> (a e i o u, maiúsculas ou minúsculas), a frase com todas as <strong>espaços duplicados removidos</strong> (dica: <code>' '.join(frase.split())</code>) e a frase com as <strong>palavras em ordem inversa</strong>.</div>
+        <div class="exercise-desc">Leia uma frase digitada pelo usuário e exiba: o número de <strong>palavras</strong>, o número de <strong>vogais</strong> (a e i o u, maiúsculas ou minúsculas), a frase com espaços duplicados removidos (dica: <code>' '.join(frase.split())</code>), a frase com as palavras em <strong>ordem inversa</strong> e a frase com todas as vogais substituídas por <code>*</code> usando <code>replace()</code>.</div>
         <textarea class="exercise-input" id="ex15-3" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex15-3', 'ex15-3-inputs')"></textarea>
         <div class="input-fields" id="ex15-3-inputs" style="display:none"></div>
         <div class="exercise-actions">
@@ -2872,10 +2992,15 @@
 <span class="var">limpa</span> = <span class="str">' '</span>.<span class="fn">join</span>(<span class="var">palavras</span>)
 <span class="var">invertida</span> = <span class="str">' '</span>.<span class="fn">join</span>(<span class="var">palavras</span>[::<span class="num">-1</span>])
 
+<span class="var">censurada</span> = <span class="var">limpa</span>
+<span class="kw">for</span> <span class="var">v</span> <span class="kw">in</span> <span class="str">'aeiouáéíóúãõâêôAEIOUÁÉÍÓÚÃÕÂÊÔ'</span>:
+    <span class="var">censurada</span> = <span class="var">censurada</span>.<span class="fn">replace</span>(<span class="var">v</span>, <span class="str">'*'</span>)
+
 <span class="fn">print</span>(<span class="str">'Palavras: {}'</span>.<span class="fn">format</span>(<span class="fn">len</span>(<span class="var">palavras</span>)))
 <span class="fn">print</span>(<span class="str">'Vogais: {}'</span>.<span class="fn">format</span>(<span class="var">vogais</span>))
 <span class="fn">print</span>(<span class="str">'Frase limpa: {}'</span>.<span class="fn">format</span>(<span class="var">limpa</span>))
-<span class="fn">print</span>(<span class="str">'Invertida: {}'</span>.<span class="fn">format</span>(<span class="var">invertida</span>))</pre>
+<span class="fn">print</span>(<span class="str">'Invertida: {}'</span>.<span class="fn">format</span>(<span class="var">invertida</span>))
+<span class="fn">print</span>(<span class="str">'Sem vogais: {}'</span>.<span class="fn">format</span>(<span class="var">censurada</span>))</pre>
           </div>
         </div>
       </div>
@@ -2936,6 +3061,55 @@
     <span class="fn">print</span>(<span class="str">'Senha forte!'</span>)
 <span class="kw">else</span>:
     <span class="fn">print</span>(<span class="str">'Senha fraca. Corrija os itens marcados com ✗.'</span>)</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">05</div>
+        <div>
+          <div class="exercise-title">Validador de e-mail</div>
+          <div class="exercise-sub">find(), startswith(), endswith() e in</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia um endereço de e-mail e verifique: se <strong>contém @</strong> (use <code>in</code>), a <strong>posição do @</strong> (use <code>find()</code>), se <strong>termina com .com ou .br</strong> (use <code>endswith()</code>). Se o @ for encontrado, exiba o <strong>nome de usuário</strong> (parte antes do @) e o <strong>domínio</strong> (parte depois). Ao final informe se o e-mail é válido ou não.</div>
+        <textarea class="exercise-input" id="ex15-5" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex15-5', 'ex15-5-inputs')"></textarea>
+        <div class="input-fields" id="ex15-5-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex15-5', 'ex15-5-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol15-5')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex15-5-out">
+          <div class="output-terminal-header"><div class="output-terminal-label">▶ Saída</div></div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol15-5">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">email</span> = <span class="fn">input</span>(<span class="str">'Digite seu e-mail: '</span>).<span class="fn">strip</span>().<span class="fn">lower</span>()
+
+<span class="var">tem_arroba</span>  = <span class="str">'@'</span> <span class="kw">in</span> <span class="var">email</span>
+<span class="var">pos_arroba</span>  = <span class="var">email</span>.<span class="fn">find</span>(<span class="str">'@'</span>)
+<span class="var">termina_ok</span>  = <span class="var">email</span>.<span class="fn">endswith</span>(<span class="str">'.com'</span>) <span class="kw">or</span> <span class="var">email</span>.<span class="fn">endswith</span>(<span class="str">'.com.br'</span>) <span class="kw">or</span> <span class="var">email</span>.<span class="fn">endswith</span>(<span class="str">'.br'</span>)
+
+<span class="fn">print</span>(<span class="str">'Contém @: {}'</span>.<span class="fn">format</span>(<span class="var">tem_arroba</span>))
+<span class="fn">print</span>(<span class="str">'Posição do @: {}'</span>.<span class="fn">format</span>(<span class="var">pos_arroba</span>))
+
+<span class="kw">if</span> <span class="var">tem_arroba</span>:
+    <span class="var">usuario</span> = <span class="var">email</span>[:<span class="var">pos_arroba</span>]
+    <span class="var">dominio</span> = <span class="var">email</span>[<span class="var">pos_arroba</span> + <span class="num">1</span>:]
+    <span class="fn">print</span>(<span class="str">'Usuário: {}'</span>.<span class="fn">format</span>(<span class="var">usuario</span>))
+    <span class="fn">print</span>(<span class="str">'Domínio: {}'</span>.<span class="fn">format</span>(<span class="var">dominio</span>))
+    <span class="fn">print</span>(<span class="str">'Termina com .com/.br: {}'</span>.<span class="fn">format</span>(<span class="var">termina_ok</span>))
+
+<span class="kw">if</span> <span class="var">tem_arroba</span> <span class="kw">and</span> <span class="var">termina_ok</span>:
+    <span class="fn">print</span>(<span class="str">'E-mail válido!'</span>)
+<span class="kw">else</span>:
+    <span class="fn">print</span>(<span class="str">'E-mail inválido.'</span>)</pre>
           </div>
         </div>
       </div>
@@ -3174,7 +3348,7 @@
         </div>
       </div>
       <div class="exercise-body">
-        <div class="exercise-desc">Crie uma agenda onde a <strong>chave é o nome</strong> e o valor é um dicionário com <code>'telefone'</code> e <code>'email'</code>. Cadastre <strong>3 contatos</strong> lidos do usuário. Depois leia um nome para buscar: se existir, exiba os dados; se não, exiba <em>"Contato não encontrado."</em> Ao final, liste todos os contatos em ordem alfabética.</div>
+        <div class="exercise-desc">Crie uma agenda onde a <strong>chave é o nome</strong> e o valor é um dicionário com <code>'telefone'</code> e <code>'email'</code>. Cadastre <strong>3 contatos</strong> lidos do usuário. Depois leia um nome para buscar: se existir, exiba os dados; se não, exiba <em>"Contato não encontrado."</em> Em seguida, leia um nome para <strong>remover</strong> da agenda usando <code>pop()</code> (ou informe que não existe). Ao final, liste todos os contatos restantes em ordem alfabética.</div>
         <textarea class="exercise-input" id="ex16-4" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex16-4', 'ex16-4-inputs')"></textarea>
         <div class="input-fields" id="ex16-4-inputs" style="display:none"></div>
         <div class="exercise-actions">
@@ -3204,6 +3378,13 @@
     <span class="fn">print</span>(<span class="str">'Email: {}'</span>.<span class="fn">format</span>(<span class="var">dados</span>[<span class="str">'email'</span>]))
 <span class="kw">else</span>:
     <span class="fn">print</span>(<span class="str">'Contato não encontrado.'</span>)
+
+<span class="var">remover</span> = <span class="fn">input</span>(<span class="str">'\nRemover contato: '</span>).<span class="fn">strip</span>().<span class="fn">title</span>()
+<span class="kw">if</span> <span class="var">remover</span> <span class="kw">in</span> <span class="var">agenda</span>:
+    <span class="var">agenda</span>.<span class="fn">pop</span>(<span class="var">remover</span>)
+    <span class="fn">print</span>(<span class="str">'{} removido da agenda.'</span>.<span class="fn">format</span>(<span class="var">remover</span>))
+<span class="kw">else</span>:
+    <span class="fn">print</span>(<span class="str">'Contato {} não encontrado.'</span>.<span class="fn">format</span>(<span class="var">remover</span>))
 
 <span class="fn">print</span>(<span class="str">'\n--- TODOS OS CONTATOS ---'</span>)
 <span class="kw">for</span> <span class="var">nome</span> <span class="kw">in</span> <span class="fn">sorted</span>(<span class="var">agenda</span>):
