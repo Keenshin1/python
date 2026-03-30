@@ -193,8 +193,10 @@
     <span class="var">notas</span>.<span class="fn">append</span>(<span class="var">n</span>)
 
 <span class="var">aprovados</span> = <span class="fn">filtrar_aprovados</span>(<span class="var">notas</span>, <span class="num">6.0</span>)
-<span class="var">reprovados</span> = <span class="fn">filtrar_aprovados</span>(<span class="var">notas</span>, <span class="num">0</span>)
-<span class="var">reprovados</span> = [<span class="var">n</span> <span class="kw">for</span> <span class="var">n</span> <span class="kw">in</span> <span class="var">notas</span> <span class="kw">if</span> <span class="var">n</span> < <span class="num">6.0</span>]
+<span class="var">reprovados</span> = []
+<span class="kw">for</span> <span class="var">n</span> <span class="kw">in</span> <span class="var">notas</span>:
+    <span class="kw">if</span> <span class="var">n</span> < <span class="num">6.0</span>:
+        <span class="var">reprovados</span>.<span class="fn">append</span>(<span class="var">n</span>)
 <span class="var">media</span> = <span class="fn">sum</span>(<span class="var">notas</span>) / <span class="fn">len</span>(<span class="var">notas</span>)
 <span class="fn">print</span>(<span class="str">'Aprovados: {}'</span>.<span class="fn">format</span>(<span class="var">aprovados</span>))
 <span class="fn">print</span>(<span class="str">'Reprovados: {}'</span>.<span class="fn">format</span>(<span class="var">reprovados</span>))

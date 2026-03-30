@@ -11,7 +11,7 @@
     <div class="section-title">Conceito</div>
 
     <div class="explanation">
-      Python vem com <strong>módulos</strong> prontos que adicionam funcionalidades extras. Importamos com a palavra-chave <code>import</code>. O módulo <code>math</code> oferece funções matemáticas como raiz quadrada, seno, cosseno, tangente, etc.
+      Python vem com <strong>módulos</strong> prontos que adicionam funcionalidades extras. Importamos com a palavra-chave <code>import</code>. O módulo <code>math</code> oferece funções matemáticas muito úteis no dia a dia: raiz quadrada, arredondamento, valor absoluto e a constante Pi.
     </div>
 
     <div class="code-block">
@@ -20,19 +20,38 @@
         <div class="code-lang">Formas de importar</div>
       </div>
       <pre><span class="kw">import</span> math
-<span class="fn">math</span>.<span class="fn">sqrt</span>(<span class="num">16</span>)     <span class="com"># 4.0</span>
+<span class="fn">math</span>.<span class="fn">sqrt</span>(<span class="num">16</span>)     <span class="com"># 4.0 — raiz quadrada</span>
 
-<span class="kw">from</span> math <span class="kw">import</span> sqrt, trunc, hypot
-<span class="fn">sqrt</span>(<span class="num">16</span>)          <span class="com"># 4.0 (sem prefixo math.)</span>
-<span class="fn">trunc</span>(<span class="num">6.9</span>)        <span class="com"># 6 (parte inteira)</span>
-
-<span class="kw">from</span> math <span class="kw">import</span> sin, cos, tan, radians
-<span class="fn">sin</span>(<span class="fn">radians</span>(<span class="num">90</span>))  <span class="com"># 1.0 (ângulo em graus → radianos)</span></pre>
+<span class="kw">from</span> math <span class="kw">import</span> sqrt, ceil, floor, trunc
+<span class="fn">sqrt</span>(<span class="num">25</span>)          <span class="com"># 5.0  — sem prefixo math.</span>
+<span class="fn">ceil</span>(<span class="num">4.2</span>)         <span class="com"># 5    — arredonda para CIMA</span>
+<span class="fn">floor</span>(<span class="num">4.9</span>)        <span class="com"># 4    — arredonda para BAIXO</span>
+<span class="fn">trunc</span>(<span class="num">6.9</span>)        <span class="com"># 6    — parte inteira (descarta decimal)</span></pre>
     </div>
 
-    <div class="info-box yellow">
-      <strong>Atenção com ângulos</strong>
-      As funções trigonométricas do Python trabalham em <strong>radianos</strong>. Para passar graus, converta com <code>radians(ângulo)</code>.
+    <div class="explanation">
+      O módulo <code>math</code> também disponibiliza a constante <code>math.pi</code> (π ≈ 3.14159...) e a função <code>abs()</code> — que nem precisa de import — retorna o valor absoluto (sem sinal negativo) de um número.
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">pi e abs()</div>
+      </div>
+      <pre><span class="kw">import</span> math
+
+<span class="fn">print</span>(math.<span class="var">pi</span>)        <span class="com"># 3.141592653589793</span>
+<span class="fn">print</span>(<span class="fn">abs</span>(<span class="num">-15</span>))        <span class="com"># 15  — valor absoluto</span>
+<span class="fn">print</span>(<span class="fn">abs</span>(<span class="num">-3.7</span>))       <span class="com"># 3.7</span>
+
+<span class="com"># Área de um círculo: π × r²</span>
+<span class="var">raio</span> = <span class="num">5</span>
+<span class="fn">print</span>(math.<span class="var">pi</span> * <span class="var">raio</span> ** <span class="num">2</span>)  <span class="com"># 78.539...</span></pre>
+    </div>
+
+    <div class="info-box">
+      <strong>Resumo das funções do módulo math</strong>
+      <code>sqrt(n)</code> — raiz quadrada &nbsp;|&nbsp; <code>ceil(n)</code> — arredonda para cima &nbsp;|&nbsp; <code>floor(n)</code> — arredonda para baixo &nbsp;|&nbsp; <code>trunc(n)</code> — parte inteira &nbsp;|&nbsp; <code>abs(n)</code> — valor absoluto (sem import)
     </div>
 
     <div class="divider"></div>
@@ -43,12 +62,12 @@
       <div class="exercise-header">
         <div class="exercise-icon">01</div>
         <div>
-          <div class="exercise-title">Hipotenusa</div>
-          <div class="exercise-sub">Teorema de Pitágoras com math.hypot</div>
+          <div class="exercise-title">Raiz quadrada e arredondamentos</div>
+          <div class="exercise-sub">sqrt, ceil, floor e trunc</div>
         </div>
       </div>
       <div class="exercise-body">
-        <div class="exercise-desc">Leia o comprimento dos dois catetos de um triângulo retângulo e calcule a hipotenusa usando <code>math.hypot()</code>.</div>
+        <div class="exercise-desc">Leia um número decimal e exiba: sua raiz quadrada (2 casas decimais), o arredondamento para cima, o arredondamento para baixo e a parte inteira.</div>
         <textarea class="exercise-input" id="ex6-1" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex6-1', 'ex6-1-inputs')"></textarea>
         <div class="input-fields" id="ex6-1-inputs" style="display:none"></div>
         <div class="exercise-actions">
@@ -65,12 +84,13 @@
         <div class="solution-wrap" id="sol6-1">
           <div class="code-block" style="margin-top:0">
             <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
-            <pre><span class="kw">import</span> math
+            <pre><span class="kw">from</span> math <span class="kw">import</span> sqrt, ceil, floor, trunc
 
-<span class="var">catOp</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Cateto oposto: '</span>))
-<span class="var">catAd</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Cateto adjacente: '</span>))
-<span class="var">hipo</span> = math.<span class="fn">hypot</span>(<span class="var">catAd</span>, <span class="var">catOp</span>)
-<span class="fn">print</span>(<span class="str">'Hipotenusa: {:.2f}'</span>.<span class="fn">format</span>(<span class="var">hipo</span>))</pre>
+<span class="var">n</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Digite um número decimal: '</span>))
+<span class="fn">print</span>(<span class="str">'Raiz quadrada: {:.2f}'</span>.<span class="fn">format</span>(<span class="fn">sqrt</span>(<span class="var">n</span>)))
+<span class="fn">print</span>(<span class="str">'Arredondado para cima: {}'</span>.<span class="fn">format</span>(<span class="fn">ceil</span>(<span class="var">n</span>)))
+<span class="fn">print</span>(<span class="str">'Arredondado para baixo: {}'</span>.<span class="fn">format</span>(<span class="fn">floor</span>(<span class="var">n</span>)))
+<span class="fn">print</span>(<span class="str">'Parte inteira: {}'</span>.<span class="fn">format</span>(<span class="fn">trunc</span>(<span class="var">n</span>)))</pre>
           </div>
         </div>
       </div>
@@ -80,12 +100,12 @@
       <div class="exercise-header">
         <div class="exercise-icon">02</div>
         <div>
-          <div class="exercise-title">Seno, cosseno e tangente</div>
-          <div class="exercise-sub">Trigonometria com conversão de ângulo</div>
+          <div class="exercise-title">Área do círculo</div>
+          <div class="exercise-sub">math.pi e formatação</div>
         </div>
       </div>
       <div class="exercise-body">
-        <div class="exercise-desc">Leia um ângulo em graus e exiba seu seno, cosseno e tangente, cada um com 2 casas decimais.</div>
+        <div class="exercise-desc">Leia o raio de um círculo e calcule: a <strong>área</strong> (π × r²) e o <strong>perímetro</strong> (2 × π × r). Exiba os dois resultados com 2 casas decimais.</div>
         <textarea class="exercise-input" id="ex6-2" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex6-2', 'ex6-2-inputs')"></textarea>
         <div class="input-fields" id="ex6-2-inputs" style="display:none"></div>
         <div class="exercise-actions">
@@ -102,12 +122,13 @@
         <div class="solution-wrap" id="sol6-2">
           <div class="code-block" style="margin-top:0">
             <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
-            <pre><span class="kw">from</span> math <span class="kw">import</span> sin, cos, tan, radians
+            <pre><span class="kw">import</span> math
 
-<span class="var">angulo</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Ângulo em graus: '</span>))
-<span class="fn">print</span>(<span class="str">'Seno: {:.2f}'</span>.<span class="fn">format</span>(<span class="fn">sin</span>(<span class="fn">radians</span>(<span class="var">angulo</span>))))
-<span class="fn">print</span>(<span class="str">'Cosseno: {:.2f}'</span>.<span class="fn">format</span>(<span class="fn">cos</span>(<span class="fn">radians</span>(<span class="var">angulo</span>))))
-<span class="fn">print</span>(<span class="str">'Tangente: {:.2f}'</span>.<span class="fn">format</span>(<span class="fn">tan</span>(<span class="fn">radians</span>(<span class="var">angulo</span>))))
+<span class="var">raio</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Raio do círculo: '</span>))
+<span class="var">area</span> = math.<span class="var">pi</span> * <span class="var">raio</span> ** <span class="num">2</span>
+<span class="var">perimetro</span> = <span class="num">2</span> * math.<span class="var">pi</span> * <span class="var">raio</span>
+<span class="fn">print</span>(<span class="str">'Área: {:.2f}'</span>.<span class="fn">format</span>(<span class="var">area</span>))
+<span class="fn">print</span>(<span class="str">'Perímetro: {:.2f}'</span>.<span class="fn">format</span>(<span class="var">perimetro</span>))
 </pre>
           </div>
         </div>

@@ -14,8 +14,35 @@
       O módulo <code>random</code> permite gerar números aleatórios, sortear itens e embaralhar listas. As funções mais usadas são <code>randint()</code>, <code>choice()</code> e <code>shuffle()</code>.
     </div>
 
+    <div class="section-title">O que é uma lista?</div>
+
     <div class="explanation">
-      <strong>Listas</strong> são criadas com colchetes e armazenam múltiplos valores: <code>[item1, item2, item3]</code>. Você pode adicionar variáveis a uma lista e operar sobre elas.
+      Uma <strong>lista</strong> é uma forma de guardar vários valores em uma única variável. Em vez de criar <code>aluno1</code>, <code>aluno2</code>, <code>aluno3</code>... você guarda tudo dentro de colchetes separado por vírgulas. Cada valor ocupa uma posição que começa em <code>0</code>.
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">Listas — introdução</div>
+      </div>
+      <pre><span class="var">frutas</span> = [<span class="str">'maçã'</span>, <span class="str">'banana'</span>, <span class="str">'uva'</span>]
+
+<span class="fn">print</span>(<span class="var">frutas</span>[<span class="num">0</span>])   <span class="com"># maçã   — primeiro elemento (índice 0)</span>
+<span class="fn">print</span>(<span class="var">frutas</span>[<span class="num">2</span>])   <span class="com"># uva    — terceiro elemento (índice 2)</span>
+<span class="fn">print</span>(<span class="fn">len</span>(<span class="var">frutas</span>)) <span class="com"># 3      — quantidade de itens</span></pre>
+    </div>
+
+    <div class="info-box">
+      <strong>Nota</strong>
+      Neste módulo vamos usar listas de forma introdutória — apenas criar e passar para as funções do <code>random</code>. O estudo completo de listas (adicionar, remover, ordenar, percorrer) acontece no Módulo 14.
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Módulo random</div>
+
+    <div class="explanation">
+      Com a lista criada, as funções do módulo <code>random</code> permitem sortear e embaralhar seus elementos de forma simples:
     </div>
 
     <div class="code-block">

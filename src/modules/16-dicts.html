@@ -198,9 +198,16 @@
 <span class="kw">for</span> <span class="var">prato</span> <span class="kw">in</span> <span class="var">cardapio</span>:
     <span class="fn">print</span>(<span class="str">'{:<20} R$ {:.2f}'</span>.<span class="fn">format</span>(<span class="var">prato</span>[<span class="str">'nome'</span>], <span class="var">prato</span>[<span class="str">'preco'</span>]))
 
-<span class="var">mais_barato</span> = <span class="fn">min</span>(<span class="var">cardapio</span>, <span class="var">key</span>=<span class="kw">lambda</span> <span class="var">p</span>: <span class="var">p</span>[<span class="str">'preco'</span>])
-<span class="var">mais_caro</span>   = <span class="fn">max</span>(<span class="var">cardapio</span>, <span class="var">key</span>=<span class="kw">lambda</span> <span class="var">p</span>: <span class="var">p</span>[<span class="str">'preco'</span>])
-<span class="var">media</span> = <span class="fn">sum</span>(<span class="var">p</span>[<span class="str">'preco'</span>] <span class="kw">for</span> <span class="var">p</span> <span class="kw">in</span> <span class="var">cardapio</span>) / <span class="fn">len</span>(<span class="var">cardapio</span>)
+<span class="var">mais_barato</span> = <span class="var">cardapio</span>[<span class="num">0</span>]
+<span class="var">mais_caro</span>   = <span class="var">cardapio</span>[<span class="num">0</span>]
+<span class="var">total</span> = <span class="num">0</span>
+<span class="kw">for</span> <span class="var">prato</span> <span class="kw">in</span> <span class="var">cardapio</span>:
+    <span class="var">total</span> += <span class="var">prato</span>[<span class="str">'preco'</span>]
+    <span class="kw">if</span> <span class="var">prato</span>[<span class="str">'preco'</span>] < <span class="var">mais_barato</span>[<span class="str">'preco'</span>]:
+        <span class="var">mais_barato</span> = <span class="var">prato</span>
+    <span class="kw">if</span> <span class="var">prato</span>[<span class="str">'preco'</span>] > <span class="var">mais_caro</span>[<span class="str">'preco'</span>]:
+        <span class="var">mais_caro</span> = <span class="var">prato</span>
+<span class="var">media</span> = <span class="var">total</span> / <span class="fn">len</span>(<span class="var">cardapio</span>)
 
 <span class="fn">print</span>(<span class="str">'Mais barato: {} (R$ {:.2f})'</span>.<span class="fn">format</span>(<span class="var">mais_barato</span>[<span class="str">'nome'</span>], <span class="var">mais_barato</span>[<span class="str">'preco'</span>]))
 <span class="fn">print</span>(<span class="str">'Mais caro:   {} (R$ {:.2f})'</span>.<span class="fn">format</span>(<span class="var">mais_caro</span>[<span class="str">'nome'</span>], <span class="var">mais_caro</span>[<span class="str">'preco'</span>]))
