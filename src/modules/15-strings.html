@@ -161,7 +161,7 @@
         </div>
       </div>
       <div class="exercise-body">
-        <div class="exercise-desc">Leia uma frase digitada pelo usuário e exiba: o número de <strong>palavras</strong>, o número de <strong>vogais</strong> (a e i o u, maiúsculas ou minúsculas), a frase com todas as <strong>espaços duplicados removidos</strong> (dica: <code>' '.join(frase.split())</code>) e a frase com as <strong>palavras em ordem inversa</strong>.</div>
+        <div class="exercise-desc">Leia uma frase digitada pelo usuário e exiba: o número de <strong>palavras</strong>, o número de <strong>vogais</strong> (a e i o u, maiúsculas ou minúsculas), a frase com espaços duplicados removidos (dica: <code>' '.join(frase.split())</code>), a frase com as palavras em <strong>ordem inversa</strong> e a frase com todas as vogais substituídas por <code>*</code> usando <code>replace()</code>.</div>
         <textarea class="exercise-input" id="ex15-3" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex15-3', 'ex15-3-inputs')"></textarea>
         <div class="input-fields" id="ex15-3-inputs" style="display:none"></div>
         <div class="exercise-actions">
@@ -187,10 +187,15 @@
 <span class="var">limpa</span> = <span class="str">' '</span>.<span class="fn">join</span>(<span class="var">palavras</span>)
 <span class="var">invertida</span> = <span class="str">' '</span>.<span class="fn">join</span>(<span class="var">palavras</span>[::<span class="num">-1</span>])
 
+<span class="var">censurada</span> = <span class="var">limpa</span>
+<span class="kw">for</span> <span class="var">v</span> <span class="kw">in</span> <span class="str">'aeiouáéíóúãõâêôAEIOUÁÉÍÓÚÃÕÂÊÔ'</span>:
+    <span class="var">censurada</span> = <span class="var">censurada</span>.<span class="fn">replace</span>(<span class="var">v</span>, <span class="str">'*'</span>)
+
 <span class="fn">print</span>(<span class="str">'Palavras: {}'</span>.<span class="fn">format</span>(<span class="fn">len</span>(<span class="var">palavras</span>)))
 <span class="fn">print</span>(<span class="str">'Vogais: {}'</span>.<span class="fn">format</span>(<span class="var">vogais</span>))
 <span class="fn">print</span>(<span class="str">'Frase limpa: {}'</span>.<span class="fn">format</span>(<span class="var">limpa</span>))
-<span class="fn">print</span>(<span class="str">'Invertida: {}'</span>.<span class="fn">format</span>(<span class="var">invertida</span>))</pre>
+<span class="fn">print</span>(<span class="str">'Invertida: {}'</span>.<span class="fn">format</span>(<span class="var">invertida</span>))
+<span class="fn">print</span>(<span class="str">'Sem vogais: {}'</span>.<span class="fn">format</span>(<span class="var">censurada</span>))</pre>
           </div>
         </div>
       </div>
@@ -251,6 +256,55 @@
     <span class="fn">print</span>(<span class="str">'Senha forte!'</span>)
 <span class="kw">else</span>:
     <span class="fn">print</span>(<span class="str">'Senha fraca. Corrija os itens marcados com ✗.'</span>)</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">05</div>
+        <div>
+          <div class="exercise-title">Validador de e-mail</div>
+          <div class="exercise-sub">find(), startswith(), endswith() e in</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia um endereço de e-mail e verifique: se <strong>contém @</strong> (use <code>in</code>), a <strong>posição do @</strong> (use <code>find()</code>), se <strong>termina com .com ou .br</strong> (use <code>endswith()</code>). Se o @ for encontrado, exiba o <strong>nome de usuário</strong> (parte antes do @) e o <strong>domínio</strong> (parte depois). Ao final informe se o e-mail é válido ou não.</div>
+        <textarea class="exercise-input" id="ex15-5" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex15-5', 'ex15-5-inputs')"></textarea>
+        <div class="input-fields" id="ex15-5-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex15-5', 'ex15-5-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol15-5')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex15-5-out">
+          <div class="output-terminal-header"><div class="output-terminal-label">▶ Saída</div></div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol15-5">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">email</span> = <span class="fn">input</span>(<span class="str">'Digite seu e-mail: '</span>).<span class="fn">strip</span>().<span class="fn">lower</span>()
+
+<span class="var">tem_arroba</span>  = <span class="str">'@'</span> <span class="kw">in</span> <span class="var">email</span>
+<span class="var">pos_arroba</span>  = <span class="var">email</span>.<span class="fn">find</span>(<span class="str">'@'</span>)
+<span class="var">termina_ok</span>  = <span class="var">email</span>.<span class="fn">endswith</span>(<span class="str">'.com'</span>) <span class="kw">or</span> <span class="var">email</span>.<span class="fn">endswith</span>(<span class="str">'.com.br'</span>) <span class="kw">or</span> <span class="var">email</span>.<span class="fn">endswith</span>(<span class="str">'.br'</span>)
+
+<span class="fn">print</span>(<span class="str">'Contém @: {}'</span>.<span class="fn">format</span>(<span class="var">tem_arroba</span>))
+<span class="fn">print</span>(<span class="str">'Posição do @: {}'</span>.<span class="fn">format</span>(<span class="var">pos_arroba</span>))
+
+<span class="kw">if</span> <span class="var">tem_arroba</span>:
+    <span class="var">usuario</span> = <span class="var">email</span>[:<span class="var">pos_arroba</span>]
+    <span class="var">dominio</span> = <span class="var">email</span>[<span class="var">pos_arroba</span> + <span class="num">1</span>:]
+    <span class="fn">print</span>(<span class="str">'Usuário: {}'</span>.<span class="fn">format</span>(<span class="var">usuario</span>))
+    <span class="fn">print</span>(<span class="str">'Domínio: {}'</span>.<span class="fn">format</span>(<span class="var">dominio</span>))
+    <span class="fn">print</span>(<span class="str">'Termina com .com/.br: {}'</span>.<span class="fn">format</span>(<span class="var">termina_ok</span>))
+
+<span class="kw">if</span> <span class="var">tem_arroba</span> <span class="kw">and</span> <span class="var">termina_ok</span>:
+    <span class="fn">print</span>(<span class="str">'E-mail válido!'</span>)
+<span class="kw">else</span>:
+    <span class="fn">print</span>(<span class="str">'E-mail inválido.'</span>)</pre>
           </div>
         </div>
       </div>

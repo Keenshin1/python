@@ -146,12 +146,12 @@
       <div class="exercise-header">
         <div class="exercise-icon">03</div>
         <div>
-          <div class="exercise-title">Verificador de número primo</div>
-          <div class="exercise-sub">Combinando funções, for e condicionais</div>
+          <div class="exercise-title">Calculadora de desconto</div>
+          <div class="exercise-sub">Parâmetro com valor padrão + reutilização</div>
         </div>
       </div>
       <div class="exercise-body">
-        <div class="exercise-desc">Crie a função <code>eh_primo(n)</code> que retorna <code>True</code> se <strong>n</strong> for primo e <code>False</code> caso contrário. Um número primo é divisível apenas por 1 e por ele mesmo. Leia um número, chame a função e exiba o resultado.</div>
+        <div class="exercise-desc">Crie a função <code>calcular_desconto(preco, desconto=10)</code> que retorna o preço final após aplicar o percentual de desconto. O parâmetro <code>desconto</code> tem valor padrão de <strong>10%</strong>. Leia o preço e chame a função duas vezes: uma sem informar o desconto (usando o padrão) e outra com um percentual digitado pelo usuário.</div>
         <textarea class="exercise-input" id="ex13-3" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex13-3', 'ex13-3-inputs')"></textarea>
         <div class="input-fields" id="ex13-3-inputs" style="display:none"></div>
         <div class="exercise-actions">
@@ -164,6 +164,44 @@
           <div class="output-terminal-content"></div>
         </div>
         <div class="solution-wrap" id="sol13-3">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="kw">def</span> <span class="fn">calcular_desconto</span>(<span class="var">preco</span>, <span class="var">desconto</span>=<span class="num">10</span>):
+    <span class="var">valor_desconto</span> = <span class="var">preco</span> * <span class="var">desconto</span> / <span class="num">100</span>
+    <span class="kw">return</span> <span class="var">preco</span> - <span class="var">valor_desconto</span>
+
+<span class="var">preco</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Preço original: R$ '</span>))
+<span class="fn">print</span>(<span class="str">'Com desconto padrão (10%): R$ {:.2f}'</span>.<span class="fn">format</span>(<span class="fn">calcular_desconto</span>(<span class="var">preco</span>)))
+
+<span class="var">d</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Percentual de desconto personalizado: '</span>))
+<span class="fn">print</span>(<span class="str">'Com desconto de {}%: R$ {:.2f}'</span>.<span class="fn">format</span>(<span class="var">d</span>, <span class="fn">calcular_desconto</span>(<span class="var">preco</span>, <span class="var">d</span>)))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">04</div>
+        <div>
+          <div class="exercise-title">Verificador de número primo</div>
+          <div class="exercise-sub">Combinando funções, for e condicionais</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Crie a função <code>eh_primo(n)</code> que retorna <code>True</code> se <strong>n</strong> for primo e <code>False</code> caso contrário. Um número primo é divisível apenas por 1 e por ele mesmo. Leia um número, chame a função e exiba o resultado.</div>
+        <textarea class="exercise-input" id="ex13-4" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex13-4', 'ex13-4-inputs')"></textarea>
+        <div class="input-fields" id="ex13-4-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex13-4', 'ex13-4-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol13-4')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex13-4-out">
+          <div class="output-terminal-header"><div class="output-terminal-label">▶ Saída</div></div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol13-4">
           <div class="code-block" style="margin-top:0">
             <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
             <pre><span class="kw">def</span> <span class="fn">eh_primo</span>(<span class="var">n</span>):

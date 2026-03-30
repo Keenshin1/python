@@ -226,7 +226,7 @@
         </div>
       </div>
       <div class="exercise-body">
-        <div class="exercise-desc">Crie uma agenda onde a <strong>chave é o nome</strong> e o valor é um dicionário com <code>'telefone'</code> e <code>'email'</code>. Cadastre <strong>3 contatos</strong> lidos do usuário. Depois leia um nome para buscar: se existir, exiba os dados; se não, exiba <em>"Contato não encontrado."</em> Ao final, liste todos os contatos em ordem alfabética.</div>
+        <div class="exercise-desc">Crie uma agenda onde a <strong>chave é o nome</strong> e o valor é um dicionário com <code>'telefone'</code> e <code>'email'</code>. Cadastre <strong>3 contatos</strong> lidos do usuário. Depois leia um nome para buscar: se existir, exiba os dados; se não, exiba <em>"Contato não encontrado."</em> Em seguida, leia um nome para <strong>remover</strong> da agenda usando <code>pop()</code> (ou informe que não existe). Ao final, liste todos os contatos restantes em ordem alfabética.</div>
         <textarea class="exercise-input" id="ex16-4" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex16-4', 'ex16-4-inputs')"></textarea>
         <div class="input-fields" id="ex16-4-inputs" style="display:none"></div>
         <div class="exercise-actions">
@@ -256,6 +256,13 @@
     <span class="fn">print</span>(<span class="str">'Email: {}'</span>.<span class="fn">format</span>(<span class="var">dados</span>[<span class="str">'email'</span>]))
 <span class="kw">else</span>:
     <span class="fn">print</span>(<span class="str">'Contato não encontrado.'</span>)
+
+<span class="var">remover</span> = <span class="fn">input</span>(<span class="str">'\nRemover contato: '</span>).<span class="fn">strip</span>().<span class="fn">title</span>()
+<span class="kw">if</span> <span class="var">remover</span> <span class="kw">in</span> <span class="var">agenda</span>:
+    <span class="var">agenda</span>.<span class="fn">pop</span>(<span class="var">remover</span>)
+    <span class="fn">print</span>(<span class="str">'{} removido da agenda.'</span>.<span class="fn">format</span>(<span class="var">remover</span>))
+<span class="kw">else</span>:
+    <span class="fn">print</span>(<span class="str">'Contato {} não encontrado.'</span>.<span class="fn">format</span>(<span class="var">remover</span>))
 
 <span class="fn">print</span>(<span class="str">'\n--- TODOS OS CONTATOS ---'</span>)
 <span class="kw">for</span> <span class="var">nome</span> <span class="kw">in</span> <span class="fn">sorted</span>(<span class="var">agenda</span>):

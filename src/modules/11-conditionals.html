@@ -178,6 +178,45 @@
       </div>
     </div>
 
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">04</div>
+        <div>
+          <div class="exercise-title">Elegibilidade para desconto</div>
+          <div class="exercise-sub">Usando operadores lógicos or e not</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Uma loja concede desconto a clientes que sejam <strong>estudantes</strong> ou tenham <strong>mais de 60 anos</strong>, desde que <strong>não estejam inadimplentes</strong>. Leia: se é estudante (<code>s/n</code>), a idade e se está inadimplente (<code>s/n</code>). Exiba se o cliente tem direito ao desconto. Use <code>or</code> e <code>not</code> na sua condição.</div>
+        <textarea class="exercise-input" id="ex11-4" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex11-4', 'ex11-4-inputs')"></textarea>
+        <div class="input-fields" id="ex11-4-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex11-4', 'ex11-4-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol11-4')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex11-4-out">
+          <div class="output-terminal-header"><div class="output-terminal-label">▶ Saída</div></div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol11-4">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">estudante</span>    = <span class="fn">input</span>(<span class="str">'É estudante? (s/n): '</span>).<span class="fn">strip</span>().<span class="fn">lower</span>() == <span class="str">'s'</span>
+<span class="var">idade</span>        = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Idade: '</span>))
+<span class="var">inadimplente</span> = <span class="fn">input</span>(<span class="str">'Está inadimplente? (s/n): '</span>).<span class="fn">strip</span>().<span class="fn">lower</span>() == <span class="str">'s'</span>
+
+<span class="var">tem_perfil</span> = <span class="var">estudante</span> <span class="kw">or</span> <span class="var">idade</span> > <span class="num">60</span>
+
+<span class="kw">if</span> <span class="var">tem_perfil</span> <span class="kw">and</span> <span class="kw">not</span> <span class="var">inadimplente</span>:
+    <span class="fn">print</span>(<span class="str">'Cliente tem direito ao desconto!'</span>)
+<span class="kw">else</span>:
+    <span class="fn">print</span>(<span class="str">'Cliente não tem direito ao desconto.'</span>)</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="lesson-nav">
       <button class="btn btn-nav" onclick="goTo(10)">← Anterior</button>
       <button class="btn btn-primary" onclick="completeAndNext(11)">Próximo módulo →</button>

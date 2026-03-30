@@ -127,7 +127,7 @@
         </div>
       </div>
       <div class="exercise-body">
-        <div class="exercise-desc">Peça ao usuário <strong>6 números inteiros</strong>, armazene-os em uma lista e exiba: o <strong>maior</strong>, o <strong>menor</strong>, a <strong>soma</strong> e a lista em <strong>ordem crescente</strong>.</div>
+        <div class="exercise-desc">Peça ao usuário <strong>6 números inteiros</strong>, armazene-os em uma lista e exiba: o <strong>maior</strong>, o <strong>menor</strong>, a <strong>soma</strong> e a lista em <strong>ordem crescente</strong>. Depois, remova o menor número da lista com <code>remove()</code> e exiba a lista resultante.</div>
         <textarea class="exercise-input" id="ex14-2" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex14-2', 'ex14-2-inputs')"></textarea>
         <div class="input-fields" id="ex14-2-inputs" style="display:none"></div>
         <div class="exercise-actions">
@@ -150,7 +150,9 @@
 <span class="fn">print</span>(<span class="str">'Menor: {}'</span>.<span class="fn">format</span>(<span class="fn">min</span>(<span class="var">nums</span>)))
 <span class="fn">print</span>(<span class="str">'Soma: {}'</span>.<span class="fn">format</span>(<span class="fn">sum</span>(<span class="var">nums</span>)))
 <span class="var">nums</span>.<span class="fn">sort</span>()
-<span class="fn">print</span>(<span class="str">'Ordenada: {}'</span>.<span class="fn">format</span>(<span class="var">nums</span>))</pre>
+<span class="fn">print</span>(<span class="str">'Ordenada: {}'</span>.<span class="fn">format</span>(<span class="var">nums</span>))
+<span class="var">nums</span>.<span class="fn">remove</span>(<span class="fn">min</span>(<span class="var">nums</span>))
+<span class="fn">print</span>(<span class="str">'Sem o menor: {}'</span>.<span class="fn">format</span>(<span class="var">nums</span>))</pre>
           </div>
         </div>
       </div>
@@ -215,7 +217,7 @@
         </div>
       </div>
       <div class="exercise-body">
-        <div class="exercise-desc">Uma loja tem <strong>4 produtos</strong>. Leia o nome e o preço de cada um e armazene-os em duas listas paralelas (<code>nomes</code> e <code>precos</code>). Ao final, exiba uma tabela formatada com todos os produtos e seus preços, o <strong>produto mais caro</strong> e o <strong>valor total do estoque</strong>.</div>
+        <div class="exercise-desc">Uma loja tem <strong>4 produtos</strong>. Leia o nome e o preço de cada um e armazene-os em duas listas paralelas (<code>nomes</code> e <code>precos</code>). Ao final, exiba uma tabela formatada com todos os produtos e seus preços usando <code>enumerate()</code>, o <strong>produto mais caro</strong> e o <strong>valor total do estoque</strong>.</div>
         <textarea class="exercise-input" id="ex14-4" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex14-4', 'ex14-4-inputs')"></textarea>
         <div class="input-fields" id="ex14-4-inputs" style="display:none"></div>
         <div class="exercise-actions">
@@ -241,8 +243,8 @@
 <span class="fn">print</span>(<span class="str">'\n'</span> + <span class="num">30</span> * <span class="str">'-'</span>)
 <span class="fn">print</span>(<span class="str">'{:<20} {}'</span>.<span class="fn">format</span>(<span class="str">'Produto'</span>, <span class="str">'Preço'</span>))
 <span class="fn">print</span>(<span class="num">30</span> * <span class="str">'-'</span>)
-<span class="kw">for</span> <span class="var">i</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="fn">len</span>(<span class="var">nomes</span>)):
-    <span class="fn">print</span>(<span class="str">'{:<20} R$ {:.2f}'</span>.<span class="fn">format</span>(<span class="var">nomes</span>[<span class="var">i</span>], <span class="var">precos</span>[<span class="var">i</span>]))
+<span class="kw">for</span> <span class="var">i</span>, <span class="var">nome</span> <span class="kw">in</span> <span class="fn">enumerate</span>(<span class="var">nomes</span>):
+    <span class="fn">print</span>(<span class="str">'{:<20} R$ {:.2f}'</span>.<span class="fn">format</span>(<span class="var">nome</span>, <span class="var">precos</span>[<span class="var">i</span>]))
 <span class="fn">print</span>(<span class="num">30</span> * <span class="str">'-'</span>)
 
 <span class="var">idx_caro</span> = <span class="var">precos</span>.<span class="fn">index</span>(<span class="fn">max</span>(<span class="var">precos</span>))
