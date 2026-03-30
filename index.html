@@ -16,7 +16,7 @@
       <div class="logo-icon">Py</div>
       <div>
         <div class="logo-text">Aprenda Python</div>
-        <div class="logo-sub">14 módulos · do zero</div>
+        <div class="logo-sub">15 módulos · do zero</div>
       </div>
     </div>
   </div>
@@ -24,7 +24,7 @@
   <div class="progress-bar-wrap">
     <div class="progress-label">
       <span>Progresso</span>
-      <span id="progress-text">0 / 14</span>
+      <span id="progress-text">0 / 15</span>
     </div>
     <div class="progress-track">
       <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
@@ -116,6 +116,12 @@
       <span class="nav-dot"></span>
       <span class="nav-num">14</span>
       <span>Listas</span>
+    </button>
+
+    <button class="nav-item" onclick="goTo(15)" id="nav-15">
+      <span class="nav-dot"></span>
+      <span class="nav-num">15</span>
+      <span>Strings</span>
     </button>
   </div>
 </aside>
@@ -2285,7 +2291,263 @@
 
     <div class="lesson-nav">
       <button class="btn btn-nav" onclick="goTo(13)">← Anterior</button>
-      <button class="btn btn-success" onclick="completeAndNext(14)">Concluir curso ✓</button>
+      <button class="btn btn-primary" onclick="completeAndNext(14)">Próximo módulo →</button>
+    </div>
+  </div>
+
+  <div class="lesson" id="lesson-15">
+    <div class="lesson-header">
+      <div class="lesson-badge">Módulo 15</div>
+      <div class="lesson-title">Strings em profundidade</div>
+      <div class="lesson-subtitle">Manipule texto com fatiamento, métodos e busca em strings.</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Strings são sequências</div>
+
+    <div class="explanation">
+      Em Python, uma string é uma <strong>sequência de caracteres</strong> — assim como uma lista, cada caractere tem um índice que começa em <code>0</code>. Isso significa que você pode fatiar, iterar e medir strings da mesma forma que listas.
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">Indexação e fatiamento</div>
+      </div>
+      <pre><span class="var">palavra</span> = <span class="str">'Python'</span>
+
+<span class="fn">print</span>(<span class="var">palavra</span>[<span class="num">0</span>])      <span class="com"># P   (primeiro caractere)</span>
+<span class="fn">print</span>(<span class="var">palavra</span>[<span class="num">-1</span>])     <span class="com"># n   (último caractere)</span>
+<span class="fn">print</span>(<span class="var">palavra</span>[<span class="num">0</span>:<span class="num">3</span>])    <span class="com"># Pyt (índice 0 até 2)</span>
+<span class="fn">print</span>(<span class="var">palavra</span>[::<span class="num">-1</span>])   <span class="com"># nohtyP (invertida)</span>
+<span class="fn">print</span>(<span class="fn">len</span>(<span class="var">palavra</span>))    <span class="com"># 6</span></pre>
+    </div>
+
+    <div class="info-box">
+      <strong>Fatiamento: texto[início:fim:passo]</strong>
+      <code>'Python'[1:4]</code> → <code>'yth'</code> &nbsp;|&nbsp; <code>'Python'[::-1]</code> → <code>'nohtyP'</code> &nbsp;|&nbsp; <code>'Python'[::2]</code> → <code>'Pto'</code>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Métodos essenciais</div>
+
+    <div class="explanation">
+      Strings possuem dezenas de métodos embutidos. Os mais usados transformam capitalização, removem espaços, substituem trechos e dividem o texto em pedaços.
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">Métodos de string</div>
+      </div>
+      <pre><span class="var">texto</span> = <span class="str">'  Olá, Mundo!  '</span>
+
+<span class="fn">print</span>(<span class="var">texto</span>.<span class="fn">strip</span>())          <span class="com"># 'Olá, Mundo!'  (remove espaços das bordas)</span>
+<span class="fn">print</span>(<span class="var">texto</span>.<span class="fn">upper</span>())          <span class="com"># '  OLÁ, MUNDO!  '</span>
+<span class="fn">print</span>(<span class="var">texto</span>.<span class="fn">lower</span>())          <span class="com"># '  olá, mundo!  '</span>
+<span class="fn">print</span>(<span class="var">texto</span>.<span class="fn">replace</span>(<span class="str">'Mundo'</span>, <span class="str">'Python'</span>))  <span class="com"># '  Olá, Python!  '</span>
+<span class="fn">print</span>(<span class="var">texto</span>.<span class="fn">strip</span>().<span class="fn">split</span>(<span class="str">', '</span>))         <span class="com"># ['Olá', 'Mundo!']</span>
+<span class="fn">print</span>(<span class="var">texto</span>.<span class="fn">strip</span>().<span class="fn">startswith</span>(<span class="str">'Olá'</span>))  <span class="com"># True</span>
+<span class="fn">print</span>(<span class="var">texto</span>.<span class="fn">strip</span>().<span class="fn">count</span>(<span class="str">'o'</span>))          <span class="com"># 1</span></pre>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Busca e verificação</div>
+
+    <div class="explanation">
+      Use <code>in</code> para verificar se um trecho existe dentro de uma string, e <code>find()</code> para descobrir em qual posição ele aparece.
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">Busca em strings</div>
+      </div>
+      <pre><span class="var">email</span> = <span class="str">'usuario@exemplo.com'</span>
+
+<span class="fn">print</span>(<span class="str">'@'</span> <span class="kw">in</span> <span class="var">email</span>)            <span class="com"># True</span>
+<span class="fn">print</span>(<span class="var">email</span>.<span class="fn">find</span>(<span class="str">'@'</span>))         <span class="com"># 7  (posição do @)</span>
+<span class="fn">print</span>(<span class="var">email</span>.<span class="fn">endswith</span>(<span class="str">'.com'</span>))  <span class="com"># True</span>
+<span class="fn">print</span>(<span class="var">email</span>.<span class="fn">isdigit</span>())         <span class="com"># False</span>
+<span class="fn">print</span>(<span class="str">'123'</span>.<span class="fn">isdigit</span>())          <span class="com"># True</span></pre>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Exercícios de fixação</div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">01</div>
+        <div>
+          <div class="exercise-title">Ficha de cadastro</div>
+          <div class="exercise-sub">strip, upper, lower, len</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia o nome completo de uma pessoa (pode ter espaços extras nas bordas). Exiba: o nome com espaços removidos, em <strong>maiúsculas</strong>, em <strong>minúsculas</strong>, com a <strong>primeira letra de cada palavra em maiúsculo</strong> (<code>title()</code>) e a <strong>quantidade de caracteres</strong> (sem contar espaços extras).</div>
+        <textarea class="exercise-input" id="ex15-1" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex15-1', 'ex15-1-inputs')"></textarea>
+        <div class="input-fields" id="ex15-1-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex15-1', 'ex15-1-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol15-1')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex15-1-out">
+          <div class="output-terminal-header"><div class="output-terminal-label">▶ Saída</div></div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol15-1">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">nome</span> = <span class="fn">input</span>(<span class="str">'Nome completo: '</span>).<span class="fn">strip</span>()
+<span class="fn">print</span>(<span class="str">'Nome limpo: {}'</span>.<span class="fn">format</span>(<span class="var">nome</span>))
+<span class="fn">print</span>(<span class="str">'Maiúsculo: {}'</span>.<span class="fn">format</span>(<span class="var">nome</span>.<span class="fn">upper</span>()))
+<span class="fn">print</span>(<span class="str">'Minúsculo: {}'</span>.<span class="fn">format</span>(<span class="var">nome</span>.<span class="fn">lower</span>()))
+<span class="fn">print</span>(<span class="str">'Título: {}'</span>.<span class="fn">format</span>(<span class="var">nome</span>.<span class="fn">title</span>()))
+<span class="fn">print</span>(<span class="str">'Caracteres: {}'</span>.<span class="fn">format</span>(<span class="fn">len</span>(<span class="var">nome</span>)))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">02</div>
+        <div>
+          <div class="exercise-title">Verificador de palíndromo</div>
+          <div class="exercise-sub">Fatiamento [::-1] e comparação</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Uma palavra é <strong>palíndromo</strong> quando lida de trás pra frente é igual à original (ex: <em>arara</em>, <em>radar</em>). Leia uma palavra, converta para minúsculas e verifique se ela é palíndromo usando fatiamento.</div>
+        <textarea class="exercise-input" id="ex15-2" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex15-2', 'ex15-2-inputs')"></textarea>
+        <div class="input-fields" id="ex15-2-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex15-2', 'ex15-2-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol15-2')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex15-2-out">
+          <div class="output-terminal-header"><div class="output-terminal-label">▶ Saída</div></div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol15-2">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">palavra</span> = <span class="fn">input</span>(<span class="str">'Digite uma palavra: '</span>).<span class="fn">strip</span>().<span class="fn">lower</span>()
+<span class="kw">if</span> <span class="var">palavra</span> == <span class="var">palavra</span>[::<span class="num">-1</span>]:
+    <span class="fn">print</span>(<span class="str">'"{}" é palíndromo!'</span>.<span class="fn">format</span>(<span class="var">palavra</span>))
+<span class="kw">else</span>:
+    <span class="fn">print</span>(<span class="str">'"{}" não é palíndromo.'</span>.<span class="fn">format</span>(<span class="var">palavra</span>))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon" style="background: var(--orange);">★</div>
+        <div>
+          <div class="exercise-title">Analisador de frase</div>
+          <div class="exercise-sub">split, count, replace e iteração</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia uma frase digitada pelo usuário e exiba: o número de <strong>palavras</strong>, o número de <strong>vogais</strong> (a e i o u, maiúsculas ou minúsculas), a frase com todas as <strong>espaços duplicados removidos</strong> (dica: <code>' '.join(frase.split())</code>) e a frase com as <strong>palavras em ordem inversa</strong>.</div>
+        <textarea class="exercise-input" id="ex15-3" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex15-3', 'ex15-3-inputs')"></textarea>
+        <div class="input-fields" id="ex15-3-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex15-3', 'ex15-3-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol15-3')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex15-3-out">
+          <div class="output-terminal-header"><div class="output-terminal-label">▶ Saída</div></div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol15-3">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">frase</span> = <span class="fn">input</span>(<span class="str">'Digite uma frase: '</span>)
+<span class="var">palavras</span> = <span class="var">frase</span>.<span class="fn">split</span>()
+
+<span class="var">vogais</span> = <span class="num">0</span>
+<span class="kw">for</span> <span class="var">c</span> <span class="kw">in</span> <span class="var">frase</span>.<span class="fn">lower</span>():
+    <span class="kw">if</span> <span class="var">c</span> <span class="kw">in</span> <span class="str">'aeiouáéíóúãõâêô'</span>:
+        <span class="var">vogais</span> += <span class="num">1</span>
+
+<span class="var">limpa</span> = <span class="str">' '</span>.<span class="fn">join</span>(<span class="var">palavras</span>)
+<span class="var">invertida</span> = <span class="str">' '</span>.<span class="fn">join</span>(<span class="var">palavras</span>[::<span class="num">-1</span>])
+
+<span class="fn">print</span>(<span class="str">'Palavras: {}'</span>.<span class="fn">format</span>(<span class="fn">len</span>(<span class="var">palavras</span>)))
+<span class="fn">print</span>(<span class="str">'Vogais: {}'</span>.<span class="fn">format</span>(<span class="var">vogais</span>))
+<span class="fn">print</span>(<span class="str">'Frase limpa: {}'</span>.<span class="fn">format</span>(<span class="var">limpa</span>))
+<span class="fn">print</span>(<span class="str">'Invertida: {}'</span>.<span class="fn">format</span>(<span class="var">invertida</span>))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon" style="background: var(--red);">★★</div>
+        <div>
+          <div class="exercise-title">Validador de senha</div>
+          <div class="exercise-sub">Funções + strings + múltiplas verificações</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Crie a função <code>validar_senha(senha)</code> que retorna <code>True</code> se a senha atender a <strong>todos</strong> os critérios abaixo, ou <code>False</code> caso contrário. Exiba quais critérios foram aprovados e quais falharam.
+          <br><br>
+          Critérios: mínimo de <strong>8 caracteres</strong>, pelo menos <strong>uma letra maiúscula</strong>, pelo menos <strong>um dígito</strong> (<code>isdigit()</code>), pelo menos <strong>um caractere especial</strong> de <code>!@#$%</code>.
+        </div>
+        <textarea class="exercise-input" id="ex15-4" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex15-4', 'ex15-4-inputs')"></textarea>
+        <div class="input-fields" id="ex15-4-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex15-4', 'ex15-4-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol15-4')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex15-4-out">
+          <div class="output-terminal-header"><div class="output-terminal-label">▶ Saída</div></div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol15-4">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="kw">def</span> <span class="fn">validar_senha</span>(<span class="var">senha</span>):
+    <span class="var">tem_tamanho</span>  = <span class="fn">len</span>(<span class="var">senha</span>) >= <span class="num">8</span>
+    <span class="var">tem_maiuscula</span> = <span class="kw">any</span>(<span class="var">c</span>.<span class="fn">isupper</span>() <span class="kw">for</span> <span class="var">c</span> <span class="kw">in</span> <span class="var">senha</span>)
+    <span class="var">tem_digito</span>   = <span class="kw">any</span>(<span class="var">c</span>.<span class="fn">isdigit</span>() <span class="kw">for</span> <span class="var">c</span> <span class="kw">in</span> <span class="var">senha</span>)
+    <span class="var">tem_especial</span> = <span class="kw">any</span>(<span class="var">c</span> <span class="kw">in</span> <span class="str">'!@#$%'</span> <span class="kw">for</span> <span class="var">c</span> <span class="kw">in</span> <span class="var">senha</span>)
+
+    <span class="kw">def</span> <span class="fn">status</span>(<span class="var">ok</span>):
+        <span class="kw">return</span> <span class="str">'✓'</span> <span class="kw">if</span> <span class="var">ok</span> <span class="kw">else</span> <span class="str">'✗'</span>
+
+    <span class="fn">print</span>(<span class="str">'[{}] Mínimo 8 caracteres'</span>.<span class="fn">format</span>(<span class="fn">status</span>(<span class="var">tem_tamanho</span>)))
+    <span class="fn">print</span>(<span class="str">'[{}] Letra maiúscula'</span>.<span class="fn">format</span>(<span class="fn">status</span>(<span class="var">tem_maiuscula</span>)))
+    <span class="fn">print</span>(<span class="str">'[{}] Dígito numérico'</span>.<span class="fn">format</span>(<span class="fn">status</span>(<span class="var">tem_digito</span>)))
+    <span class="fn">print</span>(<span class="str">'[{}] Caractere especial (!@#$%)'</span>.<span class="fn">format</span>(<span class="fn">status</span>(<span class="var">tem_especial</span>)))
+
+    <span class="kw">return</span> <span class="var">tem_tamanho</span> <span class="kw">and</span> <span class="var">tem_maiuscula</span> <span class="kw">and</span> <span class="var">tem_digito</span> <span class="kw">and</span> <span class="var">tem_especial</span>
+
+<span class="var">senha</span> = <span class="fn">input</span>(<span class="str">'Digite uma senha: '</span>)
+<span class="kw">if</span> <span class="fn">validar_senha</span>(<span class="var">senha</span>):
+    <span class="fn">print</span>(<span class="str">'Senha forte!'</span>)
+<span class="kw">else</span>:
+    <span class="fn">print</span>(<span class="str">'Senha fraca. Corrija os itens marcados com ✗.'</span>)</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <button class="btn btn-nav" onclick="goTo(14)">← Anterior</button>
+      <button class="btn btn-success" onclick="completeAndNext(15)">Concluir curso ✓</button>
     </div>
   </div>
 
