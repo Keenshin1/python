@@ -21,12 +21,12 @@
       <div class="exercise-header">
         <div class="exercise-icon">01</div>
         <div>
-          <div class="exercise-title">Calculadora de tinta</div>
-          <div class="exercise-sub">Área + divisão + formatação</div>
+          <div class="exercise-title">Calculadora de viagem</div>
+          <div class="exercise-sub">Operações + formatação + divisão real</div>
         </div>
       </div>
       <div class="exercise-body">
-        <div class="exercise-desc">Leia a <strong>largura</strong> e a <strong>altura</strong> de uma parede em metros. Calcule a área e quantos litros de tinta são necessários sabendo que <strong>1 litro pinta 2m²</strong>. Exiba os dois valores.</div>
+        <div class="exercise-desc">Leia a <strong>distância</strong> da viagem em km, o <strong>consumo</strong> do carro (km por litro) e o <strong>preço do combustível</strong> (R$ por litro). Calcule e exiba: quantos litros serão necessários e o <strong>custo total</strong> da viagem. Use f-strings e 2 casas decimais nos valores monetários.</div>
         <textarea class="exercise-input" id="ex10-1" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex10-1', 'ex10-1-inputs')"></textarea>
         <div class="input-fields" id="ex10-1-inputs" style="display:none"></div>
         <div class="exercise-actions">
@@ -43,12 +43,13 @@
         <div class="solution-wrap" id="sol10-1">
           <div class="code-block" style="margin-top:0">
             <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
-            <pre><span class="var">largura</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Largura da parede (m): '</span>))
-<span class="var">altura</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Altura da parede (m): '</span>))
-<span class="var">area</span> = <span class="var">largura</span> * <span class="var">altura</span>
-<span class="var">tinta</span> = <span class="var">area</span> / <span class="num">2</span>
-<span class="fn">print</span>(<span class="str">'Área: {}m²'</span>.<span class="fn">format</span>(<span class="var">area</span>))
-<span class="fn">print</span>(<span class="str">'Tinta necessária: {} litros'</span>.<span class="fn">format</span>(<span class="var">tinta</span>))</pre>
+            <pre><span class="var">distancia</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Distância (km): '</span>))
+<span class="var">consumo</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Consumo do carro (km/l): '</span>))
+<span class="var">preco</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Preço do combustível (R$/l): '</span>))
+<span class="var">litros</span> = <span class="var">distancia</span> / <span class="var">consumo</span>
+<span class="var">custo</span> = <span class="var">litros</span> * <span class="var">preco</span>
+<span class="fn">print</span>(<span class="kw">f</span><span class="str">'Litros necessários: {litros:.2f}L'</span>)
+<span class="fn">print</span>(<span class="kw">f</span><span class="str">'Custo total: R${custo:.2f}'</span>)</pre>
           </div>
         </div>
       </div>
@@ -130,6 +131,45 @@
 <span class="fn">print</span>(<span class="str">'Potência: {}'</span>.<span class="fn">format</span>(<span class="var">a</span> ** <span class="var">b</span>))
 <span class="fn">print</span>(<span class="str">'Resto: {}'</span>.<span class="fn">format</span>(<span class="var">a</span> % <span class="var">b</span>))
 <span class="fn">print</span>(<span class="num">20</span> * <span class="str">'='</span>)</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">04</div>
+        <div>
+          <div class="exercise-title">Palavra sortuda</div>
+          <div class="exercise-sub">Strings + random combinados</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia um nome. Exiba: o nome em <strong>maiúsculas</strong>, em <strong>minúsculas</strong>, se é <strong>somente letras</strong> (<code>isalpha</code>) e o seu <strong>tamanho</strong>. Por fim, gere um <strong>número da sorte</strong> aleatório entre 1 e 100 para essa pessoa usando <code>randint()</code>.</div>
+        <textarea class="exercise-input" id="ex10-4" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex10-4', 'ex10-4-inputs')"></textarea>
+        <div class="input-fields" id="ex10-4-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex10-4', 'ex10-4-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol10-4')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex10-4-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol10-4">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="kw">from</span> random <span class="kw">import</span> randint
+
+<span class="var">nome</span> = <span class="fn">input</span>(<span class="str">'Digite seu nome: '</span>)
+<span class="fn">print</span>(<span class="str">'Maiúsculas: '</span> + <span class="var">nome</span>.<span class="fn">upper</span>())
+<span class="fn">print</span>(<span class="str">'Minúsculas: '</span> + <span class="var">nome</span>.<span class="fn">lower</span>())
+<span class="fn">print</span>(<span class="str">'Só letras? '</span> + <span class="fn">str</span>(<span class="var">nome</span>.<span class="fn">isalpha</span>()))
+<span class="fn">print</span>(<span class="str">'Tamanho: '</span> + <span class="fn">str</span>(<span class="fn">len</span>(<span class="var">nome</span>)) + <span class="str">' letras'</span>)
+<span class="fn">print</span>(<span class="str">'Número da sorte: '</span> + <span class="fn">str</span>(<span class="fn">randint</span>(<span class="num">1</span>, <span class="num">100</span>)))</pre>
           </div>
         </div>
       </div>

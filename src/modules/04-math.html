@@ -166,6 +166,42 @@
       </div>
     </div>
 
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">04</div>
+        <div>
+          <div class="exercise-title">Divisão inteira e resto</div>
+          <div class="exercise-sub">Operadores //, % e /</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia dois números inteiros e exiba: a <strong>divisão inteira</strong> (<code>//</code>), o <strong>resto da divisão</strong> (<code>%</code>) e a <strong>divisão real</strong> (<code>/</code>) com 2 casas decimais. <br><em>Exemplo: 17 dividido por 5 → inteira: 3, resto: 2, real: 3.40</em></div>
+        <textarea class="exercise-input" id="ex4-4" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex4-4', 'ex4-4-inputs')"></textarea>
+        <div class="input-fields" id="ex4-4-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex4-4', 'ex4-4-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol4-4')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex4-4-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol4-4">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">a</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Dividendo: '</span>))
+<span class="var">b</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Divisor: '</span>))
+<span class="fn">print</span>(<span class="str">'Divisão inteira: '</span> + <span class="fn">str</span>(<span class="var">a</span> // <span class="var">b</span>))
+<span class="fn">print</span>(<span class="str">'Resto: '</span> + <span class="fn">str</span>(<span class="var">a</span> % <span class="var">b</span>))
+<span class="fn">print</span>(<span class="str">'Divisão real: '</span> + <span class="fn">str</span>(<span class="fn">round</span>(<span class="var">a</span> / <span class="var">b</span>, <span class="num">2</span>)))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="lesson-nav">
       <button class="btn btn-nav" onclick="goTo(3)">← Anterior</button>
       <button class="btn btn-primary" onclick="completeAndNext(4)">Próximo módulo →</button>

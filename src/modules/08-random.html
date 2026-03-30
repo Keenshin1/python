@@ -150,6 +150,44 @@
       </div>
     </div>
 
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">03</div>
+        <div>
+          <div class="exercise-title">Dado virtual</div>
+          <div class="exercise-sub">randint() e indexação de lista</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Simule o lançamento de <strong>3 dados</strong> (cada um com valores de 1 a 6) usando <code>randint()</code>. Guarde os resultados em uma lista e exiba cada dado acessando pelo índice (<code>[0]</code>, <code>[1]</code>, <code>[2]</code>). Ao final, mostre a <strong>soma</strong> dos três resultados.</div>
+        <textarea class="exercise-input" id="ex8-3" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex8-3', 'ex8-3-inputs')"></textarea>
+        <div class="input-fields" id="ex8-3-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex8-3', 'ex8-3-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol8-3')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex8-3-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol8-3">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="kw">from</span> random <span class="kw">import</span> randint
+
+<span class="var">dados</span> = [<span class="fn">randint</span>(<span class="num">1</span>, <span class="num">6</span>), <span class="fn">randint</span>(<span class="num">1</span>, <span class="num">6</span>), <span class="fn">randint</span>(<span class="num">1</span>, <span class="num">6</span>)]
+<span class="fn">print</span>(<span class="str">'Dado 1: {}'</span>.<span class="fn">format</span>(<span class="var">dados</span>[<span class="num">0</span>]))
+<span class="fn">print</span>(<span class="str">'Dado 2: {}'</span>.<span class="fn">format</span>(<span class="var">dados</span>[<span class="num">1</span>]))
+<span class="fn">print</span>(<span class="str">'Dado 3: {}'</span>.<span class="fn">format</span>(<span class="var">dados</span>[<span class="num">2</span>]))
+<span class="fn">print</span>(<span class="str">'Soma: {}'</span>.<span class="fn">format</span>(<span class="var">dados</span>[<span class="num">0</span>] + <span class="var">dados</span>[<span class="num">1</span>] + <span class="var">dados</span>[<span class="num">2</span>]))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="lesson-nav">
       <button class="btn btn-nav" onclick="goTo(7)">← Anterior</button>
       <button class="btn btn-primary" onclick="completeAndNext(8)">Próximo módulo →</button>

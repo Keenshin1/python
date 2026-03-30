@@ -137,6 +137,45 @@
       </div>
     </div>
 
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">03</div>
+        <div>
+          <div class="exercise-title">Ficha do produto</div>
+          <div class="exercise-sub">Praticando f-strings</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia o <strong>nome</strong> de um produto, seu <strong>preço unitário</strong> (decimal) e a <strong>quantidade</strong> (inteiro). Calcule o valor total e exiba uma ficha formatada usando <strong>f-strings</strong>. Mostre o preço e o total com 2 casas decimais.</div>
+        <textarea class="exercise-input" id="ex5-3" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex5-3', 'ex5-3-inputs')"></textarea>
+        <div class="input-fields" id="ex5-3-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex5-3', 'ex5-3-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol5-3')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex5-3-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol5-3">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">produto</span> = <span class="fn">input</span>(<span class="str">'Nome do produto: '</span>)
+<span class="var">preco</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Preço unitário: '</span>))
+<span class="var">qtd</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Quantidade: '</span>))
+<span class="var">total</span> = <span class="var">preco</span> * <span class="var">qtd</span>
+<span class="fn">print</span>(<span class="kw">f</span><span class="str">'Produto: {produto}'</span>)
+<span class="fn">print</span>(<span class="kw">f</span><span class="str">'Preço unitário: R${preco:.2f}'</span>)
+<span class="fn">print</span>(<span class="kw">f</span><span class="str">'Quantidade: {qtd}'</span>)
+<span class="fn">print</span>(<span class="kw">f</span><span class="str">'Total: R${total:.2f}'</span>)</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="lesson-nav">
       <button class="btn btn-nav" onclick="goTo(4)">← Anterior</button>
       <button class="btn btn-primary" onclick="completeAndNext(5)">Próximo módulo →</button>

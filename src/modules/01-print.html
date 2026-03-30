@@ -140,6 +140,43 @@
       </div>
     </div>
 
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">03</div>
+        <div>
+          <div class="exercise-title">Cartão de visitas</div>
+          <div class="exercise-sub">Criando e usando variáveis</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Crie variáveis para guardar seu <strong>nome</strong>, sua <strong>profissão</strong> e sua <strong>cidade</strong>. Depois use <code>print()</code> para exibir cada variável em uma linha separada, como um cartão de visitas.</div>
+        <textarea class="exercise-input" id="ex1-3" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex1-3', 'ex1-3-inputs')"></textarea>
+        <div class="input-fields" id="ex1-3-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex1-3', 'ex1-3-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol1-3')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex1-3-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol1-3">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">nome</span> = <span class="str">'Tainá'</span>
+<span class="var">profissao</span> = <span class="str">'Desenvolvedora'</span>
+<span class="var">cidade</span> = <span class="str">'Curitiba'</span>
+<span class="fn">print</span>(<span class="var">nome</span>)
+<span class="fn">print</span>(<span class="var">profissao</span>)
+<span class="fn">print</span>(<span class="var">cidade</span>)</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="lesson-nav">
       <button class="btn btn-nav" style="visibility:hidden">← Voltar</button>
       <button class="btn btn-primary" onclick="completeAndNext(1)">Próximo módulo →</button>

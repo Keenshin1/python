@@ -120,6 +120,42 @@
       </div>
     </div>
 
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">03</div>
+        <div>
+          <div class="exercise-title">Verificador completo</div>
+          <div class="exercise-sub">islower, isalnum, istitle e len</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia uma palavra e exiba: se está toda em <strong>minúsculas</strong> (<code>islower</code>), se contém apenas <strong>letras e números</strong> (<code>isalnum</code>), se está no <strong>formato título</strong> (<code>istitle</code>) e o número de caracteres (<code>len</code>).</div>
+        <textarea class="exercise-input" id="ex3-3" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex3-3', 'ex3-3-inputs')"></textarea>
+        <div class="input-fields" id="ex3-3-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex3-3', 'ex3-3-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol3-3')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex3-3-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol3-3">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">palavra</span> = <span class="fn">input</span>(<span class="str">'Digite uma palavra: '</span>)
+<span class="fn">print</span>(<span class="str">'Toda em minúsculas? '</span> + <span class="fn">str</span>(<span class="var">palavra</span>.<span class="fn">islower</span>()))
+<span class="fn">print</span>(<span class="str">'Só letras e números? '</span> + <span class="fn">str</span>(<span class="var">palavra</span>.<span class="fn">isalnum</span>()))
+<span class="fn">print</span>(<span class="str">'Formato título? '</span> + <span class="fn">str</span>(<span class="var">palavra</span>.<span class="fn">istitle</span>()))
+<span class="fn">print</span>(<span class="str">'Número de caracteres: '</span> + <span class="fn">str</span>(<span class="fn">len</span>(<span class="var">palavra</span>)))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="lesson-nav">
       <button class="btn btn-nav" onclick="goTo(2)">← Anterior</button>
       <button class="btn btn-primary" onclick="completeAndNext(3)">Próximo módulo →</button>

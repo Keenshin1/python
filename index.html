@@ -275,6 +275,43 @@
       </div>
     </div>
 
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">03</div>
+        <div>
+          <div class="exercise-title">Cartão de visitas</div>
+          <div class="exercise-sub">Criando e usando variáveis</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Crie variáveis para guardar seu <strong>nome</strong>, sua <strong>profissão</strong> e sua <strong>cidade</strong>. Depois use <code>print()</code> para exibir cada variável em uma linha separada, como um cartão de visitas.</div>
+        <textarea class="exercise-input" id="ex1-3" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex1-3', 'ex1-3-inputs')"></textarea>
+        <div class="input-fields" id="ex1-3-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex1-3', 'ex1-3-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol1-3')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex1-3-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol1-3">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">nome</span> = <span class="str">'Tainá'</span>
+<span class="var">profissao</span> = <span class="str">'Desenvolvedora'</span>
+<span class="var">cidade</span> = <span class="str">'Curitiba'</span>
+<span class="fn">print</span>(<span class="var">nome</span>)
+<span class="fn">print</span>(<span class="var">profissao</span>)
+<span class="fn">print</span>(<span class="var">cidade</span>)</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="lesson-nav">
       <button class="btn btn-nav" style="visibility:hidden">← Voltar</button>
       <button class="btn btn-primary" onclick="completeAndNext(1)">Próximo módulo →</button>
@@ -395,6 +432,41 @@
 <span class="var">idade</span> = <span class="fn">input</span>(<span class="str">'Idade: '</span>)
 <span class="var">cidade</span> = <span class="fn">input</span>(<span class="str">'Cidade: '</span>)
 <span class="fn">print</span>(<span class="str">'Olá '</span> + <span class="var">nome</span> + <span class="str">', você tem '</span> + <span class="var">idade</span> + <span class="str">' anos e mora em '</span> + <span class="var">cidade</span> + <span class="str">'.'</span>)</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">03</div>
+        <div>
+          <div class="exercise-title">Idade em dias</div>
+          <div class="exercise-sub">Conversão de tipo e cálculo</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia o nome e a idade (em anos) de uma pessoa. Converta a idade para <code>int</code> e calcule quantos dias de vida ela tem aproximadamente (considere <strong>365 dias por ano</strong>). Exiba uma mensagem como: <em>"Olá Tainá, você tem aproximadamente 10220 dias de vida!"</em></div>
+        <textarea class="exercise-input" id="ex2-3" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex2-3', 'ex2-3-inputs')"></textarea>
+        <div class="input-fields" id="ex2-3-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex2-3', 'ex2-3-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol2-3')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex2-3-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol2-3">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">nome</span> = <span class="fn">input</span>(<span class="str">'Seu nome: '</span>)
+<span class="var">idade</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Sua idade (anos): '</span>))
+<span class="var">dias</span> = <span class="var">idade</span> * <span class="num">365</span>
+<span class="fn">print</span>(<span class="str">'Olá '</span> + <span class="var">nome</span> + <span class="str">', você tem aproximadamente '</span> + <span class="fn">str</span>(<span class="var">dias</span>) + <span class="str">' dias de vida!'</span>)</pre>
           </div>
         </div>
       </div>
@@ -522,6 +594,42 @@
 <span class="fn">print</span>(<span class="var">frase</span>.<span class="fn">upper</span>())
 <span class="fn">print</span>(<span class="var">frase</span>.<span class="fn">lower</span>())
 <span class="fn">print</span>(<span class="var">frase</span>.<span class="fn">title</span>())</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">03</div>
+        <div>
+          <div class="exercise-title">Verificador completo</div>
+          <div class="exercise-sub">islower, isalnum, istitle e len</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia uma palavra e exiba: se está toda em <strong>minúsculas</strong> (<code>islower</code>), se contém apenas <strong>letras e números</strong> (<code>isalnum</code>), se está no <strong>formato título</strong> (<code>istitle</code>) e o número de caracteres (<code>len</code>).</div>
+        <textarea class="exercise-input" id="ex3-3" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex3-3', 'ex3-3-inputs')"></textarea>
+        <div class="input-fields" id="ex3-3-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex3-3', 'ex3-3-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol3-3')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex3-3-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol3-3">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">palavra</span> = <span class="fn">input</span>(<span class="str">'Digite uma palavra: '</span>)
+<span class="fn">print</span>(<span class="str">'Toda em minúsculas? '</span> + <span class="fn">str</span>(<span class="var">palavra</span>.<span class="fn">islower</span>()))
+<span class="fn">print</span>(<span class="str">'Só letras e números? '</span> + <span class="fn">str</span>(<span class="var">palavra</span>.<span class="fn">isalnum</span>()))
+<span class="fn">print</span>(<span class="str">'Formato título? '</span> + <span class="fn">str</span>(<span class="var">palavra</span>.<span class="fn">istitle</span>()))
+<span class="fn">print</span>(<span class="str">'Número de caracteres: '</span> + <span class="fn">str</span>(<span class="fn">len</span>(<span class="var">palavra</span>)))</pre>
           </div>
         </div>
       </div>
@@ -700,6 +808,42 @@
       </div>
     </div>
 
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">04</div>
+        <div>
+          <div class="exercise-title">Divisão inteira e resto</div>
+          <div class="exercise-sub">Operadores //, % e /</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia dois números inteiros e exiba: a <strong>divisão inteira</strong> (<code>//</code>), o <strong>resto da divisão</strong> (<code>%</code>) e a <strong>divisão real</strong> (<code>/</code>) com 2 casas decimais. <br><em>Exemplo: 17 dividido por 5 → inteira: 3, resto: 2, real: 3.40</em></div>
+        <textarea class="exercise-input" id="ex4-4" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex4-4', 'ex4-4-inputs')"></textarea>
+        <div class="input-fields" id="ex4-4-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex4-4', 'ex4-4-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol4-4')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex4-4-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol4-4">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">a</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Dividendo: '</span>))
+<span class="var">b</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Divisor: '</span>))
+<span class="fn">print</span>(<span class="str">'Divisão inteira: '</span> + <span class="fn">str</span>(<span class="var">a</span> // <span class="var">b</span>))
+<span class="fn">print</span>(<span class="str">'Resto: '</span> + <span class="fn">str</span>(<span class="var">a</span> % <span class="var">b</span>))
+<span class="fn">print</span>(<span class="str">'Divisão real: '</span> + <span class="fn">str</span>(<span class="fn">round</span>(<span class="var">a</span> / <span class="var">b</span>, <span class="num">2</span>)))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="lesson-nav">
       <button class="btn btn-nav" onclick="goTo(3)">← Anterior</button>
       <button class="btn btn-primary" onclick="completeAndNext(4)">Próximo módulo →</button>
@@ -844,6 +988,45 @@
       </div>
     </div>
 
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">03</div>
+        <div>
+          <div class="exercise-title">Ficha do produto</div>
+          <div class="exercise-sub">Praticando f-strings</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia o <strong>nome</strong> de um produto, seu <strong>preço unitário</strong> (decimal) e a <strong>quantidade</strong> (inteiro). Calcule o valor total e exiba uma ficha formatada usando <strong>f-strings</strong>. Mostre o preço e o total com 2 casas decimais.</div>
+        <textarea class="exercise-input" id="ex5-3" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex5-3', 'ex5-3-inputs')"></textarea>
+        <div class="input-fields" id="ex5-3-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex5-3', 'ex5-3-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol5-3')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex5-3-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol5-3">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">produto</span> = <span class="fn">input</span>(<span class="str">'Nome do produto: '</span>)
+<span class="var">preco</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Preço unitário: '</span>))
+<span class="var">qtd</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Quantidade: '</span>))
+<span class="var">total</span> = <span class="var">preco</span> * <span class="var">qtd</span>
+<span class="fn">print</span>(<span class="kw">f</span><span class="str">'Produto: {produto}'</span>)
+<span class="fn">print</span>(<span class="kw">f</span><span class="str">'Preço unitário: R${preco:.2f}'</span>)
+<span class="fn">print</span>(<span class="kw">f</span><span class="str">'Quantidade: {qtd}'</span>)
+<span class="fn">print</span>(<span class="kw">f</span><span class="str">'Total: R${total:.2f}'</span>)</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="lesson-nav">
       <button class="btn btn-nav" onclick="goTo(4)">← Anterior</button>
       <button class="btn btn-primary" onclick="completeAndNext(5)">Próximo módulo →</button>
@@ -981,6 +1164,42 @@
 <span class="fn">print</span>(<span class="str">'Área: {:.2f}'</span>.<span class="fn">format</span>(<span class="var">area</span>))
 <span class="fn">print</span>(<span class="str">'Perímetro: {:.2f}'</span>.<span class="fn">format</span>(<span class="var">perimetro</span>))
 </pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">03</div>
+        <div>
+          <div class="exercise-title">Distância entre números</div>
+          <div class="exercise-sub">abs() e valor absoluto</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia dois números reais (podem ser negativos). Exiba: o <strong>valor absoluto</strong> de cada um e a <strong>distância</strong> entre eles (use <code>abs(a - b)</code>). Todos os resultados com 2 casas decimais. <br><em>Exemplo: -8.5 e 3.0 → abs: 8.50 e 3.00, distância: 11.50</em></div>
+        <textarea class="exercise-input" id="ex6-3" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex6-3', 'ex6-3-inputs')"></textarea>
+        <div class="input-fields" id="ex6-3-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex6-3', 'ex6-3-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol6-3')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex6-3-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol6-3">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">a</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Primeiro número: '</span>))
+<span class="var">b</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Segundo número: '</span>))
+<span class="fn">print</span>(<span class="str">'Valor absoluto de A: {:.2f}'</span>.<span class="fn">format</span>(<span class="fn">abs</span>(<span class="var">a</span>)))
+<span class="fn">print</span>(<span class="str">'Valor absoluto de B: {:.2f}'</span>.<span class="fn">format</span>(<span class="fn">abs</span>(<span class="var">b</span>)))
+<span class="fn">print</span>(<span class="str">'Distância entre A e B: {:.2f}'</span>.<span class="fn">format</span>(<span class="fn">abs</span>(<span class="var">a</span> - <span class="var">b</span>)))</pre>
           </div>
         </div>
       </div>
@@ -1282,6 +1501,44 @@
       </div>
     </div>
 
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">03</div>
+        <div>
+          <div class="exercise-title">Dado virtual</div>
+          <div class="exercise-sub">randint() e indexação de lista</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Simule o lançamento de <strong>3 dados</strong> (cada um com valores de 1 a 6) usando <code>randint()</code>. Guarde os resultados em uma lista e exiba cada dado acessando pelo índice (<code>[0]</code>, <code>[1]</code>, <code>[2]</code>). Ao final, mostre a <strong>soma</strong> dos três resultados.</div>
+        <textarea class="exercise-input" id="ex8-3" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex8-3', 'ex8-3-inputs')"></textarea>
+        <div class="input-fields" id="ex8-3-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex8-3', 'ex8-3-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol8-3')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex8-3-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol8-3">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="kw">from</span> random <span class="kw">import</span> randint
+
+<span class="var">dados</span> = [<span class="fn">randint</span>(<span class="num">1</span>, <span class="num">6</span>), <span class="fn">randint</span>(<span class="num">1</span>, <span class="num">6</span>), <span class="fn">randint</span>(<span class="num">1</span>, <span class="num">6</span>)]
+<span class="fn">print</span>(<span class="str">'Dado 1: {}'</span>.<span class="fn">format</span>(<span class="var">dados</span>[<span class="num">0</span>]))
+<span class="fn">print</span>(<span class="str">'Dado 2: {}'</span>.<span class="fn">format</span>(<span class="var">dados</span>[<span class="num">1</span>]))
+<span class="fn">print</span>(<span class="str">'Dado 3: {}'</span>.<span class="fn">format</span>(<span class="var">dados</span>[<span class="num">2</span>]))
+<span class="fn">print</span>(<span class="str">'Soma: {}'</span>.<span class="fn">format</span>(<span class="var">dados</span>[<span class="num">0</span>] + <span class="var">dados</span>[<span class="num">1</span>] + <span class="var">dados</span>[<span class="num">2</span>]))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="lesson-nav">
       <button class="btn btn-nav" onclick="goTo(7)">← Anterior</button>
       <button class="btn btn-primary" onclick="completeAndNext(8)">Próximo módulo →</button>
@@ -1395,6 +1652,42 @@
       </div>
     </div>
 
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">03</div>
+        <div>
+          <div class="exercise-title">Conversor de tempo</div>
+          <div class="exercise-sub">Segundos para horas, minutos e segundos</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia um valor em <strong>segundos</strong> (inteiro) e converta para horas, minutos e segundos restantes. Use <code>//</code> e <code>%</code> para fazer a conversão. <br><em>Dica: 1 hora = 3600 seg, 1 minuto = 60 seg. Ex: 3750 seg → 1h 2min 30seg</em></div>
+        <textarea class="exercise-input" id="ex9-3" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex9-3', 'ex9-3-inputs')"></textarea>
+        <div class="input-fields" id="ex9-3-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex9-3', 'ex9-3-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol9-3')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex9-3-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol9-3">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">total</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Tempo em segundos: '</span>))
+<span class="var">horas</span> = <span class="var">total</span> // <span class="num">3600</span>
+<span class="var">minutos</span> = (<span class="var">total</span> % <span class="num">3600</span>) // <span class="num">60</span>
+<span class="var">segundos</span> = <span class="var">total</span> % <span class="num">60</span>
+<span class="fn">print</span>(<span class="str">'{} segundos = {}h {}min {}seg'</span>.<span class="fn">format</span>(<span class="var">total</span>, <span class="var">horas</span>, <span class="var">minutos</span>, <span class="var">segundos</span>))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="lesson-nav">
       <button class="btn btn-nav" onclick="goTo(8)">← Anterior</button>
       <button class="btn btn-primary" onclick="completeAndNext(9)">Próximo módulo →</button>
@@ -1423,12 +1716,12 @@
       <div class="exercise-header">
         <div class="exercise-icon">01</div>
         <div>
-          <div class="exercise-title">Calculadora de tinta</div>
-          <div class="exercise-sub">Área + divisão + formatação</div>
+          <div class="exercise-title">Calculadora de viagem</div>
+          <div class="exercise-sub">Operações + formatação + divisão real</div>
         </div>
       </div>
       <div class="exercise-body">
-        <div class="exercise-desc">Leia a <strong>largura</strong> e a <strong>altura</strong> de uma parede em metros. Calcule a área e quantos litros de tinta são necessários sabendo que <strong>1 litro pinta 2m²</strong>. Exiba os dois valores.</div>
+        <div class="exercise-desc">Leia a <strong>distância</strong> da viagem em km, o <strong>consumo</strong> do carro (km por litro) e o <strong>preço do combustível</strong> (R$ por litro). Calcule e exiba: quantos litros serão necessários e o <strong>custo total</strong> da viagem. Use f-strings e 2 casas decimais nos valores monetários.</div>
         <textarea class="exercise-input" id="ex10-1" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex10-1', 'ex10-1-inputs')"></textarea>
         <div class="input-fields" id="ex10-1-inputs" style="display:none"></div>
         <div class="exercise-actions">
@@ -1445,12 +1738,13 @@
         <div class="solution-wrap" id="sol10-1">
           <div class="code-block" style="margin-top:0">
             <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
-            <pre><span class="var">largura</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Largura da parede (m): '</span>))
-<span class="var">altura</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Altura da parede (m): '</span>))
-<span class="var">area</span> = <span class="var">largura</span> * <span class="var">altura</span>
-<span class="var">tinta</span> = <span class="var">area</span> / <span class="num">2</span>
-<span class="fn">print</span>(<span class="str">'Área: {}m²'</span>.<span class="fn">format</span>(<span class="var">area</span>))
-<span class="fn">print</span>(<span class="str">'Tinta necessária: {} litros'</span>.<span class="fn">format</span>(<span class="var">tinta</span>))</pre>
+            <pre><span class="var">distancia</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Distância (km): '</span>))
+<span class="var">consumo</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Consumo do carro (km/l): '</span>))
+<span class="var">preco</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Preço do combustível (R$/l): '</span>))
+<span class="var">litros</span> = <span class="var">distancia</span> / <span class="var">consumo</span>
+<span class="var">custo</span> = <span class="var">litros</span> * <span class="var">preco</span>
+<span class="fn">print</span>(<span class="kw">f</span><span class="str">'Litros necessários: {litros:.2f}L'</span>)
+<span class="fn">print</span>(<span class="kw">f</span><span class="str">'Custo total: R${custo:.2f}'</span>)</pre>
           </div>
         </div>
       </div>
@@ -1532,6 +1826,45 @@
 <span class="fn">print</span>(<span class="str">'Potência: {}'</span>.<span class="fn">format</span>(<span class="var">a</span> ** <span class="var">b</span>))
 <span class="fn">print</span>(<span class="str">'Resto: {}'</span>.<span class="fn">format</span>(<span class="var">a</span> % <span class="var">b</span>))
 <span class="fn">print</span>(<span class="num">20</span> * <span class="str">'='</span>)</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">04</div>
+        <div>
+          <div class="exercise-title">Palavra sortuda</div>
+          <div class="exercise-sub">Strings + random combinados</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia um nome. Exiba: o nome em <strong>maiúsculas</strong>, em <strong>minúsculas</strong>, se é <strong>somente letras</strong> (<code>isalpha</code>) e o seu <strong>tamanho</strong>. Por fim, gere um <strong>número da sorte</strong> aleatório entre 1 e 100 para essa pessoa usando <code>randint()</code>.</div>
+        <textarea class="exercise-input" id="ex10-4" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex10-4', 'ex10-4-inputs')"></textarea>
+        <div class="input-fields" id="ex10-4-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex10-4', 'ex10-4-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol10-4')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex10-4-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol10-4">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="kw">from</span> random <span class="kw">import</span> randint
+
+<span class="var">nome</span> = <span class="fn">input</span>(<span class="str">'Digite seu nome: '</span>)
+<span class="fn">print</span>(<span class="str">'Maiúsculas: '</span> + <span class="var">nome</span>.<span class="fn">upper</span>())
+<span class="fn">print</span>(<span class="str">'Minúsculas: '</span> + <span class="var">nome</span>.<span class="fn">lower</span>())
+<span class="fn">print</span>(<span class="str">'Só letras? '</span> + <span class="fn">str</span>(<span class="var">nome</span>.<span class="fn">isalpha</span>()))
+<span class="fn">print</span>(<span class="str">'Tamanho: '</span> + <span class="fn">str</span>(<span class="fn">len</span>(<span class="var">nome</span>)) + <span class="str">' letras'</span>)
+<span class="fn">print</span>(<span class="str">'Número da sorte: '</span> + <span class="fn">str</span>(<span class="fn">randint</span>(<span class="num">1</span>, <span class="num">100</span>)))</pre>
           </div>
         </div>
       </div>
