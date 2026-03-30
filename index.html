@@ -49,13 +49,13 @@
     <button class="nav-item" onclick="goTo(3)" id="nav-3">
       <span class="nav-dot"></span>
       <span class="nav-num">03</span>
-      <span>Operações matemáticas</span>
+      <span>Tipos e strings</span>
     </button>
 
     <button class="nav-item" onclick="goTo(4)" id="nav-4">
       <span class="nav-dot"></span>
       <span class="nav-num">04</span>
-      <span>Tipos e strings</span>
+      <span>Operações matemáticas</span>
     </button>
 
     <button class="nav-item" onclick="goTo(5)" id="nav-5">
@@ -409,6 +409,133 @@
   <div class="lesson" id="lesson-3">
     <div class="lesson-header">
       <div class="lesson-badge">Módulo 03</div>
+      <div class="lesson-title">Tipos primitivos e métodos de string</div>
+      <div class="lesson-subtitle">Entendendo os tipos de dados e explorando as capacidades das strings em Python.</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Conceito</div>
+
+    <div class="explanation">
+      Todo valor em Python tem um <strong>tipo</strong>. Os principais são: <code>str</code> (texto), <code>int</code> (inteiro), <code>float</code> (decimal) e <code>bool</code> (verdadeiro/falso). Use <code>type()</code> para descobrir o tipo de qualquer valor.
+    </div>
+
+    <div class="explanation">
+      Strings possuem <strong>métodos</strong> — funções que já vêm embutidas em todo texto. Pense assim: assim como um canivete suíço tem ferramentas dentro dele, uma string carrega suas próprias ferramentas. Para usar, escreva o nome da variável, um ponto, e o nome da ferramenta: <code>variavel.metodo()</code>.
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">Métodos de string</div>
+      </div>
+      <pre><span class="var">texto</span> = <span class="str">'Python'</span>
+
+<span class="fn">print</span>(<span class="fn">type</span>(<span class="var">texto</span>))          <span class="com"># descobre o tipo → &lt;class 'str'&gt;</span>
+
+<span class="com"># Métodos de verificação — retornam True ou False</span>
+<span class="fn">print</span>(<span class="var">texto</span>.<span class="fn">isupper</span>())      <span class="com"># está tudo em MAIÚSCULAS? → False</span>
+<span class="fn">print</span>(<span class="var">texto</span>.<span class="fn">islower</span>())      <span class="com"># está tudo em minúsculas? → False</span>
+<span class="fn">print</span>(<span class="var">texto</span>.<span class="fn">isalpha</span>())      <span class="com"># contém só letras (sem número)? → True</span>
+<span class="fn">print</span>(<span class="var">texto</span>.<span class="fn">isnumeric</span>())    <span class="com"># contém só números? → False</span>
+<span class="fn">print</span>(<span class="var">texto</span>.<span class="fn">isalnum</span>())      <span class="com"># contém só letras e/ou números? → True</span>
+<span class="fn">print</span>(<span class="var">texto</span>.<span class="fn">istitle</span>())      <span class="com"># cada palavra começa com maiúscula? → True</span>
+
+<span class="com"># Métodos de transformação — retornam o texto modificado</span>
+<span class="fn">print</span>(<span class="var">texto</span>.<span class="fn">upper</span>())        <span class="com"># converte tudo para MAIÚSCULAS → PYTHON</span>
+<span class="fn">print</span>(<span class="var">texto</span>.<span class="fn">lower</span>())        <span class="com"># converte tudo para minúsculas → python</span>
+<span class="fn">print</span>(<span class="var">texto</span>.<span class="fn">title</span>())        <span class="com"># primeira letra de cada palavra em maiúscula → Python</span>
+
+<span class="com"># len() conta o número de caracteres</span>
+<span class="fn">print</span>(<span class="fn">len</span>(<span class="var">texto</span>))           <span class="com"># quantos caracteres tem? → 6</span></pre>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Exercícios de fixação</div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">01</div>
+        <div>
+          <div class="exercise-title">Analisador de entrada</div>
+          <div class="exercise-sub">type() e métodos de string</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia algo digitado pelo usuário e mostre: o tipo, se é numérico, se é alfabético, se está em maiúsculas e o tamanho (número de caracteres).</div>
+        <textarea class="exercise-input" id="ex3-1" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex3-1', 'ex3-1-inputs')"></textarea>
+        <div class="input-fields" id="ex3-1-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex3-1', 'ex3-1-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol3-1')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex3-1-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol3-1">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">n</span> = <span class="fn">input</span>(<span class="str">'Digite algo: '</span>)
+<span class="fn">print</span>(<span class="str">'Tipo: '</span> + <span class="fn">str</span>(<span class="fn">type</span>(<span class="var">n</span>)))
+<span class="fn">print</span>(<span class="str">'É numérico? '</span> + <span class="fn">str</span>(<span class="var">n</span>.<span class="fn">isnumeric</span>()))
+<span class="fn">print</span>(<span class="str">'É alfabético? '</span> + <span class="fn">str</span>(<span class="var">n</span>.<span class="fn">isalpha</span>()))
+<span class="fn">print</span>(<span class="str">'Está maiúsculo? '</span> + <span class="fn">str</span>(<span class="var">n</span>.<span class="fn">isupper</span>()))
+<span class="fn">print</span>(<span class="str">'Tamanho: '</span> + <span class="fn">str</span>(<span class="fn">len</span>(<span class="var">n</span>)) + <span class="str">' caracteres'</span>)</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">02</div>
+        <div>
+          <div class="exercise-title">Transformador de texto</div>
+          <div class="exercise-sub">Métodos de transformação</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia uma frase e exiba-a em <strong>três versões</strong>: toda em maiúsculas, toda em minúsculas e com a primeira letra de cada palavra em maiúscula.</div>
+        <textarea class="exercise-input" id="ex3-2" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex3-2', 'ex3-2-inputs')"></textarea>
+        <div class="input-fields" id="ex3-2-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex3-2', 'ex3-2-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol3-2')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex3-2-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol3-2">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">frase</span> = <span class="fn">input</span>(<span class="str">'Digite uma frase: '</span>)
+<span class="fn">print</span>(<span class="var">frase</span>.<span class="fn">upper</span>())
+<span class="fn">print</span>(<span class="var">frase</span>.<span class="fn">lower</span>())
+<span class="fn">print</span>(<span class="var">frase</span>.<span class="fn">title</span>())</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <button class="btn btn-nav" onclick="goTo(2)">← Anterior</button>
+      <button class="btn btn-primary" onclick="completeAndNext(3)">Próximo módulo →</button>
+    </div>
+  </div>
+
+  <div class="lesson" id="lesson-4">
+    <div class="lesson-header">
+      <div class="lesson-badge">Módulo 04</div>
       <div class="lesson-title">Operações matemáticas</div>
       <div class="lesson-subtitle">Python como calculadora: soma, subtração, multiplicação, divisão e muito mais.</div>
     </div>
@@ -418,7 +545,7 @@
     <div class="section-title">Conceito</div>
 
     <div class="explanation">
-      Python suporta todas as operações matemáticas básicas. Para trabalhar com números digitados pelo usuário, precisamos <strong>converter</strong> a string que <code>input()</code> retorna usando <code>int()</code> para inteiros ou <code>float()</code> para decimais.
+      Python suporta todas as operações matemáticas básicas. Como você viu no módulo anterior, todo valor tem um tipo — e <code>input()</code> sempre retorna uma <strong>string</strong>. Para fazer cálculos com o que o usuário digita, precisamos <strong>converter</strong> esse valor usando <code>int()</code> para inteiros ou <code>float()</code> para decimais.
     </div>
 
     <div class="explanation">
@@ -480,20 +607,20 @@
       </div>
       <div class="exercise-body">
         <div class="exercise-desc">Leia dois números inteiros e mostre a soma deles.</div>
-        <textarea class="exercise-input" id="ex3-1" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex3-1', 'ex3-1-inputs')"></textarea>
-        <div class="input-fields" id="ex3-1-inputs" style="display:none"></div>
+        <textarea class="exercise-input" id="ex4-1" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex4-1', 'ex4-1-inputs')"></textarea>
+        <div class="input-fields" id="ex4-1-inputs" style="display:none"></div>
         <div class="exercise-actions">
           <div class="pyodide-status loading">● Carregando Python...</div>
-          <button class="btn btn-primary" onclick="runEx('ex3-1', 'ex3-1-out')">▶ Executar</button>
-          <button class="btn btn-ghost" onclick="showSolution('sol3-1')">Ver solução</button>
+          <button class="btn btn-primary" onclick="runEx('ex4-1', 'ex4-1-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol4-1')">Ver solução</button>
         </div>
-        <div class="output-terminal" id="ex3-1-out">
+        <div class="output-terminal" id="ex4-1-out">
           <div class="output-terminal-header">
             <div class="output-terminal-label">▶ Saída</div>
           </div>
           <div class="output-terminal-content"></div>
         </div>
-        <div class="solution-wrap" id="sol3-1">
+        <div class="solution-wrap" id="sol4-1">
           <div class="code-block" style="margin-top:0">
             <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
             <pre><span class="var">n1</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Primeiro: '</span>))
@@ -515,20 +642,20 @@
       </div>
       <div class="exercise-body">
         <div class="exercise-desc">Leia um número e mostre: seu dobro, seu triplo e sua raiz quadrada. <br><em>Dica: raiz quadrada = número elevado a 1/2, ex: <code>n ** (1/2)</code></em></div>
-        <textarea class="exercise-input" id="ex3-2" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex3-2', 'ex3-2-inputs')"></textarea>
-        <div class="input-fields" id="ex3-2-inputs" style="display:none"></div>
+        <textarea class="exercise-input" id="ex4-2" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex4-2', 'ex4-2-inputs')"></textarea>
+        <div class="input-fields" id="ex4-2-inputs" style="display:none"></div>
         <div class="exercise-actions">
           <div class="pyodide-status loading">● Carregando Python...</div>
-          <button class="btn btn-primary" onclick="runEx('ex3-2', 'ex3-2-out')">▶ Executar</button>
-          <button class="btn btn-ghost" onclick="showSolution('sol3-2')">Ver solução</button>
+          <button class="btn btn-primary" onclick="runEx('ex4-2', 'ex4-2-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol4-2')">Ver solução</button>
         </div>
-        <div class="output-terminal" id="ex3-2-out">
+        <div class="output-terminal" id="ex4-2-out">
           <div class="output-terminal-header">
             <div class="output-terminal-label">▶ Saída</div>
           </div>
           <div class="output-terminal-content"></div>
         </div>
-        <div class="solution-wrap" id="sol3-2">
+        <div class="solution-wrap" id="sol4-2">
           <div class="code-block" style="margin-top:0">
             <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
             <pre><span class="var">n</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Digite um número: '</span>))
@@ -550,151 +677,24 @@
       </div>
       <div class="exercise-body">
         <div class="exercise-desc">Leia um número inteiro e mostre na mesma frase o número, seu antecessor (<code>n - 1</code>) e seu sucessor (<code>n + 1</code>).</div>
-        <textarea class="exercise-input" id="ex3-3" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex3-3', 'ex3-3-inputs')"></textarea>
-        <div class="input-fields" id="ex3-3-inputs" style="display:none"></div>
+        <textarea class="exercise-input" id="ex4-3" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex4-3', 'ex4-3-inputs')"></textarea>
+        <div class="input-fields" id="ex4-3-inputs" style="display:none"></div>
         <div class="exercise-actions">
           <div class="pyodide-status loading">● Carregando Python...</div>
-          <button class="btn btn-primary" onclick="runEx('ex3-3', 'ex3-3-out')">▶ Executar</button>
-          <button class="btn btn-ghost" onclick="showSolution('sol3-3')">Ver solução</button>
+          <button class="btn btn-primary" onclick="runEx('ex4-3', 'ex4-3-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol4-3')">Ver solução</button>
         </div>
-        <div class="output-terminal" id="ex3-3-out">
+        <div class="output-terminal" id="ex4-3-out">
           <div class="output-terminal-header">
             <div class="output-terminal-label">▶ Saída</div>
           </div>
           <div class="output-terminal-content"></div>
         </div>
-        <div class="solution-wrap" id="sol3-3">
+        <div class="solution-wrap" id="sol4-3">
           <div class="code-block" style="margin-top:0">
             <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
             <pre><span class="var">n</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Digite um número: '</span>))
 <span class="fn">print</span>(<span class="str">'Número: '</span> + <span class="fn">str</span>(<span class="var">n</span>) + <span class="str">', antecessor: '</span> + <span class="fn">str</span>(<span class="var">n</span>-<span class="num">1</span>) + <span class="str">', sucessor: '</span> + <span class="fn">str</span>(<span class="var">n</span>+<span class="num">1</span>))</pre>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="lesson-nav">
-      <button class="btn btn-nav" onclick="goTo(2)">← Anterior</button>
-      <button class="btn btn-primary" onclick="completeAndNext(3)">Próximo módulo →</button>
-    </div>
-  </div>
-
-  <div class="lesson" id="lesson-4">
-    <div class="lesson-header">
-      <div class="lesson-badge">Módulo 04</div>
-      <div class="lesson-title">Tipos primitivos e métodos de string</div>
-      <div class="lesson-subtitle">Entendendo os tipos de dados e explorando as capacidades das strings em Python.</div>
-    </div>
-
-    <div class="divider"></div>
-
-    <div class="section-title">Conceito</div>
-
-    <div class="explanation">
-      Todo valor em Python tem um <strong>tipo</strong>. Os principais são: <code>str</code> (texto), <code>int</code> (inteiro), <code>float</code> (decimal) e <code>bool</code> (verdadeiro/falso). Use <code>type()</code> para descobrir o tipo de qualquer valor.
-    </div>
-
-    <div class="explanation">
-      Strings possuem <strong>métodos</strong> — funções que já vêm embutidas em todo texto. Pense assim: assim como um canivete suíço tem ferramentas dentro dele, uma string carrega suas próprias ferramentas. Para usar, escreva o nome da variável, um ponto, e o nome da ferramenta: <code>variavel.metodo()</code>.
-    </div>
-
-    <div class="code-block">
-      <div class="code-header">
-        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
-        <div class="code-lang">Métodos de string</div>
-      </div>
-      <pre><span class="var">texto</span> = <span class="str">'Python'</span>
-
-<span class="fn">print</span>(<span class="fn">type</span>(<span class="var">texto</span>))          <span class="com"># descobre o tipo → &lt;class 'str'&gt;</span>
-
-<span class="com"># Métodos de verificação — retornam True ou False</span>
-<span class="fn">print</span>(<span class="var">texto</span>.<span class="fn">isupper</span>())      <span class="com"># está tudo em MAIÚSCULAS? → False</span>
-<span class="fn">print</span>(<span class="var">texto</span>.<span class="fn">islower</span>())      <span class="com"># está tudo em minúsculas? → False</span>
-<span class="fn">print</span>(<span class="var">texto</span>.<span class="fn">isalpha</span>())      <span class="com"># contém só letras (sem número)? → True</span>
-<span class="fn">print</span>(<span class="var">texto</span>.<span class="fn">isnumeric</span>())    <span class="com"># contém só números? → False</span>
-<span class="fn">print</span>(<span class="var">texto</span>.<span class="fn">isalnum</span>())      <span class="com"># contém só letras e/ou números? → True</span>
-<span class="fn">print</span>(<span class="var">texto</span>.<span class="fn">istitle</span>())      <span class="com"># cada palavra começa com maiúscula? → True</span>
-
-<span class="com"># Métodos de transformação — retornam o texto modificado</span>
-<span class="fn">print</span>(<span class="var">texto</span>.<span class="fn">upper</span>())        <span class="com"># converte tudo para MAIÚSCULAS → PYTHON</span>
-<span class="fn">print</span>(<span class="var">texto</span>.<span class="fn">lower</span>())        <span class="com"># converte tudo para minúsculas → python</span>
-<span class="fn">print</span>(<span class="var">texto</span>.<span class="fn">title</span>())        <span class="com"># primeira letra de cada palavra em maiúscula → Python</span>
-
-<span class="com"># len() conta o número de caracteres</span>
-<span class="fn">print</span>(<span class="fn">len</span>(<span class="var">texto</span>))           <span class="com"># quantos caracteres tem? → 6</span></pre>
-    </div>
-
-    <div class="divider"></div>
-
-    <div class="section-title">Exercícios de fixação</div>
-
-    <div class="exercise-card">
-      <div class="exercise-header">
-        <div class="exercise-icon">01</div>
-        <div>
-          <div class="exercise-title">Analisador de entrada</div>
-          <div class="exercise-sub">type() e métodos de string</div>
-        </div>
-      </div>
-      <div class="exercise-body">
-        <div class="exercise-desc">Leia algo digitado pelo usuário e mostre: o tipo, se é numérico, se é alfabético, se está em maiúsculas e o tamanho (número de caracteres).</div>
-        <textarea class="exercise-input" id="ex4-1" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex4-1', 'ex4-1-inputs')"></textarea>
-        <div class="input-fields" id="ex4-1-inputs" style="display:none"></div>
-        <div class="exercise-actions">
-          <div class="pyodide-status loading">● Carregando Python...</div>
-          <button class="btn btn-primary" onclick="runEx('ex4-1', 'ex4-1-out')">▶ Executar</button>
-          <button class="btn btn-ghost" onclick="showSolution('sol4-1')">Ver solução</button>
-        </div>
-        <div class="output-terminal" id="ex4-1-out">
-          <div class="output-terminal-header">
-            <div class="output-terminal-label">▶ Saída</div>
-          </div>
-          <div class="output-terminal-content"></div>
-        </div>
-        <div class="solution-wrap" id="sol4-1">
-          <div class="code-block" style="margin-top:0">
-            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
-            <pre><span class="var">n</span> = <span class="fn">input</span>(<span class="str">'Digite algo: '</span>)
-<span class="fn">print</span>(<span class="str">'Tipo: '</span> + <span class="fn">str</span>(<span class="fn">type</span>(<span class="var">n</span>)))
-<span class="fn">print</span>(<span class="str">'É numérico? '</span> + <span class="fn">str</span>(<span class="var">n</span>.<span class="fn">isnumeric</span>()))
-<span class="fn">print</span>(<span class="str">'É alfabético? '</span> + <span class="fn">str</span>(<span class="var">n</span>.<span class="fn">isalpha</span>()))
-<span class="fn">print</span>(<span class="str">'Está maiúsculo? '</span> + <span class="fn">str</span>(<span class="var">n</span>.<span class="fn">isupper</span>()))
-<span class="fn">print</span>(<span class="str">'Tamanho: '</span> + <span class="fn">str</span>(<span class="fn">len</span>(<span class="var">n</span>)) + <span class="str">' caracteres'</span>)</pre>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="exercise-card">
-      <div class="exercise-header">
-        <div class="exercise-icon">02</div>
-        <div>
-          <div class="exercise-title">Transformador de texto</div>
-          <div class="exercise-sub">Métodos de transformação</div>
-        </div>
-      </div>
-      <div class="exercise-body">
-        <div class="exercise-desc">Leia uma frase e exiba-a em <strong>três versões</strong>: toda em maiúsculas, toda em minúsculas e com a primeira letra de cada palavra em maiúscula.</div>
-        <textarea class="exercise-input" id="ex4-2" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex4-2', 'ex4-2-inputs')"></textarea>
-        <div class="input-fields" id="ex4-2-inputs" style="display:none"></div>
-        <div class="exercise-actions">
-          <div class="pyodide-status loading">● Carregando Python...</div>
-          <button class="btn btn-primary" onclick="runEx('ex4-2', 'ex4-2-out')">▶ Executar</button>
-          <button class="btn btn-ghost" onclick="showSolution('sol4-2')">Ver solução</button>
-        </div>
-        <div class="output-terminal" id="ex4-2-out">
-          <div class="output-terminal-header">
-            <div class="output-terminal-label">▶ Saída</div>
-          </div>
-          <div class="output-terminal-content"></div>
-        </div>
-        <div class="solution-wrap" id="sol4-2">
-          <div class="code-block" style="margin-top:0">
-            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
-            <pre><span class="var">frase</span> = <span class="fn">input</span>(<span class="str">'Digite uma frase: '</span>)
-<span class="fn">print</span>(<span class="var">frase</span>.<span class="fn">upper</span>())
-<span class="fn">print</span>(<span class="var">frase</span>.<span class="fn">lower</span>())
-<span class="fn">print</span>(<span class="var">frase</span>.<span class="fn">title</span>())</pre>
           </div>
         </div>
       </div>
@@ -862,7 +862,7 @@
     <div class="section-title">Conceito</div>
 
     <div class="explanation">
-      Python vem com <strong>módulos</strong> prontos que adicionam funcionalidades extras. Importamos com a palavra-chave <code>import</code>. O módulo <code>math</code> oferece funções matemáticas como raiz quadrada, seno, cosseno, tangente, etc.
+      Python vem com <strong>módulos</strong> prontos que adicionam funcionalidades extras. Importamos com a palavra-chave <code>import</code>. O módulo <code>math</code> oferece funções matemáticas muito úteis no dia a dia: raiz quadrada, arredondamento, valor absoluto e a constante Pi.
     </div>
 
     <div class="code-block">
@@ -871,19 +871,38 @@
         <div class="code-lang">Formas de importar</div>
       </div>
       <pre><span class="kw">import</span> math
-<span class="fn">math</span>.<span class="fn">sqrt</span>(<span class="num">16</span>)     <span class="com"># 4.0</span>
+<span class="fn">math</span>.<span class="fn">sqrt</span>(<span class="num">16</span>)     <span class="com"># 4.0 — raiz quadrada</span>
 
-<span class="kw">from</span> math <span class="kw">import</span> sqrt, trunc, hypot
-<span class="fn">sqrt</span>(<span class="num">16</span>)          <span class="com"># 4.0 (sem prefixo math.)</span>
-<span class="fn">trunc</span>(<span class="num">6.9</span>)        <span class="com"># 6 (parte inteira)</span>
-
-<span class="kw">from</span> math <span class="kw">import</span> sin, cos, tan, radians
-<span class="fn">sin</span>(<span class="fn">radians</span>(<span class="num">90</span>))  <span class="com"># 1.0 (ângulo em graus → radianos)</span></pre>
+<span class="kw">from</span> math <span class="kw">import</span> sqrt, ceil, floor, trunc
+<span class="fn">sqrt</span>(<span class="num">25</span>)          <span class="com"># 5.0  — sem prefixo math.</span>
+<span class="fn">ceil</span>(<span class="num">4.2</span>)         <span class="com"># 5    — arredonda para CIMA</span>
+<span class="fn">floor</span>(<span class="num">4.9</span>)        <span class="com"># 4    — arredonda para BAIXO</span>
+<span class="fn">trunc</span>(<span class="num">6.9</span>)        <span class="com"># 6    — parte inteira (descarta decimal)</span></pre>
     </div>
 
-    <div class="info-box yellow">
-      <strong>Atenção com ângulos</strong>
-      As funções trigonométricas do Python trabalham em <strong>radianos</strong>. Para passar graus, converta com <code>radians(ângulo)</code>.
+    <div class="explanation">
+      O módulo <code>math</code> também disponibiliza a constante <code>math.pi</code> (π ≈ 3.14159...) e a função <code>abs()</code> — que nem precisa de import — retorna o valor absoluto (sem sinal negativo) de um número.
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">pi e abs()</div>
+      </div>
+      <pre><span class="kw">import</span> math
+
+<span class="fn">print</span>(math.<span class="var">pi</span>)        <span class="com"># 3.141592653589793</span>
+<span class="fn">print</span>(<span class="fn">abs</span>(<span class="num">-15</span>))        <span class="com"># 15  — valor absoluto</span>
+<span class="fn">print</span>(<span class="fn">abs</span>(<span class="num">-3.7</span>))       <span class="com"># 3.7</span>
+
+<span class="com"># Área de um círculo: π × r²</span>
+<span class="var">raio</span> = <span class="num">5</span>
+<span class="fn">print</span>(math.<span class="var">pi</span> * <span class="var">raio</span> ** <span class="num">2</span>)  <span class="com"># 78.539...</span></pre>
+    </div>
+
+    <div class="info-box">
+      <strong>Resumo das funções do módulo math</strong>
+      <code>sqrt(n)</code> — raiz quadrada &nbsp;|&nbsp; <code>ceil(n)</code> — arredonda para cima &nbsp;|&nbsp; <code>floor(n)</code> — arredonda para baixo &nbsp;|&nbsp; <code>trunc(n)</code> — parte inteira &nbsp;|&nbsp; <code>abs(n)</code> — valor absoluto (sem import)
     </div>
 
     <div class="divider"></div>
@@ -894,12 +913,12 @@
       <div class="exercise-header">
         <div class="exercise-icon">01</div>
         <div>
-          <div class="exercise-title">Hipotenusa</div>
-          <div class="exercise-sub">Teorema de Pitágoras com math.hypot</div>
+          <div class="exercise-title">Raiz quadrada e arredondamentos</div>
+          <div class="exercise-sub">sqrt, ceil, floor e trunc</div>
         </div>
       </div>
       <div class="exercise-body">
-        <div class="exercise-desc">Leia o comprimento dos dois catetos de um triângulo retângulo e calcule a hipotenusa usando <code>math.hypot()</code>.</div>
+        <div class="exercise-desc">Leia um número decimal e exiba: sua raiz quadrada (2 casas decimais), o arredondamento para cima, o arredondamento para baixo e a parte inteira.</div>
         <textarea class="exercise-input" id="ex6-1" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex6-1', 'ex6-1-inputs')"></textarea>
         <div class="input-fields" id="ex6-1-inputs" style="display:none"></div>
         <div class="exercise-actions">
@@ -916,12 +935,13 @@
         <div class="solution-wrap" id="sol6-1">
           <div class="code-block" style="margin-top:0">
             <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
-            <pre><span class="kw">import</span> math
+            <pre><span class="kw">from</span> math <span class="kw">import</span> sqrt, ceil, floor, trunc
 
-<span class="var">catOp</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Cateto oposto: '</span>))
-<span class="var">catAd</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Cateto adjacente: '</span>))
-<span class="var">hipo</span> = math.<span class="fn">hypot</span>(<span class="var">catAd</span>, <span class="var">catOp</span>)
-<span class="fn">print</span>(<span class="str">'Hipotenusa: {:.2f}'</span>.<span class="fn">format</span>(<span class="var">hipo</span>))</pre>
+<span class="var">n</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Digite um número decimal: '</span>))
+<span class="fn">print</span>(<span class="str">'Raiz quadrada: {:.2f}'</span>.<span class="fn">format</span>(<span class="fn">sqrt</span>(<span class="var">n</span>)))
+<span class="fn">print</span>(<span class="str">'Arredondado para cima: {}'</span>.<span class="fn">format</span>(<span class="fn">ceil</span>(<span class="var">n</span>)))
+<span class="fn">print</span>(<span class="str">'Arredondado para baixo: {}'</span>.<span class="fn">format</span>(<span class="fn">floor</span>(<span class="var">n</span>)))
+<span class="fn">print</span>(<span class="str">'Parte inteira: {}'</span>.<span class="fn">format</span>(<span class="fn">trunc</span>(<span class="var">n</span>)))</pre>
           </div>
         </div>
       </div>
@@ -931,12 +951,12 @@
       <div class="exercise-header">
         <div class="exercise-icon">02</div>
         <div>
-          <div class="exercise-title">Seno, cosseno e tangente</div>
-          <div class="exercise-sub">Trigonometria com conversão de ângulo</div>
+          <div class="exercise-title">Área do círculo</div>
+          <div class="exercise-sub">math.pi e formatação</div>
         </div>
       </div>
       <div class="exercise-body">
-        <div class="exercise-desc">Leia um ângulo em graus e exiba seu seno, cosseno e tangente, cada um com 2 casas decimais.</div>
+        <div class="exercise-desc">Leia o raio de um círculo e calcule: a <strong>área</strong> (π × r²) e o <strong>perímetro</strong> (2 × π × r). Exiba os dois resultados com 2 casas decimais.</div>
         <textarea class="exercise-input" id="ex6-2" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex6-2', 'ex6-2-inputs')"></textarea>
         <div class="input-fields" id="ex6-2-inputs" style="display:none"></div>
         <div class="exercise-actions">
@@ -953,12 +973,13 @@
         <div class="solution-wrap" id="sol6-2">
           <div class="code-block" style="margin-top:0">
             <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
-            <pre><span class="kw">from</span> math <span class="kw">import</span> sin, cos, tan, radians
+            <pre><span class="kw">import</span> math
 
-<span class="var">angulo</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Ângulo em graus: '</span>))
-<span class="fn">print</span>(<span class="str">'Seno: {:.2f}'</span>.<span class="fn">format</span>(<span class="fn">sin</span>(<span class="fn">radians</span>(<span class="var">angulo</span>))))
-<span class="fn">print</span>(<span class="str">'Cosseno: {:.2f}'</span>.<span class="fn">format</span>(<span class="fn">cos</span>(<span class="fn">radians</span>(<span class="var">angulo</span>))))
-<span class="fn">print</span>(<span class="str">'Tangente: {:.2f}'</span>.<span class="fn">format</span>(<span class="fn">tan</span>(<span class="fn">radians</span>(<span class="var">angulo</span>))))
+<span class="var">raio</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Raio do círculo: '</span>))
+<span class="var">area</span> = math.<span class="var">pi</span> * <span class="var">raio</span> ** <span class="num">2</span>
+<span class="var">perimetro</span> = <span class="num">2</span> * math.<span class="var">pi</span> * <span class="var">raio</span>
+<span class="fn">print</span>(<span class="str">'Área: {:.2f}'</span>.<span class="fn">format</span>(<span class="var">area</span>))
+<span class="fn">print</span>(<span class="str">'Perímetro: {:.2f}'</span>.<span class="fn">format</span>(<span class="var">perimetro</span>))
 </pre>
           </div>
         </div>
@@ -1125,8 +1146,35 @@
       O módulo <code>random</code> permite gerar números aleatórios, sortear itens e embaralhar listas. As funções mais usadas são <code>randint()</code>, <code>choice()</code> e <code>shuffle()</code>.
     </div>
 
+    <div class="section-title">O que é uma lista?</div>
+
     <div class="explanation">
-      <strong>Listas</strong> são criadas com colchetes e armazenam múltiplos valores: <code>[item1, item2, item3]</code>. Você pode adicionar variáveis a uma lista e operar sobre elas.
+      Uma <strong>lista</strong> é uma forma de guardar vários valores em uma única variável. Em vez de criar <code>aluno1</code>, <code>aluno2</code>, <code>aluno3</code>... você guarda tudo dentro de colchetes separado por vírgulas. Cada valor ocupa uma posição que começa em <code>0</code>.
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">Listas — introdução</div>
+      </div>
+      <pre><span class="var">frutas</span> = [<span class="str">'maçã'</span>, <span class="str">'banana'</span>, <span class="str">'uva'</span>]
+
+<span class="fn">print</span>(<span class="var">frutas</span>[<span class="num">0</span>])   <span class="com"># maçã   — primeiro elemento (índice 0)</span>
+<span class="fn">print</span>(<span class="var">frutas</span>[<span class="num">2</span>])   <span class="com"># uva    — terceiro elemento (índice 2)</span>
+<span class="fn">print</span>(<span class="fn">len</span>(<span class="var">frutas</span>)) <span class="com"># 3      — quantidade de itens</span></pre>
+    </div>
+
+    <div class="info-box">
+      <strong>Nota</strong>
+      Neste módulo vamos usar listas de forma introdutória — apenas criar e passar para as funções do <code>random</code>. O estudo completo de listas (adicionar, remover, ordenar, percorrer) acontece no Módulo 14.
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Módulo random</div>
+
+    <div class="explanation">
+      Com a lista criada, as funções do módulo <code>random</code> permitem sortear e embaralhar seus elementos de forma simples:
     </div>
 
     <div class="code-block">
@@ -2237,8 +2285,10 @@
     <span class="var">notas</span>.<span class="fn">append</span>(<span class="var">n</span>)
 
 <span class="var">aprovados</span> = <span class="fn">filtrar_aprovados</span>(<span class="var">notas</span>, <span class="num">6.0</span>)
-<span class="var">reprovados</span> = <span class="fn">filtrar_aprovados</span>(<span class="var">notas</span>, <span class="num">0</span>)
-<span class="var">reprovados</span> = [<span class="var">n</span> <span class="kw">for</span> <span class="var">n</span> <span class="kw">in</span> <span class="var">notas</span> <span class="kw">if</span> <span class="var">n</span> < <span class="num">6.0</span>]
+<span class="var">reprovados</span> = []
+<span class="kw">for</span> <span class="var">n</span> <span class="kw">in</span> <span class="var">notas</span>:
+    <span class="kw">if</span> <span class="var">n</span> < <span class="num">6.0</span>:
+        <span class="var">reprovados</span>.<span class="fn">append</span>(<span class="var">n</span>)
 <span class="var">media</span> = <span class="fn">sum</span>(<span class="var">notas</span>) / <span class="fn">len</span>(<span class="var">notas</span>)
 <span class="fn">print</span>(<span class="str">'Aprovados: {}'</span>.<span class="fn">format</span>(<span class="var">aprovados</span>))
 <span class="fn">print</span>(<span class="str">'Reprovados: {}'</span>.<span class="fn">format</span>(<span class="var">reprovados</span>))
@@ -2526,10 +2576,17 @@
           <div class="code-block" style="margin-top:0">
             <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
             <pre><span class="kw">def</span> <span class="fn">validar_senha</span>(<span class="var">senha</span>):
-    <span class="var">tem_tamanho</span>  = <span class="fn">len</span>(<span class="var">senha</span>) >= <span class="num">8</span>
-    <span class="var">tem_maiuscula</span> = <span class="kw">any</span>(<span class="var">c</span>.<span class="fn">isupper</span>() <span class="kw">for</span> <span class="var">c</span> <span class="kw">in</span> <span class="var">senha</span>)
-    <span class="var">tem_digito</span>   = <span class="kw">any</span>(<span class="var">c</span>.<span class="fn">isdigit</span>() <span class="kw">for</span> <span class="var">c</span> <span class="kw">in</span> <span class="var">senha</span>)
-    <span class="var">tem_especial</span> = <span class="kw">any</span>(<span class="var">c</span> <span class="kw">in</span> <span class="str">'!@#$%'</span> <span class="kw">for</span> <span class="var">c</span> <span class="kw">in</span> <span class="var">senha</span>)
+    <span class="var">tem_tamanho</span>   = <span class="fn">len</span>(<span class="var">senha</span>) >= <span class="num">8</span>
+    <span class="var">tem_maiuscula</span> = <span class="kw">False</span>
+    <span class="var">tem_digito</span>    = <span class="kw">False</span>
+    <span class="var">tem_especial</span>  = <span class="kw">False</span>
+    <span class="kw">for</span> <span class="var">c</span> <span class="kw">in</span> <span class="var">senha</span>:
+        <span class="kw">if</span> <span class="var">c</span>.<span class="fn">isupper</span>():
+            <span class="var">tem_maiuscula</span> = <span class="kw">True</span>
+        <span class="kw">if</span> <span class="var">c</span>.<span class="fn">isdigit</span>():
+            <span class="var">tem_digito</span> = <span class="kw">True</span>
+        <span class="kw">if</span> <span class="var">c</span> <span class="kw">in</span> <span class="str">'!@#$%'</span>:
+            <span class="var">tem_especial</span> = <span class="kw">True</span>
 
     <span class="kw">def</span> <span class="fn">status</span>(<span class="var">ok</span>):
         <span class="kw">return</span> <span class="str">'✓'</span> <span class="kw">if</span> <span class="var">ok</span> <span class="kw">else</span> <span class="str">'✗'</span>
@@ -2756,9 +2813,16 @@
 <span class="kw">for</span> <span class="var">prato</span> <span class="kw">in</span> <span class="var">cardapio</span>:
     <span class="fn">print</span>(<span class="str">'{:<20} R$ {:.2f}'</span>.<span class="fn">format</span>(<span class="var">prato</span>[<span class="str">'nome'</span>], <span class="var">prato</span>[<span class="str">'preco'</span>]))
 
-<span class="var">mais_barato</span> = <span class="fn">min</span>(<span class="var">cardapio</span>, <span class="var">key</span>=<span class="kw">lambda</span> <span class="var">p</span>: <span class="var">p</span>[<span class="str">'preco'</span>])
-<span class="var">mais_caro</span>   = <span class="fn">max</span>(<span class="var">cardapio</span>, <span class="var">key</span>=<span class="kw">lambda</span> <span class="var">p</span>: <span class="var">p</span>[<span class="str">'preco'</span>])
-<span class="var">media</span> = <span class="fn">sum</span>(<span class="var">p</span>[<span class="str">'preco'</span>] <span class="kw">for</span> <span class="var">p</span> <span class="kw">in</span> <span class="var">cardapio</span>) / <span class="fn">len</span>(<span class="var">cardapio</span>)
+<span class="var">mais_barato</span> = <span class="var">cardapio</span>[<span class="num">0</span>]
+<span class="var">mais_caro</span>   = <span class="var">cardapio</span>[<span class="num">0</span>]
+<span class="var">total</span> = <span class="num">0</span>
+<span class="kw">for</span> <span class="var">prato</span> <span class="kw">in</span> <span class="var">cardapio</span>:
+    <span class="var">total</span> += <span class="var">prato</span>[<span class="str">'preco'</span>]
+    <span class="kw">if</span> <span class="var">prato</span>[<span class="str">'preco'</span>] < <span class="var">mais_barato</span>[<span class="str">'preco'</span>]:
+        <span class="var">mais_barato</span> = <span class="var">prato</span>
+    <span class="kw">if</span> <span class="var">prato</span>[<span class="str">'preco'</span>] > <span class="var">mais_caro</span>[<span class="str">'preco'</span>]:
+        <span class="var">mais_caro</span> = <span class="var">prato</span>
+<span class="var">media</span> = <span class="var">total</span> / <span class="fn">len</span>(<span class="var">cardapio</span>)
 
 <span class="fn">print</span>(<span class="str">'Mais barato: {} (R$ {:.2f})'</span>.<span class="fn">format</span>(<span class="var">mais_barato</span>[<span class="str">'nome'</span>], <span class="var">mais_barato</span>[<span class="str">'preco'</span>]))
 <span class="fn">print</span>(<span class="str">'Mais caro:   {} (R$ {:.2f})'</span>.<span class="fn">format</span>(<span class="var">mais_caro</span>[<span class="str">'nome'</span>], <span class="var">mais_caro</span>[<span class="str">'preco'</span>]))

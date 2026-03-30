@@ -224,10 +224,17 @@
           <div class="code-block" style="margin-top:0">
             <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
             <pre><span class="kw">def</span> <span class="fn">validar_senha</span>(<span class="var">senha</span>):
-    <span class="var">tem_tamanho</span>  = <span class="fn">len</span>(<span class="var">senha</span>) >= <span class="num">8</span>
-    <span class="var">tem_maiuscula</span> = <span class="kw">any</span>(<span class="var">c</span>.<span class="fn">isupper</span>() <span class="kw">for</span> <span class="var">c</span> <span class="kw">in</span> <span class="var">senha</span>)
-    <span class="var">tem_digito</span>   = <span class="kw">any</span>(<span class="var">c</span>.<span class="fn">isdigit</span>() <span class="kw">for</span> <span class="var">c</span> <span class="kw">in</span> <span class="var">senha</span>)
-    <span class="var">tem_especial</span> = <span class="kw">any</span>(<span class="var">c</span> <span class="kw">in</span> <span class="str">'!@#$%'</span> <span class="kw">for</span> <span class="var">c</span> <span class="kw">in</span> <span class="var">senha</span>)
+    <span class="var">tem_tamanho</span>   = <span class="fn">len</span>(<span class="var">senha</span>) >= <span class="num">8</span>
+    <span class="var">tem_maiuscula</span> = <span class="kw">False</span>
+    <span class="var">tem_digito</span>    = <span class="kw">False</span>
+    <span class="var">tem_especial</span>  = <span class="kw">False</span>
+    <span class="kw">for</span> <span class="var">c</span> <span class="kw">in</span> <span class="var">senha</span>:
+        <span class="kw">if</span> <span class="var">c</span>.<span class="fn">isupper</span>():
+            <span class="var">tem_maiuscula</span> = <span class="kw">True</span>
+        <span class="kw">if</span> <span class="var">c</span>.<span class="fn">isdigit</span>():
+            <span class="var">tem_digito</span> = <span class="kw">True</span>
+        <span class="kw">if</span> <span class="var">c</span> <span class="kw">in</span> <span class="str">'!@#$%'</span>:
+            <span class="var">tem_especial</span> = <span class="kw">True</span>
 
     <span class="kw">def</span> <span class="fn">status</span>(<span class="var">ok</span>):
         <span class="kw">return</span> <span class="str">'✓'</span> <span class="kw">if</span> <span class="var">ok</span> <span class="kw">else</span> <span class="str">'✗'</span>

@@ -1,7 +1,7 @@
-<!-- module: num="3" nav="Operações matemáticas" -->
-  <div class="lesson" id="lesson-3">
+<!-- module: num="4" nav="Operações matemáticas" -->
+  <div class="lesson" id="lesson-4">
     <div class="lesson-header">
-      <div class="lesson-badge">Módulo 03</div>
+      <div class="lesson-badge">Módulo 04</div>
       <div class="lesson-title">Operações matemáticas</div>
       <div class="lesson-subtitle">Python como calculadora: soma, subtração, multiplicação, divisão e muito mais.</div>
     </div>
@@ -11,7 +11,7 @@
     <div class="section-title">Conceito</div>
 
     <div class="explanation">
-      Python suporta todas as operações matemáticas básicas. Para trabalhar com números digitados pelo usuário, precisamos <strong>converter</strong> a string que <code>input()</code> retorna usando <code>int()</code> para inteiros ou <code>float()</code> para decimais.
+      Python suporta todas as operações matemáticas básicas. Como você viu no módulo anterior, todo valor tem um tipo — e <code>input()</code> sempre retorna uma <strong>string</strong>. Para fazer cálculos com o que o usuário digita, precisamos <strong>converter</strong> esse valor usando <code>int()</code> para inteiros ou <code>float()</code> para decimais.
     </div>
 
     <div class="explanation">
@@ -73,20 +73,20 @@
       </div>
       <div class="exercise-body">
         <div class="exercise-desc">Leia dois números inteiros e mostre a soma deles.</div>
-        <textarea class="exercise-input" id="ex3-1" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex3-1', 'ex3-1-inputs')"></textarea>
-        <div class="input-fields" id="ex3-1-inputs" style="display:none"></div>
+        <textarea class="exercise-input" id="ex4-1" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex4-1', 'ex4-1-inputs')"></textarea>
+        <div class="input-fields" id="ex4-1-inputs" style="display:none"></div>
         <div class="exercise-actions">
           <div class="pyodide-status loading">● Carregando Python...</div>
-          <button class="btn btn-primary" onclick="runEx('ex3-1', 'ex3-1-out')">▶ Executar</button>
-          <button class="btn btn-ghost" onclick="showSolution('sol3-1')">Ver solução</button>
+          <button class="btn btn-primary" onclick="runEx('ex4-1', 'ex4-1-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol4-1')">Ver solução</button>
         </div>
-        <div class="output-terminal" id="ex3-1-out">
+        <div class="output-terminal" id="ex4-1-out">
           <div class="output-terminal-header">
             <div class="output-terminal-label">▶ Saída</div>
           </div>
           <div class="output-terminal-content"></div>
         </div>
-        <div class="solution-wrap" id="sol3-1">
+        <div class="solution-wrap" id="sol4-1">
           <div class="code-block" style="margin-top:0">
             <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
             <pre><span class="var">n1</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Primeiro: '</span>))
@@ -108,20 +108,20 @@
       </div>
       <div class="exercise-body">
         <div class="exercise-desc">Leia um número e mostre: seu dobro, seu triplo e sua raiz quadrada. <br><em>Dica: raiz quadrada = número elevado a 1/2, ex: <code>n ** (1/2)</code></em></div>
-        <textarea class="exercise-input" id="ex3-2" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex3-2', 'ex3-2-inputs')"></textarea>
-        <div class="input-fields" id="ex3-2-inputs" style="display:none"></div>
+        <textarea class="exercise-input" id="ex4-2" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex4-2', 'ex4-2-inputs')"></textarea>
+        <div class="input-fields" id="ex4-2-inputs" style="display:none"></div>
         <div class="exercise-actions">
           <div class="pyodide-status loading">● Carregando Python...</div>
-          <button class="btn btn-primary" onclick="runEx('ex3-2', 'ex3-2-out')">▶ Executar</button>
-          <button class="btn btn-ghost" onclick="showSolution('sol3-2')">Ver solução</button>
+          <button class="btn btn-primary" onclick="runEx('ex4-2', 'ex4-2-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol4-2')">Ver solução</button>
         </div>
-        <div class="output-terminal" id="ex3-2-out">
+        <div class="output-terminal" id="ex4-2-out">
           <div class="output-terminal-header">
             <div class="output-terminal-label">▶ Saída</div>
           </div>
           <div class="output-terminal-content"></div>
         </div>
-        <div class="solution-wrap" id="sol3-2">
+        <div class="solution-wrap" id="sol4-2">
           <div class="code-block" style="margin-top:0">
             <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
             <pre><span class="var">n</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Digite um número: '</span>))
@@ -143,20 +143,20 @@
       </div>
       <div class="exercise-body">
         <div class="exercise-desc">Leia um número inteiro e mostre na mesma frase o número, seu antecessor (<code>n - 1</code>) e seu sucessor (<code>n + 1</code>).</div>
-        <textarea class="exercise-input" id="ex3-3" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex3-3', 'ex3-3-inputs')"></textarea>
-        <div class="input-fields" id="ex3-3-inputs" style="display:none"></div>
+        <textarea class="exercise-input" id="ex4-3" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex4-3', 'ex4-3-inputs')"></textarea>
+        <div class="input-fields" id="ex4-3-inputs" style="display:none"></div>
         <div class="exercise-actions">
           <div class="pyodide-status loading">● Carregando Python...</div>
-          <button class="btn btn-primary" onclick="runEx('ex3-3', 'ex3-3-out')">▶ Executar</button>
-          <button class="btn btn-ghost" onclick="showSolution('sol3-3')">Ver solução</button>
+          <button class="btn btn-primary" onclick="runEx('ex4-3', 'ex4-3-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol4-3')">Ver solução</button>
         </div>
-        <div class="output-terminal" id="ex3-3-out">
+        <div class="output-terminal" id="ex4-3-out">
           <div class="output-terminal-header">
             <div class="output-terminal-label">▶ Saída</div>
           </div>
           <div class="output-terminal-content"></div>
         </div>
-        <div class="solution-wrap" id="sol3-3">
+        <div class="solution-wrap" id="sol4-3">
           <div class="code-block" style="margin-top:0">
             <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
             <pre><span class="var">n</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Digite um número: '</span>))
@@ -167,7 +167,7 @@
     </div>
 
     <div class="lesson-nav">
-      <button class="btn btn-nav" onclick="goTo(2)">← Anterior</button>
-      <button class="btn btn-primary" onclick="completeAndNext(3)">Próximo módulo →</button>
+      <button class="btn btn-nav" onclick="goTo(3)">← Anterior</button>
+      <button class="btn btn-primary" onclick="completeAndNext(4)">Próximo módulo →</button>
     </div>
   </div>
