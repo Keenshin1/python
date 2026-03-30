@@ -1,0 +1,147 @@
+<!-- module: num="1" nav="Saída de dados" -->
+  <div class="lesson active" id="lesson-1">
+    <div class="lesson-header">
+      <div class="lesson-badge">Módulo 01</div>
+      <div class="lesson-title">Saída de dados com <code style="font-size:22px;">print()</code></div>
+      <div class="lesson-subtitle">A primeira coisa que todo programador aprende: exibir informações na tela.</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Conceito</div>
+
+    <div class="explanation">
+      Em Python, usamos a função <code>print()</code> para exibir qualquer coisa na tela. Você passa o que quer exibir dentro dos parênteses.
+    </div>
+
+    <div class="explanation">
+      Texto (chamado de <strong>string</strong>) precisa estar entre aspas — pode ser simples <code>'texto'</code> ou duplas <code>"texto"</code>.
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">Python</div>
+      </div>
+      <pre><span class="fn">print</span>(<span class="str">'Olá Mundo!'</span>)
+<span class="fn">print</span>(<span class="str">"Python é incrível"</span>)
+<span class="fn">print</span>(<span class="num">42</span>)
+<span class="fn">print</span>(<span class="num">3.14</span>)</pre>
+    </div>
+
+    <div class="info-box green">
+      <strong>Saída do programa</strong>
+      Olá Mundo!<br>
+      Python é incrível<br>
+      42<br>
+      3.14
+    </div>
+
+    <div class="info-box">
+      <strong>Dica</strong>
+      Você pode usar <code>\n</code> dentro de uma string para pular linha: <code>print('linha1\nlinha2')</code>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Variáveis</div>
+
+    <div class="explanation">
+      Uma <strong>variável</strong> é um nome que guarda um valor na memória do programa. Pense nela como uma caixinha com um rótulo: você dá um nome à caixinha e coloca algo dentro.
+    </div>
+
+    <div class="explanation">
+      Para criar uma variável, use o sinal <code>=</code> — que aqui significa <em>"recebe"</em>, não igualdade matemática. O nome fica à esquerda e o valor à direita.
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">Python</div>
+      </div>
+      <pre><span class="var">nome</span> = <span class="str">'Tainá'</span>        <span class="com"># a variável 'nome' guarda o texto 'Tainá'</span>
+<span class="var">idade</span> = <span class="num">28</span>         <span class="com"># a variável 'idade' guarda o número 28</span>
+<span class="fn">print</span>(<span class="var">nome</span>)        <span class="com"># exibe: Tainá</span>
+<span class="fn">print</span>(<span class="var">idade</span>)       <span class="com"># exibe: 28</span></pre>
+    </div>
+
+    <div class="info-box yellow">
+      <strong>Atenção</strong>
+      Nomes de variáveis não podem ter espaços nem começar com número. Use letras, números e underline (o traço embaixo <code>_</code>): <code>nome_completo</code>, <code>nota1</code>.
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Exercícios de fixação</div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">01</div>
+        <div>
+          <div class="exercise-title">Olá Mundo</div>
+          <div class="exercise-sub">Exercício clássico de iniciação</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Escreva um script que exiba a mensagem <strong>"Olá Mundo!"</strong> na tela.</div>
+        <textarea class="exercise-input" id="ex1-1" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex1-1', 'ex1-1-inputs')"></textarea>
+        <div class="input-fields" id="ex1-1-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex1-1', 'ex1-1-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol1-1')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex1-1-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol1-1">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="fn">print</span>(<span class="str">'Olá Mundo!'</span>)</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">02</div>
+        <div>
+          <div class="exercise-title">Múltiplas linhas</div>
+          <div class="exercise-sub">Praticando print com várias saídas</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Escreva um script que exiba seu nome, sua idade e sua cidade <strong>cada um em uma linha diferente</strong>. Use <code>print()</code> diretamente com os valores, como <code>print('seu nome')</code>.</div>
+        <textarea class="exercise-input" id="ex1-2" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex1-2', 'ex1-2-inputs')"></textarea>
+        <div class="input-fields" id="ex1-2-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex1-2', 'ex1-2-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol1-2')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex1-2-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol1-2">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="fn">print</span>(<span class="str">'Tainá'</span>)
+<span class="fn">print</span>(<span class="num">28</span>)
+<span class="fn">print</span>(<span class="str">'Curitiba'</span>)</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <button class="btn btn-nav" style="visibility:hidden">← Voltar</button>
+      <button class="btn btn-primary" onclick="completeAndNext(1)">Próximo módulo →</button>
+    </div>
+  </div>

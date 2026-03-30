@@ -1,0 +1,125 @@
+<!-- module: num="2" nav="Entrada de dados" -->
+  <div class="lesson" id="lesson-2">
+    <div class="lesson-header">
+      <div class="lesson-badge">Módulo 02</div>
+      <div class="lesson-title">Entrada de dados com <code style="font-size:22px;">input()</code></div>
+      <div class="lesson-subtitle">Como fazer o programa conversar com o usuário e capturar o que ele digita.</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Conceito</div>
+
+    <div class="explanation">
+      A função <code>input()</code> pausa o programa e espera o usuário digitar algo. O que for digitado é retornado como uma <strong>string</strong> e pode ser guardado em uma variável.
+    </div>
+
+    <div class="explanation">
+      Dentro dos parênteses de <code>input()</code> você pode colocar uma mensagem para orientar o usuário — isso é chamado de <strong>prompt</strong>.
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">Python</div>
+      </div>
+      <pre><span class="var">nome</span> = <span class="fn">input</span>(<span class="str">'Qual é o seu nome? '</span>)
+<span class="fn">print</span>(<span class="str">'Olá, '</span> + <span class="var">nome</span> + <span class="str">'!'</span>)</pre>
+    </div>
+
+    <div class="info-box yellow">
+      <strong>Atenção</strong>
+      <code>input()</code> sempre retorna uma <strong>string</strong>, mesmo que o usuário digite um número. Para usar como número, é preciso converter com <code>int()</code> ou <code>float()</code>.
+    </div>
+
+    <div class="explanation">
+      Para combinar textos e variáveis no <code>print()</code>, use o operador <code>+</code> para <strong>concatenar</strong> (juntar) strings. Qualquer parte que não seja variável precisa estar entre aspas.
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">Concatenação com +</div>
+      </div>
+      <pre><span class="var">nome</span> = <span class="fn">input</span>(<span class="str">'Qual é o seu nome? '</span>)
+<span class="var">cidade</span> = <span class="fn">input</span>(<span class="str">'De onde você é? '</span>)
+<span class="fn">print</span>(<span class="str">'Olá, '</span> + <span class="var">nome</span> + <span class="str">'! Você é de '</span> + <span class="var">cidade</span> + <span class="str">'.'</span>)</pre>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Exercícios de fixação</div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">01</div>
+        <div>
+          <div class="exercise-title">Boas-vindas</div>
+          <div class="exercise-sub">Leitura e exibição de dados</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Crie um script que leia o nome de uma pessoa e exiba uma mensagem de boas-vindas personalizada.</div>
+        <textarea class="exercise-input" id="ex2-1" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex2-1', 'ex2-1-inputs')"></textarea>
+        <div class="input-fields" id="ex2-1-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex2-1', 'ex2-1-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol2-1')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex2-1-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol2-1">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">nome</span> = <span class="fn">input</span>(<span class="str">'Qual é o seu nome? '</span>)
+<span class="fn">print</span>(<span class="str">'Olá, '</span> + <span class="var">nome</span> + <span class="str">'! Seja bem-vindo!'</span>)</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">02</div>
+        <div>
+          <div class="exercise-title">Apresentação completa</div>
+          <div class="exercise-sub">Múltiplas entradas</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia o nome, a idade e a cidade do usuário, depois exiba uma frase completa usando todos esses dados. Ex: <em>"Olá Tainá, você tem 28 anos e mora em Curitiba."</em><br><em>Dica: use <code>+</code> para juntar as partes.</em></div>
+        <textarea class="exercise-input" id="ex2-2" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex2-2', 'ex2-2-inputs')"></textarea>
+        <div class="input-fields" id="ex2-2-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex2-2', 'ex2-2-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol2-2')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex2-2-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol2-2">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">nome</span> = <span class="fn">input</span>(<span class="str">'Nome: '</span>)
+<span class="var">idade</span> = <span class="fn">input</span>(<span class="str">'Idade: '</span>)
+<span class="var">cidade</span> = <span class="fn">input</span>(<span class="str">'Cidade: '</span>)
+<span class="fn">print</span>(<span class="str">'Olá '</span> + <span class="var">nome</span> + <span class="str">', você tem '</span> + <span class="var">idade</span> + <span class="str">' anos e mora em '</span> + <span class="var">cidade</span> + <span class="str">'.'</span>)</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <button class="btn btn-nav" onclick="goTo(1)">← Anterior</button>
+      <button class="btn btn-primary" onclick="completeAndNext(2)">Próximo módulo →</button>
+    </div>
+  </div>
