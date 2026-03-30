@@ -1,0 +1,127 @@
+<!-- module: num="4" nav="Tipos e strings" -->
+  <div class="lesson" id="lesson-4">
+    <div class="lesson-header">
+      <div class="lesson-badge">Módulo 04</div>
+      <div class="lesson-title">Tipos primitivos e métodos de string</div>
+      <div class="lesson-subtitle">Entendendo os tipos de dados e explorando as capacidades das strings em Python.</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Conceito</div>
+
+    <div class="explanation">
+      Todo valor em Python tem um <strong>tipo</strong>. Os principais são: <code>str</code> (texto), <code>int</code> (inteiro), <code>float</code> (decimal) e <code>bool</code> (verdadeiro/falso). Use <code>type()</code> para descobrir o tipo de qualquer valor.
+    </div>
+
+    <div class="explanation">
+      Strings possuem <strong>métodos</strong> — funções que já vêm embutidas em todo texto. Pense assim: assim como um canivete suíço tem ferramentas dentro dele, uma string carrega suas próprias ferramentas. Para usar, escreva o nome da variável, um ponto, e o nome da ferramenta: <code>variavel.metodo()</code>.
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">Métodos de string</div>
+      </div>
+      <pre><span class="var">texto</span> = <span class="str">'Python'</span>
+
+<span class="fn">print</span>(<span class="fn">type</span>(<span class="var">texto</span>))          <span class="com"># descobre o tipo → &lt;class 'str'&gt;</span>
+
+<span class="com"># Métodos de verificação — retornam True ou False</span>
+<span class="fn">print</span>(<span class="var">texto</span>.<span class="fn">isupper</span>())      <span class="com"># está tudo em MAIÚSCULAS? → False</span>
+<span class="fn">print</span>(<span class="var">texto</span>.<span class="fn">islower</span>())      <span class="com"># está tudo em minúsculas? → False</span>
+<span class="fn">print</span>(<span class="var">texto</span>.<span class="fn">isalpha</span>())      <span class="com"># contém só letras (sem número)? → True</span>
+<span class="fn">print</span>(<span class="var">texto</span>.<span class="fn">isnumeric</span>())    <span class="com"># contém só números? → False</span>
+<span class="fn">print</span>(<span class="var">texto</span>.<span class="fn">isalnum</span>())      <span class="com"># contém só letras e/ou números? → True</span>
+<span class="fn">print</span>(<span class="var">texto</span>.<span class="fn">istitle</span>())      <span class="com"># cada palavra começa com maiúscula? → True</span>
+
+<span class="com"># Métodos de transformação — retornam o texto modificado</span>
+<span class="fn">print</span>(<span class="var">texto</span>.<span class="fn">upper</span>())        <span class="com"># converte tudo para MAIÚSCULAS → PYTHON</span>
+<span class="fn">print</span>(<span class="var">texto</span>.<span class="fn">lower</span>())        <span class="com"># converte tudo para minúsculas → python</span>
+<span class="fn">print</span>(<span class="var">texto</span>.<span class="fn">title</span>())        <span class="com"># primeira letra de cada palavra em maiúscula → Python</span>
+
+<span class="com"># len() conta o número de caracteres</span>
+<span class="fn">print</span>(<span class="fn">len</span>(<span class="var">texto</span>))           <span class="com"># quantos caracteres tem? → 6</span></pre>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Exercícios de fixação</div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">01</div>
+        <div>
+          <div class="exercise-title">Analisador de entrada</div>
+          <div class="exercise-sub">type() e métodos de string</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia algo digitado pelo usuário e mostre: o tipo, se é numérico, se é alfabético, se está em maiúsculas e o tamanho (número de caracteres).</div>
+        <textarea class="exercise-input" id="ex4-1" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex4-1', 'ex4-1-inputs')"></textarea>
+        <div class="input-fields" id="ex4-1-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex4-1', 'ex4-1-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol4-1')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex4-1-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol4-1">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">n</span> = <span class="fn">input</span>(<span class="str">'Digite algo: '</span>)
+<span class="fn">print</span>(<span class="str">'Tipo: '</span> + <span class="fn">str</span>(<span class="fn">type</span>(<span class="var">n</span>)))
+<span class="fn">print</span>(<span class="str">'É numérico? '</span> + <span class="fn">str</span>(<span class="var">n</span>.<span class="fn">isnumeric</span>()))
+<span class="fn">print</span>(<span class="str">'É alfabético? '</span> + <span class="fn">str</span>(<span class="var">n</span>.<span class="fn">isalpha</span>()))
+<span class="fn">print</span>(<span class="str">'Está maiúsculo? '</span> + <span class="fn">str</span>(<span class="var">n</span>.<span class="fn">isupper</span>()))
+<span class="fn">print</span>(<span class="str">'Tamanho: '</span> + <span class="fn">str</span>(<span class="fn">len</span>(<span class="var">n</span>)) + <span class="str">' caracteres'</span>)</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">02</div>
+        <div>
+          <div class="exercise-title">Transformador de texto</div>
+          <div class="exercise-sub">Métodos de transformação</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia uma frase e exiba-a em <strong>três versões</strong>: toda em maiúsculas, toda em minúsculas e com a primeira letra de cada palavra em maiúscula.</div>
+        <textarea class="exercise-input" id="ex4-2" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex4-2', 'ex4-2-inputs')"></textarea>
+        <div class="input-fields" id="ex4-2-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex4-2', 'ex4-2-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol4-2')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex4-2-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol4-2">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">frase</span> = <span class="fn">input</span>(<span class="str">'Digite uma frase: '</span>)
+<span class="fn">print</span>(<span class="var">frase</span>.<span class="fn">upper</span>())
+<span class="fn">print</span>(<span class="var">frase</span>.<span class="fn">lower</span>())
+<span class="fn">print</span>(<span class="var">frase</span>.<span class="fn">title</span>())</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <button class="btn btn-nav" onclick="goTo(3)">← Anterior</button>
+      <button class="btn btn-primary" onclick="completeAndNext(4)">Próximo módulo →</button>
+    </div>
+  </div>

@@ -1,0 +1,113 @@
+<!-- module: num="9" nav="Conversão de unidades" -->
+  <div class="lesson" id="lesson-9">
+    <div class="lesson-header">
+      <div class="lesson-badge">Módulo 09</div>
+      <div class="lesson-title">Conversão de unidades</div>
+      <div class="lesson-subtitle">Trabalhando com múltiplas variáveis derivadas de um único valor de entrada.</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Conceito</div>
+
+    <div class="explanation">
+      Muitas vezes queremos apresentar o mesmo dado em formatos diferentes. Para isso, calculamos cada resultado a partir do valor original e armazenamos em variáveis separadas, depois exibimos tudo de forma organizada.
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">Exemplo — metros para outras unidades</div>
+      </div>
+      <pre><span class="var">metros</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Distância em metros: '</span>))
+
+<span class="var">km</span> = <span class="var">metros</span> / <span class="num">1000</span>
+<span class="var">cm</span> = <span class="var">metros</span> * <span class="num">100</span>
+<span class="var">mm</span> = <span class="var">metros</span> * <span class="num">1000</span>
+
+<span class="fn">print</span>(<span class="str">'{}m = {}km = {:.0f}cm = {:.0f}mm'</span>.<span class="fn">format</span>(
+    <span class="var">metros</span>, <span class="var">km</span>, <span class="var">cm</span>, <span class="var">mm</span>
+))</pre>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Exercícios de fixação</div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">01</div>
+        <div>
+          <div class="exercise-title">Conversor de distâncias</div>
+          <div class="exercise-sub">Um valor, múltiplas unidades</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia uma distância em metros e exiba a equivalência em: km, hm, dam, dm, cm e mm.</div>
+        <textarea class="exercise-input" id="ex9-1" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex9-1', 'ex9-1-inputs')"></textarea>
+        <div class="input-fields" id="ex9-1-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex9-1', 'ex9-1-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol9-1')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex9-1-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol9-1">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">n</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Distância em metros: '</span>))
+<span class="fn">print</span>(<span class="str">'{} m = {} km'</span>.<span class="fn">format</span>(<span class="var">n</span>, <span class="var">n</span>/<span class="num">1000</span>))
+<span class="fn">print</span>(<span class="str">'{} m = {} hm'</span>.<span class="fn">format</span>(<span class="var">n</span>, <span class="var">n</span>/<span class="num">100</span>))
+<span class="fn">print</span>(<span class="str">'{} m = {} dam'</span>.<span class="fn">format</span>(<span class="var">n</span>, <span class="var">n</span>/<span class="num">10</span>))
+<span class="fn">print</span>(<span class="str">'{} m = {:.0f} dm'</span>.<span class="fn">format</span>(<span class="var">n</span>, <span class="var">n</span>*<span class="num">10</span>))
+<span class="fn">print</span>(<span class="str">'{} m = {:.0f} cm'</span>.<span class="fn">format</span>(<span class="var">n</span>, <span class="var">n</span>*<span class="num">100</span>))
+<span class="fn">print</span>(<span class="str">'{} m = {:.0f} mm'</span>.<span class="fn">format</span>(<span class="var">n</span>, <span class="var">n</span>*<span class="num">1000</span>))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">02</div>
+        <div>
+          <div class="exercise-title">Conversor de moeda</div>
+          <div class="exercise-sub">R$ para USD e EUR</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia um valor em R$ e mostre quanto equivale em <strong>dólares</strong> (1 USD = R$ 5,10) e em <strong>euros</strong> (1 EUR = R$ 5,60).</div>
+        <textarea class="exercise-input" id="ex9-2" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex9-2', 'ex9-2-inputs')"></textarea>
+        <div class="input-fields" id="ex9-2-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex9-2', 'ex9-2-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol9-2')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex9-2-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol9-2">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">reais</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Valor em R$: '</span>))
+<span class="fn">print</span>(<span class="str">'Dólares: ${:.2f}'</span>.<span class="fn">format</span>(<span class="var">reais</span> / <span class="num">5.10</span>))
+<span class="fn">print</span>(<span class="str">'Euros: €{:.2f}'</span>.<span class="fn">format</span>(<span class="var">reais</span> / <span class="num">5.60</span>))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <button class="btn btn-nav" onclick="goTo(8)">← Anterior</button>
+      <button class="btn btn-primary" onclick="completeAndNext(9)">Próximo módulo →</button>
+    </div>
+  </div>

@@ -1,0 +1,173 @@
+<!-- module: num="3" nav="Operações matemáticas" -->
+  <div class="lesson" id="lesson-3">
+    <div class="lesson-header">
+      <div class="lesson-badge">Módulo 03</div>
+      <div class="lesson-title">Operações matemáticas</div>
+      <div class="lesson-subtitle">Python como calculadora: soma, subtração, multiplicação, divisão e muito mais.</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Conceito</div>
+
+    <div class="explanation">
+      Python suporta todas as operações matemáticas básicas. Para trabalhar com números digitados pelo usuário, precisamos <strong>converter</strong> a string que <code>input()</code> retorna usando <code>int()</code> para inteiros ou <code>float()</code> para decimais.
+    </div>
+
+    <div class="explanation">
+      <code>int()</code> e <code>float()</code> são funções de conversão. Você passa um valor dentro dos parênteses e recebe o mesmo valor em outro tipo:
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">Conversão de tipo</div>
+      </div>
+      <pre><span class="fn">int</span>(<span class="str">'10'</span>)       <span class="com"># transforma a string '10' no número 10</span>
+<span class="fn">float</span>(<span class="str">'3.14'</span>)   <span class="com"># transforma a string '3.14' no número 3.14</span>
+<span class="fn">str</span>(<span class="num">42</span>)         <span class="com"># transforma o número 42 na string '42'</span></pre>
+    </div>
+
+    <div class="explanation">
+      Na prática, combinamos <code>int()</code> com <code>input()</code> em uma só linha — o resultado de <code>input()</code> vai direto para dentro de <code>int()</code>:
+    </div>
+
+    <div class="concept-grid">
+      <div class="concept-card">
+        <div class="concept-card-title">Operadores básicos</div>
+        <div class="concept-card-val">+ - * / // % **</div>
+      </div>
+      <div class="concept-card">
+        <div class="concept-card-title">Conversão de tipo</div>
+        <div class="concept-card-val">int() · float() · str()</div>
+      </div>
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">Python</div>
+      </div>
+      <pre><span class="var">n1</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Primeiro número: '</span>))
+<span class="var">n2</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Segundo número: '</span>))
+
+<span class="fn">print</span>(<span class="var">n1</span> + <span class="var">n2</span>)   <span class="com"># Soma</span>
+<span class="fn">print</span>(<span class="var">n1</span> - <span class="var">n2</span>)   <span class="com"># Subtração</span>
+<span class="fn">print</span>(<span class="var">n1</span> * <span class="var">n2</span>)   <span class="com"># Multiplicação</span>
+<span class="fn">print</span>(<span class="var">n1</span> / <span class="var">n2</span>)   <span class="com"># Divisão real</span>
+<span class="fn">print</span>(<span class="var">n1</span> ** <span class="num">2</span>)   <span class="com"># Potência</span>
+<span class="fn">print</span>(<span class="var">n1</span> % <span class="var">n2</span>)   <span class="com"># Resto da divisão</span></pre>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Exercícios de fixação</div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">01</div>
+        <div>
+          <div class="exercise-title">Soma de dois números</div>
+          <div class="exercise-sub">Conversão e operação básica</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia dois números inteiros e mostre a soma deles.</div>
+        <textarea class="exercise-input" id="ex3-1" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex3-1', 'ex3-1-inputs')"></textarea>
+        <div class="input-fields" id="ex3-1-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex3-1', 'ex3-1-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol3-1')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex3-1-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol3-1">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">n1</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Primeiro: '</span>))
+<span class="var">n2</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Segundo: '</span>))
+<span class="var">resultado</span> = <span class="var">n1</span> + <span class="var">n2</span>
+<span class="fn">print</span>(<span class="str">'A soma é: '</span> + <span class="fn">str</span>(<span class="var">resultado</span>))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">02</div>
+        <div>
+          <div class="exercise-title">Dobro, triplo e raiz</div>
+          <div class="exercise-sub">Múltiplas operações sobre um número</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia um número e mostre: seu dobro, seu triplo e sua raiz quadrada. <br><em>Dica: raiz quadrada = número elevado a 1/2, ex: <code>n ** (1/2)</code></em></div>
+        <textarea class="exercise-input" id="ex3-2" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex3-2', 'ex3-2-inputs')"></textarea>
+        <div class="input-fields" id="ex3-2-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex3-2', 'ex3-2-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol3-2')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex3-2-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol3-2">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">n</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Digite um número: '</span>))
+<span class="fn">print</span>(<span class="str">'Dobro: '</span> + <span class="fn">str</span>(<span class="var">n</span> * <span class="num">2</span>))
+<span class="fn">print</span>(<span class="str">'Triplo: '</span> + <span class="fn">str</span>(<span class="var">n</span> * <span class="num">3</span>))
+<span class="fn">print</span>(<span class="str">'Raiz: '</span> + <span class="fn">str</span>(<span class="var">n</span> ** (<span class="num">1</span>/<span class="num">2</span>)))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">03</div>
+        <div>
+          <div class="exercise-title">Sucessor e antecessor</div>
+          <div class="exercise-sub">Operações simples com resultado formatado</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia um número inteiro e mostre na mesma frase o número, seu antecessor (<code>n - 1</code>) e seu sucessor (<code>n + 1</code>).</div>
+        <textarea class="exercise-input" id="ex3-3" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex3-3', 'ex3-3-inputs')"></textarea>
+        <div class="input-fields" id="ex3-3-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex3-3', 'ex3-3-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol3-3')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex3-3-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol3-3">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">n</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Digite um número: '</span>))
+<span class="fn">print</span>(<span class="str">'Número: '</span> + <span class="fn">str</span>(<span class="var">n</span>) + <span class="str">', antecessor: '</span> + <span class="fn">str</span>(<span class="var">n</span>-<span class="num">1</span>) + <span class="str">', sucessor: '</span> + <span class="fn">str</span>(<span class="var">n</span>+<span class="num">1</span>))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <button class="btn btn-nav" onclick="goTo(2)">← Anterior</button>
+      <button class="btn btn-primary" onclick="completeAndNext(3)">Próximo módulo →</button>
+    </div>
+  </div>

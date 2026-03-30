@@ -1,0 +1,121 @@
+<!-- module: num="6" nav="Importações e math" -->
+  <div class="lesson" id="lesson-6">
+    <div class="lesson-header">
+      <div class="lesson-badge">Módulo 06</div>
+      <div class="lesson-title">Importações e o módulo <code style="font-size:22px;">math</code></div>
+      <div class="lesson-subtitle">Usando bibliotecas prontas para cálculos matemáticos mais avançados.</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Conceito</div>
+
+    <div class="explanation">
+      Python vem com <strong>módulos</strong> prontos que adicionam funcionalidades extras. Importamos com a palavra-chave <code>import</code>. O módulo <code>math</code> oferece funções matemáticas como raiz quadrada, seno, cosseno, tangente, etc.
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">Formas de importar</div>
+      </div>
+      <pre><span class="kw">import</span> math
+<span class="fn">math</span>.<span class="fn">sqrt</span>(<span class="num">16</span>)     <span class="com"># 4.0</span>
+
+<span class="kw">from</span> math <span class="kw">import</span> sqrt, trunc, hypot
+<span class="fn">sqrt</span>(<span class="num">16</span>)          <span class="com"># 4.0 (sem prefixo math.)</span>
+<span class="fn">trunc</span>(<span class="num">6.9</span>)        <span class="com"># 6 (parte inteira)</span>
+
+<span class="kw">from</span> math <span class="kw">import</span> sin, cos, tan, radians
+<span class="fn">sin</span>(<span class="fn">radians</span>(<span class="num">90</span>))  <span class="com"># 1.0 (ângulo em graus → radianos)</span></pre>
+    </div>
+
+    <div class="info-box yellow">
+      <strong>Atenção com ângulos</strong>
+      As funções trigonométricas do Python trabalham em <strong>radianos</strong>. Para passar graus, converta com <code>radians(ângulo)</code>.
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Exercícios de fixação</div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">01</div>
+        <div>
+          <div class="exercise-title">Hipotenusa</div>
+          <div class="exercise-sub">Teorema de Pitágoras com math.hypot</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia o comprimento dos dois catetos de um triângulo retângulo e calcule a hipotenusa usando <code>math.hypot()</code>.</div>
+        <textarea class="exercise-input" id="ex6-1" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex6-1', 'ex6-1-inputs')"></textarea>
+        <div class="input-fields" id="ex6-1-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex6-1', 'ex6-1-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol6-1')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex6-1-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol6-1">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="kw">import</span> math
+
+<span class="var">catOp</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Cateto oposto: '</span>))
+<span class="var">catAd</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Cateto adjacente: '</span>))
+<span class="var">hipo</span> = math.<span class="fn">hypot</span>(<span class="var">catAd</span>, <span class="var">catOp</span>)
+<span class="fn">print</span>(<span class="str">'Hipotenusa: {:.2f}'</span>.<span class="fn">format</span>(<span class="var">hipo</span>))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">02</div>
+        <div>
+          <div class="exercise-title">Seno, cosseno e tangente</div>
+          <div class="exercise-sub">Trigonometria com conversão de ângulo</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia um ângulo em graus e exiba seu seno, cosseno e tangente, cada um com 2 casas decimais.</div>
+        <textarea class="exercise-input" id="ex6-2" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex6-2', 'ex6-2-inputs')"></textarea>
+        <div class="input-fields" id="ex6-2-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex6-2', 'ex6-2-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol6-2')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex6-2-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol6-2">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="kw">from</span> math <span class="kw">import</span> sin, cos, tan, radians
+
+<span class="var">angulo</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Ângulo em graus: '</span>))
+<span class="fn">print</span>(<span class="str">'Seno: {:.2f}'</span>.<span class="fn">format</span>(<span class="fn">sin</span>(<span class="fn">radians</span>(<span class="var">angulo</span>))))
+<span class="fn">print</span>(<span class="str">'Cosseno: {:.2f}'</span>.<span class="fn">format</span>(<span class="fn">cos</span>(<span class="fn">radians</span>(<span class="var">angulo</span>))))
+<span class="fn">print</span>(<span class="str">'Tangente: {:.2f}'</span>.<span class="fn">format</span>(<span class="fn">tan</span>(<span class="fn">radians</span>(<span class="var">angulo</span>))))
+</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <button class="btn btn-nav" onclick="goTo(5)">← Anterior</button>
+      <button class="btn btn-primary" onclick="completeAndNext(6)">Próximo módulo →</button>
+    </div>
+  </div>

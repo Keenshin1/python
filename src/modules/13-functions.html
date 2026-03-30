@@ -1,0 +1,191 @@
+<!-- module: num="13" nav="Funções" -->
+  <div class="lesson" id="lesson-13">
+    <div class="lesson-header">
+      <div class="lesson-badge">Módulo 13</div>
+      <div class="lesson-title">Funções com <code style="font-size:22px;">def</code></div>
+      <div class="lesson-subtitle">Agrupe blocos de código reutilizáveis em funções com parâmetros e retorno.</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Conceito</div>
+
+    <div class="explanation">
+      Uma <strong>função</strong> é um bloco de código nomeado que pode ser executado ("chamado") quantas vezes quiser. Funções evitam repetição de código e tornam o programa mais organizado.
+    </div>
+
+    <div class="explanation">
+      Definimos uma função com a palavra-chave <code>def</code>, seguida do nome e dos <strong>parâmetros</strong> entre parênteses. O <code>return</code> devolve um valor para quem chamou a função.
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">Definindo e chamando funções</div>
+      </div>
+      <pre><span class="kw">def</span> <span class="fn">saudacao</span>(<span class="var">nome</span>):
+    <span class="fn">print</span>(<span class="str">'Olá, {}!'</span>.<span class="fn">format</span>(<span class="var">nome</span>))
+
+<span class="fn">saudacao</span>(<span class="str">'Ana'</span>)    <span class="com"># saída: Olá, Ana!</span>
+<span class="fn">saudacao</span>(<span class="str">'Bruno'</span>)  <span class="com"># saída: Olá, Bruno!</span></pre>
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">Função com return</div>
+      </div>
+      <pre><span class="kw">def</span> <span class="fn">soma</span>(<span class="var">a</span>, <span class="var">b</span>):
+    <span class="kw">return</span> <span class="var">a</span> + <span class="var">b</span>
+
+<span class="var">resultado</span> = <span class="fn">soma</span>(<span class="num">10</span>, <span class="num">5</span>)
+<span class="fn">print</span>(<span class="var">resultado</span>)  <span class="com"># saída: 15</span></pre>
+    </div>
+
+    <div class="info-box green">
+      <strong>Boas práticas</strong>
+      Nomeie suas funções com verbos que descrevam o que fazem: <code>calcular_area()</code>, <code>converter_temperatura()</code>, <code>verificar_par()</code>. Use underline para separar palavras.
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Parâmetros com valor padrão</div>
+
+    <div class="explanation">
+      Parâmetros podem ter um <strong>valor padrão</strong>. Se o chamador não passar esse argumento, o valor padrão é usado automaticamente.
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">Valor padrão</div>
+      </div>
+      <pre><span class="kw">def</span> <span class="fn">potencia</span>(<span class="var">base</span>, <span class="var">expoente</span>=<span class="num">2</span>):
+    <span class="kw">return</span> <span class="var">base</span> ** <span class="var">expoente</span>
+
+<span class="fn">print</span>(<span class="fn">potencia</span>(<span class="num">4</span>))     <span class="com"># 16  (expoente padrão = 2)</span>
+<span class="fn">print</span>(<span class="fn">potencia</span>(<span class="num">2</span>, <span class="num">10</span>)) <span class="com"># 1024</span></pre>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Exercícios de fixação</div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">01</div>
+        <div>
+          <div class="exercise-title">Calculadora de área</div>
+          <div class="exercise-sub">Criando e chamando uma função simples</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Crie uma função chamada <code>calcular_area(largura, altura)</code> que retorna a área de um retângulo. Leia largura e altura com <code>input()</code>, chame a função e exiba o resultado.</div>
+        <textarea class="exercise-input" id="ex13-1" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex13-1', 'ex13-1-inputs')"></textarea>
+        <div class="input-fields" id="ex13-1-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex13-1', 'ex13-1-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol13-1')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex13-1-out">
+          <div class="output-terminal-header"><div class="output-terminal-label">▶ Saída</div></div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol13-1">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="kw">def</span> <span class="fn">calcular_area</span>(<span class="var">largura</span>, <span class="var">altura</span>):
+    <span class="kw">return</span> <span class="var">largura</span> * <span class="var">altura</span>
+
+<span class="var">l</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Largura: '</span>))
+<span class="var">h</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Altura: '</span>))
+<span class="var">area</span> = <span class="fn">calcular_area</span>(<span class="var">l</span>, <span class="var">h</span>)
+<span class="fn">print</span>(<span class="str">'Área do retângulo: {} m²'</span>.<span class="fn">format</span>(<span class="var">area</span>))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">02</div>
+        <div>
+          <div class="exercise-title">Conversor de temperatura</div>
+          <div class="exercise-sub">Função reutilizável com return</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Crie a função <code>celsius_para_fahrenheit(c)</code> que converte Celsius em Fahrenheit (fórmula: <code>F = C * 9/5 + 32</code>). Leia uma temperatura em Celsius e exiba o resultado em Fahrenheit com 1 casa decimal.</div>
+        <textarea class="exercise-input" id="ex13-2" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex13-2', 'ex13-2-inputs')"></textarea>
+        <div class="input-fields" id="ex13-2-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex13-2', 'ex13-2-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol13-2')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex13-2-out">
+          <div class="output-terminal-header"><div class="output-terminal-label">▶ Saída</div></div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol13-2">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="kw">def</span> <span class="fn">celsius_para_fahrenheit</span>(<span class="var">c</span>):
+    <span class="kw">return</span> <span class="var">c</span> * <span class="num">9</span> / <span class="num">5</span> + <span class="num">32</span>
+
+<span class="var">temp_c</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Temperatura em Celsius: '</span>))
+<span class="var">temp_f</span> = <span class="fn">celsius_para_fahrenheit</span>(<span class="var">temp_c</span>)
+<span class="fn">print</span>(<span class="str">'{:.1f}°C = {:.1f}°F'</span>.<span class="fn">format</span>(<span class="var">temp_c</span>, <span class="var">temp_f</span>))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon" style="background: var(--orange);">★</div>
+        <div>
+          <div class="exercise-title">Verificador de número primo</div>
+          <div class="exercise-sub">Combinando funções, for e condicionais</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Crie a função <code>eh_primo(n)</code> que retorna <code>True</code> se <strong>n</strong> for primo e <code>False</code> caso contrário. Um número primo é divisível apenas por 1 e por ele mesmo. Leia um número, chame a função e exiba o resultado.</div>
+        <textarea class="exercise-input" id="ex13-3" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex13-3', 'ex13-3-inputs')"></textarea>
+        <div class="input-fields" id="ex13-3-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex13-3', 'ex13-3-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol13-3')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex13-3-out">
+          <div class="output-terminal-header"><div class="output-terminal-label">▶ Saída</div></div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol13-3">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="kw">def</span> <span class="fn">eh_primo</span>(<span class="var">n</span>):
+    <span class="kw">if</span> <span class="var">n</span> < <span class="num">2</span>:
+        <span class="kw">return</span> <span class="kw">False</span>
+    <span class="kw">for</span> <span class="var">i</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="num">2</span>, <span class="var">n</span>):
+        <span class="kw">if</span> <span class="var">n</span> % <span class="var">i</span> == <span class="num">0</span>:
+            <span class="kw">return</span> <span class="kw">False</span>
+    <span class="kw">return</span> <span class="kw">True</span>
+
+<span class="var">num</span> = <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Digite um número: '</span>))
+<span class="kw">if</span> <span class="fn">eh_primo</span>(<span class="var">num</span>):
+    <span class="fn">print</span>(<span class="str">'{} é primo.'</span>.<span class="fn">format</span>(<span class="var">num</span>))
+<span class="kw">else</span>:
+    <span class="fn">print</span>(<span class="str">'{} não é primo.'</span>.<span class="fn">format</span>(<span class="var">num</span>))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <button class="btn btn-nav" onclick="goTo(12)">← Anterior</button>
+      <button class="btn btn-success" onclick="completeAndNext(13)">Concluir curso ✓</button>
+    </div>
+  </div>

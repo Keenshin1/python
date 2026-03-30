@@ -1,0 +1,130 @@
+<!-- module: num="8" nav="Módulo random" -->
+  <div class="lesson" id="lesson-8">
+    <div class="lesson-header">
+      <div class="lesson-badge">Módulo 08</div>
+      <div class="lesson-title">Módulo <code style="font-size:22px;">random</code></div>
+      <div class="lesson-subtitle">Gerando valores aleatórios e trabalhando com listas em Python.</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Conceito</div>
+
+    <div class="explanation">
+      O módulo <code>random</code> permite gerar números aleatórios, sortear itens e embaralhar listas. As funções mais usadas são <code>randint()</code>, <code>choice()</code> e <code>shuffle()</code>.
+    </div>
+
+    <div class="explanation">
+      <strong>Listas</strong> são criadas com colchetes e armazenam múltiplos valores: <code>[item1, item2, item3]</code>. Você pode adicionar variáveis a uma lista e operar sobre elas.
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">Módulo random</div>
+      </div>
+      <pre><span class="kw">from</span> random <span class="kw">import</span> randint, choice, shuffle
+
+<span class="com"># Número aleatório entre 1 e 10</span>
+<span class="fn">print</span>(<span class="fn">randint</span>(<span class="num">1</span>, <span class="num">10</span>))
+
+<span class="com"># Sortear um item de uma lista</span>
+<span class="var">frutas</span> = [<span class="str">'maçã'</span>, <span class="str">'banana'</span>, <span class="str">'uva'</span>]
+<span class="fn">print</span>(<span class="fn">choice</span>(<span class="var">frutas</span>))
+
+<span class="com"># Embaralhar a lista (modifica a original)</span>
+<span class="fn">shuffle</span>(<span class="var">frutas</span>)
+<span class="fn">print</span>(<span class="var">frutas</span>)</pre>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Exercícios de fixação</div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">01</div>
+        <div>
+          <div class="exercise-title">Sorteio de aluno</div>
+          <div class="exercise-sub">choice() com lista de nomes</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Um professor precisa sortear 1 aluno entre 4 para apagar o quadro. Leia os nomes dos 4 alunos e exiba o escolhido.</div>
+        <textarea class="exercise-input" id="ex8-1" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex8-1', 'ex8-1-inputs')"></textarea>
+        <div class="input-fields" id="ex8-1-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex8-1', 'ex8-1-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol8-1')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex8-1-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol8-1">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="kw">from</span> random <span class="kw">import</span> choice
+
+<span class="var">a1</span> = <span class="fn">input</span>(<span class="str">'Primeiro aluno: '</span>)
+<span class="var">a2</span> = <span class="fn">input</span>(<span class="str">'Segundo aluno: '</span>)
+<span class="var">a3</span> = <span class="fn">input</span>(<span class="str">'Terceiro aluno: '</span>)
+<span class="var">a4</span> = <span class="fn">input</span>(<span class="str">'Quarto aluno: '</span>)
+
+<span class="var">lista</span> = [<span class="var">a1</span>, <span class="var">a2</span>, <span class="var">a3</span>, <span class="var">a4</span>]
+<span class="fn">print</span>(<span class="str">'Aluno escolhido: {}'</span>.<span class="fn">format</span>(<span class="fn">choice</span>(<span class="var">lista</span>)))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">02</div>
+        <div>
+          <div class="exercise-title">Ordem de apresentação</div>
+          <div class="exercise-sub">shuffle() para embaralhar lista</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">O mesmo professor quer sortear a <strong>ordem de apresentação</strong> de trabalhos. Leia 4 nomes e mostre a ordem sorteada.</div>
+        <textarea class="exercise-input" id="ex8-2" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex8-2', 'ex8-2-inputs')"></textarea>
+        <div class="input-fields" id="ex8-2-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex8-2', 'ex8-2-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol8-2')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex8-2-out">
+          <div class="output-terminal-header">
+            <div class="output-terminal-label">▶ Saída</div>
+          </div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol8-2">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="kw">from</span> random <span class="kw">import</span> shuffle
+
+<span class="var">a1</span> = <span class="fn">input</span>(<span class="str">'Primeiro aluno: '</span>)
+<span class="var">a2</span> = <span class="fn">input</span>(<span class="str">'Segundo aluno: '</span>)
+<span class="var">a3</span> = <span class="fn">input</span>(<span class="str">'Terceiro aluno: '</span>)
+<span class="var">a4</span> = <span class="fn">input</span>(<span class="str">'Quarto aluno: '</span>)
+
+<span class="var">lista</span> = [<span class="var">a1</span>, <span class="var">a2</span>, <span class="var">a3</span>, <span class="var">a4</span>]
+<span class="fn">shuffle</span>(<span class="var">lista</span>)
+<span class="fn">print</span>(<span class="str">'Ordem de apresentação:'</span>)
+<span class="fn">print</span>(<span class="var">lista</span>)</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <button class="btn btn-nav" onclick="goTo(7)">← Anterior</button>
+      <button class="btn btn-primary" onclick="completeAndNext(8)">Próximo módulo →</button>
+    </div>
+  </div>
