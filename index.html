@@ -16,7 +16,7 @@
       <div class="logo-icon">Py</div>
       <div>
         <div class="logo-text">Aprenda Python</div>
-        <div class="logo-sub">15 módulos · do zero</div>
+        <div class="logo-sub">16 módulos · do zero</div>
       </div>
     </div>
   </div>
@@ -24,7 +24,7 @@
   <div class="progress-bar-wrap">
     <div class="progress-label">
       <span>Progresso</span>
-      <span id="progress-text">0 / 15</span>
+      <span id="progress-text">0 / 16</span>
     </div>
     <div class="progress-track">
       <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
@@ -122,6 +122,12 @@
       <span class="nav-dot"></span>
       <span class="nav-num">15</span>
       <span>Strings</span>
+    </button>
+
+    <button class="nav-item" onclick="goTo(16)" id="nav-16">
+      <span class="nav-dot"></span>
+      <span class="nav-num">16</span>
+      <span>Dicionários</span>
     </button>
   </div>
 </aside>
@@ -2547,7 +2553,273 @@
 
     <div class="lesson-nav">
       <button class="btn btn-nav" onclick="goTo(14)">← Anterior</button>
-      <button class="btn btn-success" onclick="completeAndNext(15)">Concluir curso ✓</button>
+      <button class="btn btn-primary" onclick="completeAndNext(15)">Próximo módulo →</button>
+    </div>
+  </div>
+
+  <div class="lesson" id="lesson-16">
+    <div class="lesson-header">
+      <div class="lesson-badge">Módulo 16</div>
+      <div class="lesson-title">Dicionários</div>
+      <div class="lesson-subtitle">Armazene dados em pares chave–valor para acesso rápido e organizado.</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Conceito</div>
+
+    <div class="explanation">
+      Um <strong>dicionário</strong> armazena pares <code>chave: valor</code>. Em vez de acessar dados por índice numérico (como em listas), você acessa pelo <strong>nome da chave</strong> — o que torna o código muito mais legível quando os dados têm significado próprio.
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">Criando e acessando dicionários</div>
+      </div>
+      <pre><span class="var">aluno</span> = {
+    <span class="str">'nome'</span>: <span class="str">'Ana'</span>,
+    <span class="str">'idade'</span>: <span class="num">20</span>,
+    <span class="str">'nota'</span>: <span class="num">8.5</span>
+}
+
+<span class="fn">print</span>(<span class="var">aluno</span>[<span class="str">'nome'</span>])   <span class="com"># Ana</span>
+<span class="fn">print</span>(<span class="var">aluno</span>[<span class="str">'nota'</span>])   <span class="com"># 8.5</span>
+
+<span class="com"># Adicionando e atualizando chaves</span>
+<span class="var">aluno</span>[<span class="str">'curso'</span>] = <span class="str">'Engenharia'</span>
+<span class="var">aluno</span>[<span class="str">'nota'</span>] = <span class="num">9.0</span>    <span class="com"># sobrescreve o valor anterior</span>
+
+<span class="fn">print</span>(<span class="var">aluno</span>)</pre>
+    </div>
+
+    <div class="info-box">
+      <strong>dict.get(chave, padrão)</strong>
+      Use <code>aluno.get('email', 'não informado')</code> para acessar uma chave que pode não existir — assim você evita o erro <code>KeyError</code> e recebe um valor padrão caso a chave esteja ausente.
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Métodos essenciais</div>
+
+    <div class="explanation">
+      Os três métodos mais usados para percorrer um dicionário são <code>keys()</code>, <code>values()</code> e <code>items()</code>. Use-os com <code>for</code> para iterar sobre chaves, valores ou ambos ao mesmo tempo.
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">Iterando sobre dicionários</div>
+      </div>
+      <pre><span class="var">produto</span> = {<span class="str">'nome'</span>: <span class="str">'Teclado'</span>, <span class="str">'preco'</span>: <span class="num">149.90</span>, <span class="str">'estoque'</span>: <span class="num">12</span>}
+
+<span class="kw">for</span> <span class="var">chave</span> <span class="kw">in</span> <span class="var">produto</span>.<span class="fn">keys</span>():
+    <span class="fn">print</span>(<span class="var">chave</span>)                    <span class="com"># nome, preco, estoque</span>
+
+<span class="kw">for</span> <span class="var">valor</span> <span class="kw">in</span> <span class="var">produto</span>.<span class="fn">values</span>():
+    <span class="fn">print</span>(<span class="var">valor</span>)                    <span class="com"># Teclado, 149.9, 12</span>
+
+<span class="kw">for</span> <span class="var">chave</span>, <span class="var">valor</span> <span class="kw">in</span> <span class="var">produto</span>.<span class="fn">items</span>():
+    <span class="fn">print</span>(<span class="str">'{}: {}'</span>.<span class="fn">format</span>(<span class="var">chave</span>, <span class="var">valor</span>))</pre>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Verificando e removendo chaves</div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div>
+        <div class="code-lang">in, pop e len</div>
+      </div>
+      <pre><span class="var">config</span> = {<span class="str">'tema'</span>: <span class="str">'escuro'</span>, <span class="str">'idioma'</span>: <span class="str">'pt-BR'</span>, <span class="str">'fonte'</span>: <span class="num">14</span>}
+
+<span class="fn">print</span>(<span class="str">'tema'</span> <span class="kw">in</span> <span class="var">config</span>)           <span class="com"># True</span>
+<span class="fn">print</span>(<span class="str">'volume'</span> <span class="kw">in</span> <span class="var">config</span>)         <span class="com"># False</span>
+<span class="fn">print</span>(<span class="fn">len</span>(<span class="var">config</span>))                 <span class="com"># 3</span>
+
+<span class="var">config</span>.<span class="fn">pop</span>(<span class="str">'fonte'</span>)               <span class="com"># remove a chave 'fonte'</span>
+<span class="fn">print</span>(<span class="var">config</span>)                      <span class="com"># {'tema': 'escuro', 'idioma': 'pt-BR'}</span></pre>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Exercícios de fixação</div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">01</div>
+        <div>
+          <div class="exercise-title">Ficha de contato</div>
+          <div class="exercise-sub">Criando e exibindo um dicionário</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia do usuário: <strong>nome</strong>, <strong>idade</strong>, <strong>email</strong> e <strong>cidade</strong>. Armazene tudo em um dicionário e depois exiba cada campo no formato <code>Campo: valor</code> usando <code>items()</code>.</div>
+        <textarea class="exercise-input" id="ex16-1" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex16-1', 'ex16-1-inputs')"></textarea>
+        <div class="input-fields" id="ex16-1-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex16-1', 'ex16-1-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol16-1')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex16-1-out">
+          <div class="output-terminal-header"><div class="output-terminal-label">▶ Saída</div></div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol16-1">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">contato</span> = {
+    <span class="str">'nome'</span>:   <span class="fn">input</span>(<span class="str">'Nome: '</span>),
+    <span class="str">'idade'</span>:  <span class="fn">int</span>(<span class="fn">input</span>(<span class="str">'Idade: '</span>)),
+    <span class="str">'email'</span>:  <span class="fn">input</span>(<span class="str">'Email: '</span>),
+    <span class="str">'cidade'</span>: <span class="fn">input</span>(<span class="str">'Cidade: '</span>)
+}
+
+<span class="kw">for</span> <span class="var">campo</span>, <span class="var">valor</span> <span class="kw">in</span> <span class="var">contato</span>.<span class="fn">items</span>():
+    <span class="fn">print</span>(<span class="str">'{}: {}'</span>.<span class="fn">format</span>(<span class="var">campo</span>.<span class="fn">title</span>(), <span class="var">valor</span>))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon">02</div>
+        <div>
+          <div class="exercise-title">Contador de frequência</div>
+          <div class="exercise-sub">Dicionário como contador</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Leia uma frase e conte quantas vezes cada <strong>palavra</strong> aparece (ignore maiúsculas/minúsculas). Use um dicionário onde a chave é a palavra e o valor é a contagem. Exiba as palavras em ordem alfabética com suas frequências.</div>
+        <textarea class="exercise-input" id="ex16-2" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex16-2', 'ex16-2-inputs')"></textarea>
+        <div class="input-fields" id="ex16-2-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex16-2', 'ex16-2-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol16-2')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex16-2-out">
+          <div class="output-terminal-header"><div class="output-terminal-label">▶ Saída</div></div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol16-2">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">frase</span> = <span class="fn">input</span>(<span class="str">'Digite uma frase: '</span>).<span class="fn">lower</span>()
+<span class="var">palavras</span> = <span class="var">frase</span>.<span class="fn">split</span>()
+
+<span class="var">freq</span> = {}
+<span class="kw">for</span> <span class="var">palavra</span> <span class="kw">in</span> <span class="var">palavras</span>:
+    <span class="var">freq</span>[<span class="var">palavra</span>] = <span class="var">freq</span>.<span class="fn">get</span>(<span class="var">palavra</span>, <span class="num">0</span>) + <span class="num">1</span>
+
+<span class="kw">for</span> <span class="var">palavra</span> <span class="kw">in</span> <span class="fn">sorted</span>(<span class="var">freq</span>):
+    <span class="fn">print</span>(<span class="str">'{}: {}'</span>.<span class="fn">format</span>(<span class="var">palavra</span>, <span class="var">freq</span>[<span class="var">palavra</span>]))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon" style="background: var(--orange);">★</div>
+        <div>
+          <div class="exercise-title">Cardápio de restaurante</div>
+          <div class="exercise-sub">Lista de dicionários + cálculo de total</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Crie uma lista com <strong>4 pratos</strong>, onde cada prato é um dicionário com as chaves <code>'nome'</code> e <code>'preco'</code>. Os dados devem ser lidos do usuário. Exiba o cardápio formatado e, ao final, o <strong>prato mais barato</strong>, o <strong>mais caro</strong> e a <strong>média de preços</strong>.</div>
+        <textarea class="exercise-input" id="ex16-3" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex16-3', 'ex16-3-inputs')"></textarea>
+        <div class="input-fields" id="ex16-3-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex16-3', 'ex16-3-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol16-3')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex16-3-out">
+          <div class="output-terminal-header"><div class="output-terminal-label">▶ Saída</div></div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol16-3">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">cardapio</span> = []
+<span class="kw">for</span> <span class="var">i</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="num">4</span>):
+    <span class="var">nome</span>  = <span class="fn">input</span>(<span class="str">'Nome do prato {}: '</span>.<span class="fn">format</span>(<span class="var">i</span> + <span class="num">1</span>))
+    <span class="var">preco</span> = <span class="fn">float</span>(<span class="fn">input</span>(<span class="str">'Preço: R$ '</span>))
+    <span class="var">cardapio</span>.<span class="fn">append</span>({<span class="str">'nome'</span>: <span class="var">nome</span>, <span class="str">'preco'</span>: <span class="var">preco</span>})
+
+<span class="fn">print</span>(<span class="str">'\n--- CARDÁPIO ---'</span>)
+<span class="kw">for</span> <span class="var">prato</span> <span class="kw">in</span> <span class="var">cardapio</span>:
+    <span class="fn">print</span>(<span class="str">'{:<20} R$ {:.2f}'</span>.<span class="fn">format</span>(<span class="var">prato</span>[<span class="str">'nome'</span>], <span class="var">prato</span>[<span class="str">'preco'</span>]))
+
+<span class="var">mais_barato</span> = <span class="fn">min</span>(<span class="var">cardapio</span>, <span class="var">key</span>=<span class="kw">lambda</span> <span class="var">p</span>: <span class="var">p</span>[<span class="str">'preco'</span>])
+<span class="var">mais_caro</span>   = <span class="fn">max</span>(<span class="var">cardapio</span>, <span class="var">key</span>=<span class="kw">lambda</span> <span class="var">p</span>: <span class="var">p</span>[<span class="str">'preco'</span>])
+<span class="var">media</span> = <span class="fn">sum</span>(<span class="var">p</span>[<span class="str">'preco'</span>] <span class="kw">for</span> <span class="var">p</span> <span class="kw">in</span> <span class="var">cardapio</span>) / <span class="fn">len</span>(<span class="var">cardapio</span>)
+
+<span class="fn">print</span>(<span class="str">'Mais barato: {} (R$ {:.2f})'</span>.<span class="fn">format</span>(<span class="var">mais_barato</span>[<span class="str">'nome'</span>], <span class="var">mais_barato</span>[<span class="str">'preco'</span>]))
+<span class="fn">print</span>(<span class="str">'Mais caro:   {} (R$ {:.2f})'</span>.<span class="fn">format</span>(<span class="var">mais_caro</span>[<span class="str">'nome'</span>], <span class="var">mais_caro</span>[<span class="str">'preco'</span>]))
+<span class="fn">print</span>(<span class="str">'Média: R$ {:.2f}'</span>.<span class="fn">format</span>(<span class="var">media</span>))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exercise-card">
+      <div class="exercise-header">
+        <div class="exercise-icon" style="background: var(--red);">★★</div>
+        <div>
+          <div class="exercise-title">Agenda de contatos</div>
+          <div class="exercise-sub">Dicionário de dicionários + busca</div>
+        </div>
+      </div>
+      <div class="exercise-body">
+        <div class="exercise-desc">Crie uma agenda onde a <strong>chave é o nome</strong> e o valor é um dicionário com <code>'telefone'</code> e <code>'email'</code>. Cadastre <strong>3 contatos</strong> lidos do usuário. Depois leia um nome para buscar: se existir, exiba os dados; se não, exiba <em>"Contato não encontrado."</em> Ao final, liste todos os contatos em ordem alfabética.</div>
+        <textarea class="exercise-input" id="ex16-4" placeholder="Digite seu código aqui..." oninput="renderInputFields('ex16-4', 'ex16-4-inputs')"></textarea>
+        <div class="input-fields" id="ex16-4-inputs" style="display:none"></div>
+        <div class="exercise-actions">
+          <div class="pyodide-status loading">● Carregando Python...</div>
+          <button class="btn btn-primary" onclick="runEx('ex16-4', 'ex16-4-out')">▶ Executar</button>
+          <button class="btn btn-ghost" onclick="showSolution('sol16-4')">Ver solução</button>
+        </div>
+        <div class="output-terminal" id="ex16-4-out">
+          <div class="output-terminal-header"><div class="output-terminal-label">▶ Saída</div></div>
+          <div class="output-terminal-content"></div>
+        </div>
+        <div class="solution-wrap" id="sol16-4">
+          <div class="code-block" style="margin-top:0">
+            <div class="code-header"><div class="code-dots"><div class="code-dot"></div><div class="code-dot"></div><div class="code-dot"></div></div><div class="code-lang">Solução</div></div>
+            <pre><span class="var">agenda</span> = {}
+<span class="kw">for</span> <span class="var">i</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="num">3</span>):
+    <span class="var">nome</span>  = <span class="fn">input</span>(<span class="str">'Nome do contato {}: '</span>.<span class="fn">format</span>(<span class="var">i</span> + <span class="num">1</span>)).<span class="fn">strip</span>().<span class="fn">title</span>()
+    <span class="var">tel</span>   = <span class="fn">input</span>(<span class="str">'Telefone: '</span>)
+    <span class="var">email</span> = <span class="fn">input</span>(<span class="str">'Email: '</span>)
+    <span class="var">agenda</span>[<span class="var">nome</span>] = {<span class="str">'telefone'</span>: <span class="var">tel</span>, <span class="str">'email'</span>: <span class="var">email</span>}
+
+<span class="var">busca</span> = <span class="fn">input</span>(<span class="str">'\nBuscar contato: '</span>).<span class="fn">strip</span>().<span class="fn">title</span>()
+<span class="kw">if</span> <span class="var">busca</span> <span class="kw">in</span> <span class="var">agenda</span>:
+    <span class="var">dados</span> = <span class="var">agenda</span>[<span class="var">busca</span>]
+    <span class="fn">print</span>(<span class="str">'Nome: {}'</span>.<span class="fn">format</span>(<span class="var">busca</span>))
+    <span class="fn">print</span>(<span class="str">'Telefone: {}'</span>.<span class="fn">format</span>(<span class="var">dados</span>[<span class="str">'telefone'</span>]))
+    <span class="fn">print</span>(<span class="str">'Email: {}'</span>.<span class="fn">format</span>(<span class="var">dados</span>[<span class="str">'email'</span>]))
+<span class="kw">else</span>:
+    <span class="fn">print</span>(<span class="str">'Contato não encontrado.'</span>)
+
+<span class="fn">print</span>(<span class="str">'\n--- TODOS OS CONTATOS ---'</span>)
+<span class="kw">for</span> <span class="var">nome</span> <span class="kw">in</span> <span class="fn">sorted</span>(<span class="var">agenda</span>):
+    <span class="var">d</span> = <span class="var">agenda</span>[<span class="var">nome</span>]
+    <span class="fn">print</span>(<span class="str">'{} | {} | {}'</span>.<span class="fn">format</span>(<span class="var">nome</span>, <span class="var">d</span>[<span class="str">'telefone'</span>], <span class="var">d</span>[<span class="str">'email'</span>]))</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <button class="btn btn-nav" onclick="goTo(15)">← Anterior</button>
+      <button class="btn btn-success" onclick="completeAndNext(16)">Concluir curso ✓</button>
     </div>
   </div>
 
